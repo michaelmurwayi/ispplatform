@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Material Design Bootstrap</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="css/style.min.css" rel="stylesheet">
+  <style type="text/css">
+    @media (min-width: 800px) and (max-width: 850px) {
+      .navbar:not(.top-nav-collapse) {
+        /* background: #1C2331 !important; */
+        background-color: transparent !important;
+      }
+    }
+
+    html,
+    body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    header {
+      position: relative;
+      background-color: black;
+      height: 75vh;
+      min-height: 25rem;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    header video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: 0;
+      -ms-transform: translateX(-50%) translateY(-50%);
+      -moz-transform: translateX(-50%) translateY(-50%);
+      -webkit-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%);
+    }
+
+    header .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    header .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: black;
+      opacity: 0.5;
+      z-index: 1;
+    }
+
+    .line-1 {
+      position: relative;
+      top: 50%;
+      width: 4em;
+      margin: 0 auto;
+      border-right: 2px solid rgba(255, 255, 255, .75);
+      font-size: 180%;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      transform: translateY(-50%);
+    }
+
+    /* Animation */
+    .anim-typewriter {
+      animation: typewriter 1s steps(44) 1s 1 normal both,
+        blinkTextCursor 500ms steps(44) infinite normal;
+    }
+
+    @keyframes typewriter {
+      from {
+        width: 0;
+      }
+
+      to {
+        width: 6em;
+      }
+    }
+
+    @keyframes blinkTextCursor {
+      from {
+        border-right-color: rgba(255, 255, 255, .75);
+      }
+
+      to {
+        border-right-color: transparent;
+      }
+    }
+
+    .streak {
+      position: relative;
+      left: 300px;
+    }
+
+    .access {
+      /* opacity: 0.9; */
+      background-color: grey;
+      background-position: fill;
+      width: 400px;
+      height: 450px;
+      position: relative;
+      top: 30px;
+      /* left: 900px; */
+    }
+
+
+    .card-header {
+
+      background-image: url('img/logo.png');
+      width: 100%;
+      height: 150px;
+
+    }
+
+    .card-body {
+      text-align: center;
+    }
+
+    .packages {
+      position: relative;
+      top: 20;
+    }
+
+    footer {
+      position: relative;
+      top: 50px;
+      /* bottom: 0; */
+    }
+
+    a {
+      color: blanchedalmond;
+    }
+
+    .guide-header {
+      position: relative;
+      top: 50px;
+      opacity: 0.9;
+      background-color: black;
+      text-align: justify;
+      width: 400px;
+      height: 300px;
+      color: blanchedalmond;
+    }
+
+    .guide-body {
+      position: relative;
+      top: 70px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="row">
+    <!--/.Navbar -->
+    <div class="overlay">
+      <!--Navbar -->
+      <nav class="mb-1 navbar navbar-expand-lg navbar-dark black lighten-1">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
+          aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Help</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto nav-flex-icons">
+            <li class="nav-item avatar">
+              <a class="nav-link p-0" href="#">
+                <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0"
+                  alt="avatar image" height="35">
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+      <source src="img/background.mp4" type="video/mp4">
+    </video>
+    <div class="container h-100">
+      <div class="streak streak-md streak-photo d-flex h-100 text-center align-items-center">
+        <div class="flex-center white-text rgba-black-light pattern-1">
+          <ul class="mb-0 list-unstyled">
+            <li>
+              <h2 class="h2-responsive display-3 line-1 anim-typewriter"><strong><b>TRUTH WIFI</b></strong></h2>
+            </li>
+            <li class="mb-0">
+              <h5 class="text-center font-italic mb-0">~ Access Fast and Affordable Internet</h5>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!--Main layout-->
+  <main>
+    <!-- Material form contact -->
+    <h3 style="text-align: center;"> <strong><b>Our Internet Packages</b></strong></h3>
+    <div class="row">
+
+      <div class="col-md-8 packages pt-3 well ">
+        <div class=" row">
+          <div class=" package col-md-3">
+            <button class="btn purple-gradient btn-rounded">
+
+              <a href=" https://mdbootstrap.com/education/bootstrap/quick-start/" class="stretched-link"><i
+                  class="fas fa-circle-notch fa-spin"></i> Daily 50 MB @ 50 ksh</a>
+            </button>
+          </div>
+          <div class=" package col-md-3 ">
+            <button class="btn purple-gradient btn-rounded">
+
+              <a href=" https://mdbootstrap.com/education/bootstrap/quick-start/" class="stretched-link"><i
+                  class="fas fa-circle-notch fa-spin"></i> Hourly unlimited @ 10 ksh</a>
+            </button>
+          </div>
+          <div class=" package col-md-3">
+            <button class="btn purple-gradient btn-rounded">
+
+              <a href=" https://mdbootstrap.com/education/bootstrap/quick-start/" class="stretched-link"><i
+                  class="fas fa-circle-notch fa-spin"></i> Daily 150 MB @ 10 ksh</a>
+            </button>
+          </div>
+          <div class=" package col-md-3">
+            <button class="btn purple-gradient btn-rounded">
+
+              <a href=" https://mdbootstrap.com/education/bootstrap/quick-start/" class="stretched-link"><i
+                  class="fas fa-circle-notch fa-spin"></i> Daily 400 MB @ 20 ksh</a>
+            </button>
+          </div>
+          <div class=" package col-md-3">
+            <button class="btn purple-gradient btn-rounded">
+
+              <a href=" https://mdbootstrap.com/education/bootstrap/quick-start/" class="stretched-link"><i
+                  class="fas fa-circle-notch fa-spin"></i>Daily 2 GB @ 30 ksh</a>
+            </button>
+          </div>
+          <div class=" package col-md-3">
+            <button class="btn purple-gradient btn-rounded">
+
+              <a href=" https://mdbootstrap.com/education/bootstrap/quick-start/" class="stretched-link"><i
+                  class="fas fa-circle-notch fa-spin"></i>Daily Moderate Unlimited @ 50 ksh</a>
+            </button>
+          </div>
+          <div class=" package col-md-3">
+            <button class="btn purple-gradient btn-rounded">
+
+              <a href=" https://mdbootstrap.com/education/bootstrap/quick-start/" class="stretched-link"><i
+                  class="fas fa-circle-notch fa-spin"></i> weekly 2 GB @ 50 ksh</a>
+            </button>
+          </div>
+          <div class=" package col-md-3">
+            <button class="btn purple-gradient btn-rounded">
+
+              <a href=" https://mdbootstrap.com/education/bootstrap/quick-start/" class="stretched-link"><i
+                  class="fas fa-circle-notch fa-spin"></i>Fast Daily Unlimited @ 80 ksh</a>
+            </button>
+          </div>
+          <div class=" package col-md-3">
+            <button class="btn purple-gradient btn-rounded">
+
+              <a href=" https://mdbootstrap.com/education/bootstrap/quick-start/" class="stretched-link"><i
+                  class="fas fa-circle-notch fa-spin"></i> weekly Unlimited @ 300 ksh</a>
+            </button>
+          </div>
+          <div class=" package col-md-3">
+            <button class="btn purple-gradient btn-rounded">
+
+              <a href=" https://mdbootstrap.com/education/bootstrap/quick-start/" class="stretched-link"><i
+                  class="fas fa-circle-notch fa-spin"></i> Monthly Unlimited @ 1000 ksh</a>
+            </button>
+          </div>
+
+        </div>
+      </div>
+      <div class=" col-md-4 ">
+
+        <div class="card access ">
+          <div>
+
+            <h5 class="card-header info-color white-text text-center py-4">
+            </h5>
+
+          </div>
+          <!--Card content-->
+          <div class="card-body px-lg-5 pt-3">
+
+            <button type="button" class="btn btn-secondary btn-rounded">Login</button>
+
+            <button type="button" class="btn btn-info btn-rounded">Sign-up</button>
+
+            <button type="button" class="btn btn-warning btn-rounded">How to Register</button>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!--Section: Contact v.2-->
+      <hr>
+      <section class=" guide mb-4 pt-3 d-flex p-2 bd-highlight">
+        <div class=" guide-header col-md-5">
+          <h1><Strong><b> How </b></Strong></h1>
+          <br>
+          <h1><strong><b>To</b></strong></h1>
+          <br>
+          <h1><strong><b>Connect</b></strong></h1>
+
+        </div>
+        <div class="guide-body col-md-7">
+          <ol>
+            <li>Click on Sign Up (go to Sign Up).</li>
+            <li>Enter the details as they are (phone, username and pin)</li>
+            <li>Verify your phone number</li>
+            <li>Choose your preferred internet plan</li>
+            <li>Top up via Lipa na Mpesa till number:578879</li>
+            <li>Go to buy internet bundle</li>
+            <li>Enjoy browsing. </li>
+
+
+          </ol>
+        </div>
+      </section>
+      <!--Section: Contact v.2-->
+  </main>
+  <!--Main layout-->
+
+  <!--Footer-->
+  <footer class=" page-footer text-center font-small mt-4 wow fadeIn">
+
+    <!--Call to action-->
+    <div class="pt-4">
+
+      <!--Copyright-->
+      <div class="footer-copyright py-3">
+        © 2020 Copyright:
+        <a href="http://truthwifi.com/home" target="_blank"> Truthwifi.com </a>
+      </div>
+      <!--/.Copyright-->
+
+  </footer>
+  <!--/.Footer-->
+
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <!-- Initializations -->
+  <script type="text/javascript">
+    // Animations initialization
+    new WOW().init();
+
+  </script>
+</body>
+
+</html>
