@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,11 +10,11 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %} " rel="stylesheet">
     <!-- Material Design Bootstrap -->
-    <link href="css/mdb.min.css" rel="stylesheet">
+    <link href="{% static 'css/mdb.min.css' %} " rel="stylesheet">
     <!-- Your custom styles (optional) -->
-    <link href="css/style.min.css" rel="stylesheet">
+    <link href="{% static 'css/style.min.css' %} " rel="stylesheet">
 </head>
 <style>
     .navbar {
@@ -21,11 +22,11 @@
     }
 
     .card {
-        width: 40%;
-        height: 40%;
+        width: 50%;
+        height: 50%;
         position: relative;
         align-content: center;
-        left: 380px;
+        left: 400px;
         top: 50px;
         bottom: 50px;
     }
@@ -48,19 +49,16 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home
+                    <li class="nav-item ">
+                        <a class="nav-link" href="{% url 'home' %}">Home
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Register</a>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'signup' %}">Sign-up</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Help</a>
+                        <a class="nav-link" href="{% url 'login' %}">Login</a>
                     </li>
                 </ul>
             </div>
@@ -85,30 +83,35 @@
                         <div class="col">
                             <!-- First name -->
                             <div class="md-form">
-                                <input type="text" id="materialRegisterFormFirstName" class="form-control">
-                                <label for="materialRegisterFormFirstName">First name</label>
+                                <label>First name</label>
+                                <br>
+                                <input type="text" class=" form-control">
                             </div>
                         </div>
                         <div class="col">
                             <!-- Last name -->
                             <div class="md-form">
-                                <input type="email" id="materialRegisterFormLastName" class="form-control">
-                                <label for="materialRegisterFormLastName">Last name</label>
+                                <label>Last name</label>
+                                <br>
+                                <input type="email" class="form-control">
                             </div>
                         </div>
                     </div>
 
                     <!-- E-mail -->
                     <div class="md-form mt-0">
-                        <input type="email" id="materialRegisterFormEmail" class="form-control">
-                        <label for="materialRegisterFormEmail">E-mail</label>
+                        <label>E-mail</label>
+                        <br>
+                        <input type="email" class="form-control">
                     </div>
 
                     <!-- Password -->
                     <div class="md-form">
+                        <label for="materialRegisterFormPassword">Password</label>
+                        <br>
                         <input type="password" id="materialRegisterFormPassword" class="form-control"
                             aria-describedby="materialRegisterFormPasswordHelpBlock">
-                        <label for="materialRegisterFormPassword">Password</label>
+
                         <small id="materialRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
                             At least 8 characters and 1 digit
                         </small>

@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,11 +10,11 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <!-- Bootstrap core CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="{% static 'css/bootstrap.min.css' %} " rel="stylesheet">
   <!-- Material Design Bootstrap -->
-  <link href="css/mdb.min.css" rel="stylesheet">
+  <link href="{% static 'css/mdb.min.css' %} " rel="stylesheet">
   <!-- Your custom styles (optional) -->
-  <link href="css/style.min.css" rel="stylesheet">
+  <link href="{% static 'css/style.min.css' %} " rel="stylesheet">
   <style type="text/css">
     @viewport {
       width: device-width;
@@ -131,7 +132,7 @@
 
     .card-header {
 
-      background-image: url('img/logo.png');
+      background-image: url("{% static 'img/logo.png' %}");
       width: 100%;
       height: 150px;
 
@@ -188,13 +189,13 @@
         <div class="collapse navbar-collapse" ">
           <!-- <ul class=" navbar-nav mr-auto"> -->
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" href="{% url 'home' %}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Register</a>
+            <a class="nav-link" href="{% url 'signup' %}">Sign-up</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Login</a>
+            <a class="nav-link" href="{% url 'login' %}">Login</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Help</a>
@@ -212,7 +213,7 @@
       </nav>
     </div>
     <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-      <source src="img/background.mp4" type="video/mp4">
+      <source src="{% static 'img/background.mp4' %}" type="video/mp4">
     </video>
     <div class="container h-100">
       <div class="streak streak-md streak-photo d-flex h-100 text-center align-items-center">
@@ -322,9 +323,9 @@
           <!--Card content-->
           <div class="card-body px-lg-5 pt-3">
 
-            <button type="button" class="btn btn-secondary btn-rounded">Login</button>
+            <button type="button" class="btn btn-secondary btn-rounded"><a href="{% url 'login' %}">Login</a></button>
 
-            <button type="button" class="btn btn-info btn-rounded">Sign-up</button>
+            <button type="button" class="btn btn-info btn-rounded"><a href="{% url 'signup' %}">Sign-up</a></button>
 
             <button type="button" class="btn btn-warning btn-rounded">How to Register</button>
 

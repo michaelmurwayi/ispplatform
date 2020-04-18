@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,11 +10,11 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %} " rel="stylesheet">
     <!-- Material Design Bootstrap -->
-    <link href="css/mdb.min.css" rel="stylesheet">
+    <link href="{% static 'css/mdb.min.css' %} " rel="stylesheet">
     <!-- Your custom styles (optional) -->
-    <link href="css/style.min.css" rel="stylesheet">
+    <link href="{% static 'css/style.min.css' %} " rel="stylesheet">
 </head>
 <style>
     .navbar {
@@ -21,11 +22,11 @@
     }
 
     .card {
-        width: 40%;
-        height: 40%;
+        width: 50%;
+        height: 50%;
         position: relative;
         align-content: center;
-        left: 380px;
+        left: 400px;
         top: 50px;
         bottom: 50px;
     }
@@ -48,19 +49,16 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home
+                    <li class="nav-item ">
+                        <a class="nav-link" href="{% url 'home' %}">Home
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Register</a>
+                        <a class="nav-link" href="{% url 'signup' %}">Sign-up</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Help</a>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'login' %}">Login</a>
                     </li>
                 </ul>
             </div>
@@ -82,14 +80,16 @@
 
                     <!-- Email -->
                     <div class="md-form">
-                        <input type="email" id="materialLoginFormEmail" class="form-control">
                         <label for="materialLoginFormEmail">E-mail</label>
+                        <br>
+                        <input type="email" id="materialLoginFormEmail" class="form-control">
                     </div>
 
                     <!-- Password -->
                     <div class="md-form">
-                        <input type="password" id="materialLoginFormPassword" class="form-control">
                         <label for="materialLoginFormPassword">Password</label>
+                        <br>
+                        <input type="password" id="materialLoginFormPassword" class="form-control">
                     </div>
 
                     <div class="d-flex justify-content-around">
