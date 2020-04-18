@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Material Design Bootstrap</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.min.css" rel="stylesheet">
+</head>
+<style>
+    .navbar {
+        opacity: 0.9;
+    }
+
+    .card {
+        width: 40%;
+        height: 40%;
+        position: relative;
+        align-content: center;
+        left: 380px;
+        top: 50px;
+        bottom: 50px;
+    }
+
+    footer {
+        position: relative;
+        top: 50px;
+        /* bottom: 0; */
+    }
+</style>
+
+<body>
+    <div class="overlay">
+        <!--Navbar -->
+        <nav class="mb-1 navbar navbar-expand-lg navbar-dark black lighten-1">
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent-555" aria-controls="navbarSupportedContent-555"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Help</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <main>
+
+        <!-- Material form register -->
+        <div class="card">
+
+            <h5 class="card-header black white-text text-center py-4" style="opacity: 0.9;">
+                <strong><b>Sign up</b></strong>
+            </h5>
+
+            <!--Card content-->
+            <div class="card-body px-lg-5 pt-0">
+
+                <!-- Form -->
+                <form class="text-center" style="color: #757575;" action="#!">
+
+                    <div class="form-row">
+                        <div class="col">
+                            <!-- First name -->
+                            <div class="md-form">
+                                <input type="text" id="materialRegisterFormFirstName" class="form-control">
+                                <label for="materialRegisterFormFirstName">First name</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <!-- Last name -->
+                            <div class="md-form">
+                                <input type="email" id="materialRegisterFormLastName" class="form-control">
+                                <label for="materialRegisterFormLastName">Last name</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- E-mail -->
+                    <div class="md-form mt-0">
+                        <input type="email" id="materialRegisterFormEmail" class="form-control">
+                        <label for="materialRegisterFormEmail">E-mail</label>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="md-form">
+                        <input type="password" id="materialRegisterFormPassword" class="form-control"
+                            aria-describedby="materialRegisterFormPasswordHelpBlock">
+                        <label for="materialRegisterFormPassword">Password</label>
+                        <small id="materialRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+                            At least 8 characters and 1 digit
+                        </small>
+                    </div>
+
+                    <!-- Phone number -->
+                    <div class="md-form">
+                        <input type="password" id="materialRegisterFormPhone" class="form-control"
+                            aria-describedby="materialRegisterFormPhoneHelpBlock">
+                        <label for="materialRegisterFormPhone">Phone number</label>
+                        <small id="materialRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
+                            Optional - for two step authentication
+                        </small>
+                    </div>
+
+                    <!-- Newsletter -->
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="materialRegisterFormNewsletter">
+                        <label class="form-check-label" for="materialRegisterFormNewsletter">Subscribe to our
+                            newsletter</label>
+                    </div>
+
+                    <!-- Sign up button -->
+                    <button class="btn btn-outline-dark btn-rounded btn-block my-4 waves-effect z-depth-0"
+                        type="submit">Sign
+                        in</button>
+
+                    <!-- Social register -->
+                    <p>or sign up with:</p>
+
+                    <a type="button" class="btn-floating btn-fb btn-sm">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a type="button" class="btn-floating btn-tw btn-sm">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a type="button" class="btn-floating btn-li btn-sm">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a type="button" class="btn-floating btn-git btn-sm">
+                        <i class="fab fa-github"></i>
+                    </a>
+
+                    <hr>
+
+                    <!-- Terms of service -->
+                    <p>By clicking
+                        <em>Sign up</em> you agree to our
+                        <a href="" target="_blank">terms of services</a>
+
+                </form>
+                <!-- Form -->
+
+            </div>
+
+        </div>
+        <!-- Material form register -->
+    </main>
+    <!--Footer-->
+    <footer class=" page-footer text-center font-small mt-4 wow fadeIn">
+
+        <!--Call to action-->
+        <div class="pt-4">
+
+            <!--Copyright-->
+            <div class="footer-copyright py-3">
+                © 2020 Copyright:
+                <a href="http://truthwifi.com/home" target="_blank"> Truthwifi.com </a>
+            </div>
+            <!--/.Copyright-->
+
+    </footer>
+</body>
