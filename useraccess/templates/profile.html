@@ -1,0 +1,220 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Material Design Bootstrap</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %} " rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="{% static 'css/mdb.min.css' %} " rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="{% static 'css/style.min.css' %} " rel="stylesheet">
+
+    <style>
+        ..view {
+            background: url("https://mdbootstrap.com/img/Photos/Others/img (51).jpg")no-repeat center center;
+            background-size: cover;
+        }
+
+        @media (min-width: 768px) {
+            .view {
+                overflow: visible;
+                margin-top: -56px;
+                background-color: #3E4551;
+            }
+        }
+
+        .navbar {
+            z-index: 1;
+            background-color: #3E4551;
+
+
+        }
+
+        html,
+        body {
+            overflow-x: hidden;
+        }
+
+        header,
+        .view {
+            height: 70%;
+
+        }
+
+        main {
+            position: relative;
+            top: 0;
+        }
+
+        .card {
+            position: relative;
+            top: 0;
+        }
+
+        .balance {
+            position: relative;
+            height: 150px;
+            /* width: 100%; */
+            background-color: ;
+        }
+
+        .connection {
+            position: relative;
+            height: 80px;
+            /* width: 100%; */
+        }
+
+        .guides {
+            position: relative;
+            height: 80px;
+
+        }
+
+        .d-block {
+            position: relative;
+            top: 50;
+        }
+    </style>
+</head>
+
+<body class="fixed-sn white-skin">
+
+    <html lang="en" class="full-height">
+
+    <!--Main Navigation-->
+    <header>
+
+        <nav class="navbar navbar-expand-lg navbar-dark ">
+            <div class="container">
+                <a class="navbar-brand" href="#"><strong><b>Truth WIFI</b></strong></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'home' %}">Internet Packages </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="view intro-2">
+            <div class="">
+                <div class="mask rgba-black-strong flex-center">
+                    <div class="container">
+                        <div class="white-text text-center wow fadeInUp">
+                            <br>
+                            <h2>Welcome To Truth Wifi</h2>
+                            <h5>The Promised LAN</h5>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <!--Main Navigation-->
+
+    <!--Main Layout-->
+    <main class=" row ">
+        <div class="col-md-4 pt-0">
+            <!-- Material form contact -->
+            <div class="card">
+
+                <h5 class="card-header info-color white-text text-center py-4">
+                    <strong>Your Profile</strong>
+                </h5>
+
+                <!--Card content-->
+                <div class="card-body px-lg-5 pt-0">
+
+                    <!-- Form -->
+                    <form class="text-center" style="color: #757575;" action="#!">
+
+                        <!-- Name -->
+                        <div class="md-form mt-3">
+                            <input type="text" id="materialContactFormName" class="form-control">
+                            <label for="materialContactFormName">Name</label>
+                        </div>
+
+                        <!-- E-mail -->
+                        <div class="md-form">
+                            <input type="email" id="materialContactFormEmail" class="form-control">
+                            <label for="materialContactFormEmail">E-mail</label>
+                        </div>
+
+                        <!--Message-->
+                        <div class="md-form">
+                            <input type="email" id="materialContactFormEmail" class="form-control">
+                            <label for="materialContactFormEmail">Year Joined</label>
+                        </div>
+
+                    </form>
+                    <!-- Form -->
+
+                </div>
+
+            </div>
+            <!-- Material form contact -->
+        </div>
+
+        <div class="container col-md-8">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm blue-gradient card pt-5">
+                        <h2><b>User Balance</b></h2>
+                        <P> %% ksh</P>
+                    </div>
+                    <div class="col-sm dusty-grass-gradient card">
+                        <P><b>Bundle purchased:</b></P>
+                        <P><b> Session start time:</b></P>
+                        <P><b> Expiring time:</b></P>
+                        <P><b>current Bundle balance:</b></P>
+                    </div>
+                    <div class="col-sm purple-gradient card ">
+                        <button class="btn btn-outline-dark">Pay For Package</button>
+                        <button class="btn btn-outline-dark">Select Package</button>
+                    </div>
+                </div>
+
+                <span class="d-block p-4 bg-dark text-white pt-3">Block</span>
+                <!--Dropdown primary-->
+                <!-- Basic dropdown -->
+                <a class="btn btn-primary dropdown-toggle mr-4" type="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">Basic dropdown</a>
+
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Separated link</a>
+                </div>
+                <!-- Basic dropdown -->
+            </div>
+        </div>
+        <!--/Dropdown primary-->
+        <!--Main Layout-->
+    </main>
+
+
+
+</body>
