@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'useraccess',
+    'admindashboard',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -55,7 +57,7 @@ ROOT_URLCONF = 'ispplatform.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -68,6 +70,11 @@ TEMPLATES = [
     },
 ]
 
+
+SUIT_CONFIG = {
+    'ADMIN_HEADER': 'vertical'
+}
+
 WSGI_APPLICATION = 'ispplatform.wsgi.application'
 
 
@@ -76,8 +83,12 @@ WSGI_APPLICATION = 'ispplatform.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'truthwifi',
+        'USER': 'huncho',
+        'PASSWORD': 'c11h28no3',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
