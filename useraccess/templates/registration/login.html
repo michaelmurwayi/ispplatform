@@ -1,156 +1,17 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
+{% load socialaccount %}
+<html>
+  <head>
+    <title>Google Registration</title>
+  </head>
+  <body>
+  <h1>My Google Login Project</h1>
+  {% if user.is_authenticated %}
+  <p>Welcome, {{ user.username }} !</p>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Material Design Bootstrap</title>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-    <!-- Bootstrap core CSS -->
-    <link href="{% static 'css/bootstrap.min.css' %} " rel="stylesheet">
-    <!-- Material Design Bootstrap -->
-    <link href="{% static 'css/mdb.min.css' %} " rel="stylesheet">
-    <!-- Your custom styles (optional) -->
-    <link href="{% static 'css/style.min.css' %} " rel="stylesheet">
-</head>
-<style>
-    .navbar {
-        opacity: 0.9;
-    }
+  {% else %}
+  <h1>My Google Login Project</h1>
+  <a href="{% provider_login_url 'google' %}">Login with Google</a>
+  {% endif %}
 
-    .card {
-        width: 50%;
-        height: 50%;
-        position: relative;
-        align-content: center;
-        left: 400px;
-        top: 50px;
-        bottom: 50px;
-    }
-
-    footer {
-        position: relative;
-        top: 50px;
-        /* bottom: 0; */
-    }
-</style>
-
-<body>
-    <div class="overlay">
-        <!--Navbar -->
-        <nav class="mb-1 navbar navbar-expand-lg navbar-dark black lighten-1">
-            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                data-target="#navbarSupportedContent-555" aria-controls="navbarSupportedContent-555"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item ">
-                        <a class="nav-link" href="{% url 'home' %}">Home
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'signup' %}">Sign-up</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'login' %}">Login</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </div>
-    <main>
-        <!-- Material form login -->
-        <div class="card">
-
-            <h5 class="card-header black white-text text-center py-4" style="opacity: 0.9;">
-                <strong>Sign in</strong>
-            </h5>
-
-            <!--Card content-->
-            <div class="card-body px-lg-5 pt-0">
-
-                <!-- Form -->
-                <form class="text-center" style="color: #757575;" action="#!">
-
-                    <!-- Email -->
-                    <div class="md-form">
-                        <label for="materialLoginFormEmail">E-mail</label>
-                        <br>
-                        <input type="email" id="materialLoginFormEmail" class="form-control">
-                    </div>
-
-                    <!-- Password -->
-                    <div class="md-form">
-                        <label for="materialLoginFormPassword">Password</label>
-                        <br>
-                        <input type="password" id="materialLoginFormPassword" class="form-control">
-                    </div>
-
-                    <div class="d-flex justify-content-around">
-                        <div>
-                            <!-- Remember me -->
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="materialLoginFormRemember">
-                                <label class="form-check-label" for="materialLoginFormRemember">Remember me</label>
-                            </div>
-                        </div>
-                        <div>
-                            <!-- Forgot password -->
-                            <a href="">Forgot password?</a>
-                        </div>
-                    </div>
-
-                    <!-- Sign in button -->
-                    <button class="btn btn-outline-dark btn-rounded btn-block my-4 waves-effect z-depth-0 "
-                        type="submit">Sign
-                        in</button>
-
-                    <!-- Register -->
-                    <p>Not a member?
-                        <a href="">Register</a>
-                    </p>
-
-                    <!-- Social login -->
-                    <p>or sign in with:</p>
-                    <a type="button" class="btn-floating btn-fb btn-sm">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a type="button" class="btn-floating btn-tw btn-sm">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a type="button" class="btn-floating btn-li btn-sm">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a type="button" class="btn-floating btn-git btn-sm">
-                        <i class="fab fa-github"></i>
-                    </a>
-
-                </form>
-                <!-- Form -->
-
-            </div>
-
-        </div>
-        <!-- Material form login -->
-    </main>
-    <!--Footer-->
-    <footer class=" page-footer text-center font-small mt-4 wow fadeIn">
-
-        <!--Call to action-->
-        <div class="pt-4">
-
-            <!--Copyright-->
-            <div class="footer-copyright py-3">
-                © 2020 Copyright:
-                <a href="http://truthwifi.com/home" target="_blank"> Truthwifi.com </a>
-            </div>
-            <!--/.Copyright-->
-
-    </footer>
-</body>
+  </body>
+</html>

@@ -1,11 +1,11 @@
-from django.contrib import admin
 from django.urls import path, include
 from .views import HomeView, SignupView, ProfileView
+from django.views.generic import TemplateView
 
 urlpatterns = [
-    path('', HomeView.as_view(), name="home" ),
-    path('accounts/', include('django.contrib.auth.urls')),
-    path('signup/', SignupView.as_view(), name="signup"),
-    path('profile/', ProfileView.as_view(), name="profile")
+    #path('', HomeView.as_view(), name="home" ),
+    #path('signup/', SignupView.as_view(), name="signup"),
+    #path('profile/', ProfileView.as_view(), name="profile"),
+    path('', TemplateView.as_view(template_name='registration/login.html'))
 ]
 

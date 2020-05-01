@@ -37,6 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    'django.contrib.sites',
     'useraccess',
     'admindashboard',
 ]
@@ -84,9 +89,9 @@ WSGI_APPLICATION = 'ispplatform.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'truthwifi',
-        'USER': 'huncho',
-        'PASSWORD': 'c11h28no3',
+        'NAME': 'truth',
+        'USER': 'root',
+        'PASSWORD': 'keras@#19',
         'HOST': 'localhost',
         'PORT': '3306',
     }
@@ -130,3 +135,26 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+AUTHENTICATION_BACKENDS = (
+
+ 'django.contrib.auth.backends.ModelBackend',
+
+ 'allauth.account.auth_backends.AuthenticationBackend',
+ )
+
+SITE_ID = 1
+
+LOGIN_REDIRECT_URL = '/'
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
