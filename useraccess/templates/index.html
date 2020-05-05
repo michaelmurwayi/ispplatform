@@ -119,14 +119,13 @@
     }
 
     .access {
-      /* opacity: 0.9; */
       background-color: grey;
       background-position: fill;
       width: 400px;
       height: 450px;
       position: relative;
       top: 30px;
-      /* left: 900px; */
+
     }
 
 
@@ -179,38 +178,9 @@
 
   <header class="row">
     <!--/.Navbar -->
-    <div class="overlay">
+    <div class="overlay text-right">
       <!--Navbar -->
-      <nav class="mb-1 navbar navbar-expand-lg navbar-dark black lighten-1">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
-          aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" ">
-          <!-- <ul class=" navbar-nav mr-auto"> -->
-          <li class="nav-item active">
-            <a class="nav-link" href="{% url 'home' %}">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'signup' %}">Sign-up</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'login' %}">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Help</a>
-          </li>
-          </ul>
-          <ul class="navbar-nav ml-auto nav-flex-icons">
-            <li class="nav-item avatar">
-              <a class="nav-link p-0" href="#">
-                <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg" class="rounded-circle z-depth-0"
-                  alt="avatar image" height="35">
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+      <h2><strong><b><i> Truth Wifi </i></b></strong></h2>
     </div>
     <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
       <source src="{% static 'img/background.mp4' %}" type="video/mp4">
@@ -323,7 +293,8 @@
           <!--Card content-->
           <div class="card-body px-lg-5 pt-3">
 
-            <button type="button" class="btn btn-secondary btn-rounded"><a href="{% url 'login' %}">Login</a></button>
+            <button type="button" class="btn btn-secondary btn-rounded"><a
+                href="{% url 'google_login' %}">Login</a></button>
 
             <button type="button" class="btn btn-info btn-rounded"><a href="{% url 'signup' %}">Sign-up</a></button>
 
