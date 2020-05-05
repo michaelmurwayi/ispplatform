@@ -20,5 +20,8 @@ urlpatterns = [
     path('', include("useraccess.urls")),
     path('', include("admindashboard.urls")),
     path('admin/', admin.site.urls),
-    #path('accounts/', include('allauth.urls')),
+    path('api/v1/', include('mpesa_api.urls')),
+
+
+    
 ]

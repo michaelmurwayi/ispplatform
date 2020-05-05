@@ -25,12 +25,13 @@ SECRET_KEY = '$$*tb(*fi-(yi!3avgr=lhqz%rkn-9+*ns-5%9a=3$ni7*i&j!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['4895098f.ngrok.io', '*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'mpesa_api.apps.MpesaApiConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -89,9 +90,9 @@ WSGI_APPLICATION = 'ispplatform.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'truth',
-        'USER': 'root',
-        'PASSWORD': 'keras@#19',
+        'NAME': 'truthwifi',
+        'USER': 'huncho',
+        'PASSWORD': 'c11h28no3',
         'HOST': 'localhost',
         'PORT': '3306',
     }
@@ -145,7 +146,7 @@ AUTHENTICATION_BACKENDS = (
 
 SITE_ID = 1
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = 'profile/'
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
@@ -158,3 +159,5 @@ SOCIALACCOUNT_PROVIDERS = {
         }
     }
 }
+
+LOGIN_REDIRECT_URL = "profile/"
