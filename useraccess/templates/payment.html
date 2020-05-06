@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Material Design Bootstrap</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="{% static 'css/mdb.min.css' %}" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="{% static 'css/style.min.css' %}" rel="stylesheet">
+</head>
+<style>
+    body {
+        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+    }
+
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    .container-fluid {
+        max-width: 80%;
+        height: 80%;
+        margin-top: 50px;
+        position: absolute;
+        left: 100px;
+        padding: 50px;
+        background-color: black;
+        /* opacity: 0.9; */
+
+    }
+</style>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark ">
+            <div class="container">
+                <a class="navbar-brand" href="#"><strong><b>Truth WiFi</b></strong></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'home' %}">Internet Packages </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="view intro-2">
+            <div class="">
+                <div class="mask rgba-black-strong flex-center">
+                    <div class="container">
+                        <div class="white-text text-center wow fadeInUp">
+                            <h4>Truth Wifi</h4>
+                            <h4>The Promised LAN</h4>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <main>
+        <div class="container-fluid card">
+            <div class="row">
+
+                <div class="col-md-7" ">
+                    <!-- Material form subscription -->
+                    <div class=" card bg-dark">
+
+                    <h5 class="card-header  white-text text-center py-4">
+                        <strong>Pay Here</strong>
+                    </h5>
+
+                    <!--Card content-->
+                    <div class="card-body px-lg-5">
+
+                        <!-- Form -->
+                        <form class="text-center" style="color: #757575;" action="#!">
+
+                            <!-- Name -->
+                            <div class="md-form mt-3">
+                                <input type="text" id="materialSubscriptionFormPasswords" class="form-control">
+                                <label for="materialSubscriptionFormPasswords">Number</label>
+                            </div>
+
+                            <!-- E-mai -->
+                            <div class="md-form">
+                                <input type="email" id="materialSubscriptionFormEmail" class="form-control">
+                                <label for="materialSubscriptionFormEmail">Amount</label>
+                            </div>
+
+                            <!-- Sign in button -->
+                            <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect"
+                                type="submit">SEND</button>
+
+                        </form>
+                        <!-- Form -->
+
+                    </div>
+
+                </div>
+                <!-- Material form subscription -->
+            </div>
+            <div class="col-md-5 card" style="text-align: center; background-color: grey;">
+                <h2><b><strong> How To Pay </strong></b></h2>
+                <hr style="border: solid 2px;">
+                <ol style="text-align:left ;">
+                    <li>Enter Your Number<small>( The one used in registration)</small></li>
+                    <li>Enter Amount and Hit SEND <small>( Not less than 5ksh)</small></li>
+                    <li>Enter Mpesa Pin<small>( Check for mpesa pop up on your phone and enter correct pin)</small></li>
+                    <li>Check for Mpesa Notification <small>(check for the mpesa payment confirmation message)</small>
+                    </li>
+                    <li>Select Desired Network Package and Browse away <small>(Select Prefered
+                            <a><strong>Package</strong></a>)</small></li>
+                </ol>
+            </div>
+        </div>
+        </div>
+    </main>
+</body>
+
+</html>
