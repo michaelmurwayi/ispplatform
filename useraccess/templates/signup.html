@@ -77,95 +77,30 @@
                     <strong>Sign up</strong>
                 </h5>
 
-                <!--Card content-->
-                <div class="card-body px-lg-5 pt-0">
+                <div class="pt-2">
+                    {{ form.as_p }}
+                </div> <!-- Newsletter -->
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="materialRegisterFormNewsletter">
+                    <label class="form-check-label" for="materialRegisterFormNewsletter">Subscribe to
+                        our newsletter</label>
+                </div>
 
-                    <!-- Form -->
-                    <form class="text-center" style="color: #757575;" method="POST">
+                <!-- Sign up button -->
+                <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0"
+                    type="submit">Sign
+                    in</button>
 
-                        <div class="form-row">
-                            <div class="col">
-                                <!-- First name -->
-                                <div class="md-form">
-                                    <label for="materialRegisterFormFirstName"><strong><b>First
-                                                name</b></strong></label>
-                                    <br>
-                                    {{ form.firstname }}
-                                </div>
-                            </div>
-                            <div class="col">
-                                <!-- Last name -->
-                                <div class="md-form">
-                                    <label for="materialRegisterFormLastName"><strong><b>Last name</b></strong></label>
-                                    <br>
-                                    {{ form.lastname }}
-                                </div>
-                            </div>
-                        </div>
+                <!-- Terms of service -->
+                <p>By clicking
+                    <em>Sign up</em> you agree to our
+                    <a href="" target="_blank">terms of service</a>
 
-                        <!-- E-mail -->
-                        <div class="md-form mt-1">
-                            <label for="materialRegisterFormEmail"><b><strong>E-mail</strong></b></label>
-                            <br>
-                            {{form.email}}
-                        </div>
+        </form>
+        <!-- Form -->
 
-                        <!-- Password -->
-                        <div class="md-form">
-                            <label for="materialRegisterFormPassword"><b><strong>Password</strong></b></label>
-                            {{ form.password1 }}
-                            <small id="materialRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
-                                At least 8 characters and 1 digit
-                            </small>
-                        </div>
-                        <div class="md-form">
-                            <label for="materialRegisterFormPassword"><b><strong>Confirm Password</strong></b></label>
-
-                            {{ form.password2 }}
-                            <small id="materialRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
-                                At least 8 characters and 1 digit
-                            </small>
-                        </div>
-                        <!-- Phone number -->
-                        <div class="md-form">
-                            <label for="materialRegisterFormPhone"><b><strong>Phone number</strong></b></label>
-                            {{ form.phonenumber}}
-                        </div>
-
-                        <!-- Newsletter -->
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="materialRegisterFormNewsletter">
-                            <label class="form-check-label" for="materialRegisterFormNewsletter">Subscribe to
-                                our newsletter</label>
-                        </div>
-
-                        <!-- Sign up button -->
-                        <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0"
-                            type="submit">Sign
-                            in</button>
-
-                        <!-- Terms of service -->
-                        <p>By clicking
-                            <em>Sign up</em> you agree to our
-                            <a href="" target="_blank">terms of service</a>
-
-                    </form>
-                    <!-- Form -->
-
-                    <!-- Material form register -->
+        <!-- Material form register -->
     </main>
     <!--Footer-->
-    <footer class=" page-footer text-center font-small bg-black mt-4 ">
 
-        <!--Call to action-->
-        <div class="pt-0 bg-black">
-
-            <!--Copyright-->
-            <div class="footer-copyright py-3">
-                © 2020 Copyright:
-                <a href="http://truthwifi.com/home" target="_blank"> Truthwifi.com </a>
-            </div>
-            <!--/.Copyright-->
-
-    </footer>
 </body>
