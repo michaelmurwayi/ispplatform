@@ -34,7 +34,6 @@
     footer {
         position: relative;
         top: 50px;
-        /* bottom: 0; */
     }
 </style>
 
@@ -67,114 +66,99 @@
     <main>
 
         <!-- Material form register -->
-        <div class="card">
 
-            <h5 class="card-header black white-text text-center py-4" style="opacity: 0.9;">
-                <strong><b>Sign up</b></strong>
-            </h5>
+        <!-- Form -->
+        <form class="text-center" style="color: #757575;" action="#!" method="POST">
+            {% csrf_token %}
+            <!-- Material form register -->
+            <div class="card">
 
-            <!--Card content-->
-            <div class="card-body px-lg-5 pt-0">
+                <h5 class="card-header info-color white-text text-center py-4">
+                    <strong>Sign up</strong>
+                </h5>
 
-                <!-- Form -->
-                <form class="text-center" style="color: #757575;" action="#!">
+                <!--Card content-->
+                <div class="card-body px-lg-5 pt-0">
 
-                    <div class="form-row">
-                        <div class="col">
-                            <!-- First name -->
-                            <div class="md-form">
-                                <label>First name</label>
-                                <br>
-                                <input type="text" class=" form-control">
+                    <!-- Form -->
+                    <form class="text-center" style="color: #757575;" method="POST">
+
+                        <div class="form-row">
+                            <div class="col">
+                                <!-- First name -->
+                                <div class="md-form">
+                                    <label for="materialRegisterFormFirstName"><strong><b>First
+                                                name</b></strong></label>
+                                    <br>
+                                    {{ form.firstname }}
+                                </div>
+                            </div>
+                            <div class="col">
+                                <!-- Last name -->
+                                <div class="md-form">
+                                    <label for="materialRegisterFormLastName"><strong><b>Last name</b></strong></label>
+                                    <br>
+                                    {{ form.lastname }}
+                                </div>
                             </div>
                         </div>
-                        <div class="col">
-                            <!-- Last name -->
-                            <div class="md-form">
-                                <label>Last name</label>
-                                <br>
-                                <input type="email" class="form-control">
-                            </div>
+
+                        <!-- E-mail -->
+                        <div class="md-form mt-1">
+                            <label for="materialRegisterFormEmail"><b><strong>E-mail</strong></b></label>
+                            <br>
+                            {{form.email}}
                         </div>
-                    </div>
 
-                    <!-- E-mail -->
-                    <div class="md-form mt-0">
-                        <label>E-mail</label>
-                        <br>
-                        <input type="email" class="form-control">
-                    </div>
+                        <!-- Password -->
+                        <div class="md-form">
+                            <label for="materialRegisterFormPassword"><b><strong>Password</strong></b></label>
+                            {{ form.password1 }}
+                            <small id="materialRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+                                At least 8 characters and 1 digit
+                            </small>
+                        </div>
+                        <div class="md-form">
+                            <label for="materialRegisterFormPassword"><b><strong>Confirm Password</strong></b></label>
 
-                    <!-- Password -->
-                    <div class="md-form">
-                        <label for="materialRegisterFormPassword">Password</label>
-                        <br>
-                        <input type="password" id="materialRegisterFormPassword" class="form-control"
-                            aria-describedby="materialRegisterFormPasswordHelpBlock">
+                            {{ form.password2 }}
+                            <small id="materialRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+                                At least 8 characters and 1 digit
+                            </small>
+                        </div>
+                        <!-- Phone number -->
+                        <div class="md-form">
+                            <label for="materialRegisterFormPhone"><b><strong>Phone number</strong></b></label>
+                            {{ form.phonenumber}}
+                        </div>
 
-                        <small id="materialRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
-                            At least 8 characters and 1 digit
-                        </small>
-                    </div>
+                        <!-- Newsletter -->
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="materialRegisterFormNewsletter">
+                            <label class="form-check-label" for="materialRegisterFormNewsletter">Subscribe to
+                                our newsletter</label>
+                        </div>
 
-                    <!-- Phone number -->
-                    <div class="md-form">
-                        <input type="password" id="materialRegisterFormPhone" class="form-control"
-                            aria-describedby="materialRegisterFormPhoneHelpBlock">
-                        <label for="materialRegisterFormPhone">Phone number</label>
-                        <small id="materialRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
-                            Optional - for two step authentication
-                        </small>
-                    </div>
+                        <!-- Sign up button -->
+                        <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0"
+                            type="submit">Sign
+                            in</button>
 
-                    <!-- Newsletter -->
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="materialRegisterFormNewsletter">
-                        <label class="form-check-label" for="materialRegisterFormNewsletter">Subscribe to our
-                            newsletter</label>
-                    </div>
+                        <!-- Terms of service -->
+                        <p>By clicking
+                            <em>Sign up</em> you agree to our
+                            <a href="" target="_blank">terms of service</a>
 
-                    <!-- Sign up button -->
-                    <button class="btn btn-outline-dark btn-rounded btn-block my-4 waves-effect z-depth-0"
-                        type="submit">Sign
-                        in</button>
+                    </form>
+                    <!-- Form -->
 
-                    <!-- Social register -->
-                    <p>or sign up with:</p>
-
-                    <a type="button" class="btn-floating btn-fb btn-sm">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a type="button" class="btn-floating btn-tw btn-sm">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a type="button" class="btn-floating btn-li btn-sm">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a type="button" class="btn-floating btn-git btn-sm">
-                        <i class="fab fa-github"></i>
-                    </a>
-
-                    <hr>
-
-                    <!-- Terms of service -->
-                    <p>By clicking
-                        <em>Sign up</em> you agree to our
-                        <a href="" target="_blank">terms of services</a>
-
-                </form>
-                <!-- Form -->
-
-            </div>
-
-        </div>
-        <!-- Material form register -->
+                    <!-- Material form register -->
     </main>
     <!--Footer-->
-    <footer class=" page-footer text-center font-small mt-4 wow fadeIn">
+    <footer class=" page-footer text-center font-small bg-black mt-4 ">
 
         <!--Call to action-->
-        <div class="pt-4">
+        <div class="pt-0 bg-black">
 
             <!--Copyright-->
             <div class="footer-copyright py-3">

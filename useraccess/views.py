@@ -1,11 +1,12 @@
 from django.shortcuts import render
 from django.views.generic.base import TemplateView 
 from django.views.generic import CreateView
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.contrib.auth.forms import  UserChangeForm
 from django.urls import reverse_lazy
 from .models import Radacct
 from django.views.generic import ListView
 from django.views.generic.detail import SingleObjectMixin
+from .forms import UserCreationForm
 # Create your views here.
 
 class HomeView(TemplateView):
@@ -17,8 +18,12 @@ class SignupView(CreateView):
     # view function for user registration 
 
     form_class = UserCreationForm
-    success_url = reverse_lazy('home/')
+    success_url = reverse_lazy('profile')
     template_name = "signup.html"
+
+    def post(self, request):
+        import ipdb; ipdb.set_trace()
+        pass
 
 class ProfileView(SingleObjectMixin, ListView):
     # view for the user profile page 
