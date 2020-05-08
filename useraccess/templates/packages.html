@@ -1,0 +1,205 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Material Design Bootstrap</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="{% static 'css/mdb.min.css' %}" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="{% static 'css/style.min.css' %}" rel="stylesheet">
+</head>
+<style>
+    body {
+        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+    }
+
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    .container-fluid {
+        max-width: 80%;
+        height: 80%;
+        margin-top: 50px;
+        position: absolute;
+        left: 100px;
+        padding: 50px;
+        background-color: black;
+        opacity: 0.9;
+
+    }
+
+    small {
+        color: antiquewhite;
+    }
+</style>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark ">
+            <div class="container">
+                <a class="navbar-brand" href="#"><strong><b>Truth WiFi</b></strong></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'home' %}">Internet Packages </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="view intro-2">
+            <div class="">
+                <div class="mask rgba-black-strong flex-center">
+                    <div class="container">
+                        <div class="white-text text-center wow fadeInUp">
+                            <h4>Truth Wifi</h4>
+                            <h4>The Promised LAN</h4>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <main>
+        <br>
+        <h3 style="text-align: center;"> <strong><b>Our Internet Packages</b></strong></h3>
+        <div class="container-fluid card">
+            <div class="row">
+
+                <div class="col-md-12 packages pt-0 well">
+                    <div class=" row">
+                        <div class=" package col-md-3 view overlay ">
+                            <button class="btn black-gradient btn-rounded rgba-white-slight ">
+
+                                <a href=" https://mdbootstrap.com/education/bootstrap/quick-start/"
+                                    class="stretched-link color-white"><i class="fas fa-circle-notch fa-spin"></i>
+                                    <small>Daily
+                                        50 MB 50
+                                        ksh</small></a>
+                            </button>
+                        </div>
+                        <div class=" package col-md-3 ">
+                            <button class="btn  btn-rounded rgba-white-slight">
+
+                                <a href=" https://mdbootstrap.com/education/bootstrap/quick-start/"
+                                    class="stretched-link"><i class="fas fa-circle-notch fa-spin"></i> <small>Hourly
+                                        unlimited
+                                        @ 10 ksh</small></a>
+                            </button>
+                        </div>
+                        <div class=" package col-md-3">
+                            <button class="btn  btn-rounded rgba-white-slight">
+
+                                <a href=" https://mdbootstrap.com/education/bootstrap/quick-start/"
+                                    class="stretched-link"><i class="fas fa-circle-notch fa-spin"></i> <small>Daily 150
+                                        MB @ 10
+                                        ksh</small></a>
+                            </button>
+                        </div>
+                        <div class=" package col-md-3">
+                            <button class="btn  btn-rounded rgba-white-slight">
+
+                                <a href=" https://mdbootstrap.com/education/bootstrap/quick-start/"
+                                    class="stretched-link"><i class="fas fa-circle-notch fa-spin"></i> <small>Daily 150
+                                        MB @ 10
+                                        ksh</small></a>
+                            </button>
+                        </div>
+                        <div class=" package col-md-3">
+                            <button class="btn  btn-rounded rgba-white-slight">
+
+                                <a href=" https://mdbootstrap.com/education/bootstrap/quick-start/"
+                                    class="stretched-link"><i class="fas fa-circle-notch fa-spin"></i> <small>Daily 2 GB
+                                        @ 30
+                                        ksh</small></a>
+                            </button>
+                        </div>
+                        <div class=" package col-md-3">
+                            <button class="btn  btn-rounded rgba-white-slight">
+
+                                <a href=" https://mdbootstrap.com/education/bootstrap/quick-start/"
+                                    class="stretched-link"><i class="fas fa-circle-notch fa-spin"></i> <small>Daily
+                                        Moderate
+                                        Unlimited @ 50 ksh</small></a>
+                            </button>
+                        </div>
+                        <div class=" package col-md-3">
+                            <button class="btn  btn-rounded rgba-white-slight">
+
+                                <a href=" https://mdbootstrap.com/education/bootstrap/quick-start/"
+                                    class="stretched-link"><i class="fas fa-circle-notch fa-spin"></i> <small>weekly 2
+                                        GB
+                                        @ 50
+                                        ksh</small></a>
+                            </button>
+                        </div>
+                        <div class=" package col-md-3">
+                            <button class="btn  btn-rounded rgba-white-slight">
+
+                                <a href=" https://mdbootstrap.com/education/bootstrap/quick-start/"
+                                    class="stretched-link"><i class="fas fa-circle-notch fa-spin"></i> <small>Fast Daily
+                                        Unlimited @ 80 ksh</small></a>
+                            </button>
+                        </div>
+                        <div class=" package col-md-3">
+                            <button class="btn  btn-rounded rgba-white-slight">
+
+                                <a href=" https://mdbootstrap.com/education/bootstrap/quick-start/"
+                                    class="stretched-link"><i class="fas fa-circle-notch fa-spin"></i> <small>weekly
+                                        Unlimited
+                                        @ 300 ksh</small></a>
+                            </button>
+                        </div>
+                        <div class=" package col-md-3">
+                            <button class="btn  btn-rounded rgba-white-slight">
+
+                                <a href=" https://mdbootstrap.com/education/bootstrap/quick-start/"
+                                    class="stretched-link"><i class="fas fa-circle-notch fa-spin"></i> <small>Monthly
+                                        Unlimited
+                                        @ 1000 ksh</small></a>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+    </main>
+</body>
+
+</html>

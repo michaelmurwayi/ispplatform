@@ -17,9 +17,9 @@ from django.urls import path, include
 from django.contrib import admin
 
 urlpatterns = [
+    path('devadmin/', admin.site.urls),
     path('', include("useraccess.urls")),
     path('', include("admindashboard.urls")),
-    path('admin/', admin.site.urls),
     path('api/v1/', include('mpesa_api.urls')),
 
 
