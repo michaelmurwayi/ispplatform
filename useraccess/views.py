@@ -42,6 +42,7 @@ class ProfileView(SingleObjectMixin, ListView):
             "session_stop_time": account_detail.connectinfo_stop,
         }
         return render(request, 'profile.html', context)
+    
 
 class PaymentView(TemplateView):
     template_name = "payment.html"
