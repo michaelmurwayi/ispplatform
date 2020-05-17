@@ -63,7 +63,7 @@ class AuthUser(models.Model):
     password = models.CharField(max_length=128)
     last_login = models.DateTimeField(blank=True, null=True)
     is_superuser = models.IntegerField()
-    username = models.CharField(max_length=150)
+    username = models.CharField(unique=True, max_length=150)
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=150)
     email = models.CharField(max_length=254)
@@ -213,14 +213,13 @@ class Radacct(models.Model):
     acctsessionid = models.CharField(max_length=64)
     acctuniqueid = models.CharField(unique=True, max_length=32)
     username = models.CharField(max_length=64)
+    groupname = models.CharField(max_length=64)
     realm = models.CharField(max_length=64, blank=True, null=True)
     nasipaddress = models.CharField(max_length=15)
     nasportid = models.CharField(max_length=15, blank=True, null=True)
     nasporttype = models.CharField(max_length=32, blank=True, null=True)
     acctstarttime = models.DateTimeField(blank=True, null=True)
-    acctupdatetime = models.DateTimeField(blank=True, null=True)
     acctstoptime = models.DateTimeField(blank=True, null=True)
-    acctinterval = models.IntegerField(blank=True, null=True)
     acctsessiontime = models.PositiveIntegerField(blank=True, null=True)
     acctauthentic = models.CharField(max_length=32, blank=True, null=True)
     connectinfo_start = models.CharField(max_length=50, blank=True, null=True)
@@ -233,10 +232,9 @@ class Radacct(models.Model):
     servicetype = models.CharField(max_length=32, blank=True, null=True)
     framedprotocol = models.CharField(max_length=32, blank=True, null=True)
     framedipaddress = models.CharField(max_length=15)
-    framedipv6address = models.CharField(max_length=45)
-    framedipv6prefix = models.CharField(max_length=45)
-    framedinterfaceid = models.CharField(max_length=44)
-    delegatedipv6prefix = models.CharField(max_length=45)
+    acctstartdelay = models.PositiveIntegerField(blank=True, null=True)
+    acctstopdelay = models.PositiveIntegerField(blank=True, null=True)
+    xascendsessionsvrkey = models.CharField(max_length=10, blank=True, null=True)
 
     class Meta:
         managed = False
@@ -307,51 +305,10 @@ class Radusergroup(models.Model):
         managed = False
         db_table = 'radusergroup'
 
-
-class SocialaccountSocialaccount(models.Model):
-    provider = models.CharField(max_length=30)
-    uid = models.CharField(max_length=191)
-    last_login = models.DateTimeField()
-    date_joined = models.DateTimeField()
-    extra_data = models.TextField()
-    user = models.ForeignKey(AuthUser, models.DO_NOTHING)
-
-    class Meta:
-        managed = False
-        db_table = 'socialaccount_socialaccount'
-        unique_together = (('provider', 'uid'),)
+class Packages(models.Model):
+    bundle = models.CharField(max_length=10)
+    bundle_price = models.IntegerField()
+    bundle_length = models.CharField(max_length=10)
+    bundle_speed = models.CharField(max_length=15)
 
 
-class SocialaccountSocialapp(models.Model):
-    provider = models.CharField(max_length=30)
-    name = models.CharField(max_length=40)
-    client_id = models.CharField(max_length=191)
-    secret = models.CharField(max_length=191)
-    key = models.CharField(max_length=191)
-
-    class Meta:
-        managed = False
-        db_table = 'socialaccount_socialapp'
-
-
-class SocialaccountSocialappSites(models.Model):
-    socialapp = models.ForeignKey(SocialaccountSocialapp, models.DO_NOTHING)
-    site = models.ForeignKey(DjangoSite, models.DO_NOTHING)
-
-    class Meta:
-        managed = False
-        db_table = 'socialaccount_socialapp_sites'
-        unique_together = (('socialapp', 'site'),)
-
-
-class SocialaccountSocialtoken(models.Model):
-    token = models.TextField()
-    token_secret = models.TextField()
-    expires_at = models.DateTimeField(blank=True, null=True)
-    account = models.ForeignKey(SocialaccountSocialaccount, models.DO_NOTHING)
-    app = models.ForeignKey(SocialaccountSocialapp, models.DO_NOTHING)
-
-    class Meta:
-        managed = False
-        db_table = 'socialaccount_socialtoken'
-        unique_together = (('app', 'account'),)

@@ -42,15 +42,20 @@
         height: 80%;
         margin-top: 50px;
         position: absolute;
-        left: 100px;
+        left: 10%;
         padding: 50px;
         background-color: black;
         opacity: 0.9;
+        color: antiquewhite;
 
     }
 
     small {
         color: antiquewhite;
+    }
+
+    ul {
+        list-style-type: none;
     }
 </style>
 
@@ -97,108 +102,30 @@
 
     </header>
     <main>
-        <br>
-        <h3 style="text-align: center;"> <strong><b>Our Internet Packages</b></strong></h3>
-        <div class="container-fluid card">
-            <div class="row">
+        <center>
+            <br>
+            <h3 style="text-align: center;"> <strong><b>Our Internet Packages</b></strong></h3>
+            <div class="container-fluid card">
+                <div class="row">
+                    <div class="col-md-12 packages pt-0 well">
+                        <div class=" row">
+                            {% for items in package_list %}
+                            <div class=" package col-md-3 view overlay  ">
+                                <button class="btn black-gradient btn-rounded color-white">
+                                    <ul>
+                                        <li><strong>{{items.bundle_length}}</strong></li>
+                                        <li><strong>{{items.bundle}}</strong></li>
+                                        <li><strong>{{items.bundle_price}} Ksh</strong></li>
 
-                <div class="col-md-12 packages pt-0 well">
-                    <div class=" row">
-                        <div class=" package col-md-3 view overlay ">
-                            <button class="btn black-gradient btn-rounded rgba-white-slight ">
+                                    </ul>
+                                </button>
+                            </div>
+                            {% endfor %}
 
-                                <a href=" https://mdbootstrap.com/education/bootstrap/quick-start/"
-                                    class="stretched-link color-white"><i class="fas fa-circle-notch fa-spin"></i>
-                                    <small>Daily
-                                        50 MB 50
-                                        ksh</small></a>
-                            </button>
                         </div>
-                        <div class=" package col-md-3 ">
-                            <button class="btn  btn-rounded rgba-white-slight">
-
-                                <a href=" https://mdbootstrap.com/education/bootstrap/quick-start/"
-                                    class="stretched-link"><i class="fas fa-circle-notch fa-spin"></i> <small>Hourly
-                                        unlimited
-                                        @ 10 ksh</small></a>
-                            </button>
-                        </div>
-                        <div class=" package col-md-3">
-                            <button class="btn  btn-rounded rgba-white-slight">
-
-                                <a href=" https://mdbootstrap.com/education/bootstrap/quick-start/"
-                                    class="stretched-link"><i class="fas fa-circle-notch fa-spin"></i> <small>Daily 150
-                                        MB @ 10
-                                        ksh</small></a>
-                            </button>
-                        </div>
-                        <div class=" package col-md-3">
-                            <button class="btn  btn-rounded rgba-white-slight">
-
-                                <a href=" https://mdbootstrap.com/education/bootstrap/quick-start/"
-                                    class="stretched-link"><i class="fas fa-circle-notch fa-spin"></i> <small>Daily 150
-                                        MB @ 10
-                                        ksh</small></a>
-                            </button>
-                        </div>
-                        <div class=" package col-md-3">
-                            <button class="btn  btn-rounded rgba-white-slight">
-
-                                <a href=" https://mdbootstrap.com/education/bootstrap/quick-start/"
-                                    class="stretched-link"><i class="fas fa-circle-notch fa-spin"></i> <small>Daily 2 GB
-                                        @ 30
-                                        ksh</small></a>
-                            </button>
-                        </div>
-                        <div class=" package col-md-3">
-                            <button class="btn  btn-rounded rgba-white-slight">
-
-                                <a href=" https://mdbootstrap.com/education/bootstrap/quick-start/"
-                                    class="stretched-link"><i class="fas fa-circle-notch fa-spin"></i> <small>Daily
-                                        Moderate
-                                        Unlimited @ 50 ksh</small></a>
-                            </button>
-                        </div>
-                        <div class=" package col-md-3">
-                            <button class="btn  btn-rounded rgba-white-slight">
-
-                                <a href=" https://mdbootstrap.com/education/bootstrap/quick-start/"
-                                    class="stretched-link"><i class="fas fa-circle-notch fa-spin"></i> <small>weekly 2
-                                        GB
-                                        @ 50
-                                        ksh</small></a>
-                            </button>
-                        </div>
-                        <div class=" package col-md-3">
-                            <button class="btn  btn-rounded rgba-white-slight">
-
-                                <a href=" https://mdbootstrap.com/education/bootstrap/quick-start/"
-                                    class="stretched-link"><i class="fas fa-circle-notch fa-spin"></i> <small>Fast Daily
-                                        Unlimited @ 80 ksh</small></a>
-                            </button>
-                        </div>
-                        <div class=" package col-md-3">
-                            <button class="btn  btn-rounded rgba-white-slight">
-
-                                <a href=" https://mdbootstrap.com/education/bootstrap/quick-start/"
-                                    class="stretched-link"><i class="fas fa-circle-notch fa-spin"></i> <small>weekly
-                                        Unlimited
-                                        @ 300 ksh</small></a>
-                            </button>
-                        </div>
-                        <div class=" package col-md-3">
-                            <button class="btn  btn-rounded rgba-white-slight">
-
-                                <a href=" https://mdbootstrap.com/education/bootstrap/quick-start/"
-                                    class="stretched-link"><i class="fas fa-circle-notch fa-spin"></i> <small>Monthly
-                                        Unlimited
-                                        @ 1000 ksh</small></a>
-                            </button>
-                        </div>
-
                     </div>
                 </div>
-            </div>
+        </center>
     </main>
 </body>
 
