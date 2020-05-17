@@ -45,7 +45,7 @@
         left: 100px;
         padding: 50px;
         background-color: black;
-        /* opacity: 0.9; */
+        opacity: 0.9;
 
     }
 </style>
@@ -96,58 +96,66 @@
         <div class="container-fluid card">
             <div class="row">
 
-                <div class="col-md-7" ">
+                <div class="col-md-7">
                     <!-- Material form subscription -->
                     <div class=" card bg-dark">
 
-                    <h5 class="card-header  white-text text-center py-4">
-                        <strong>Pay Here</strong>
-                    </h5>
+                        <h5 class="card-header  white-text text-center py-4">
+                            <strong>Pay Here</strong>
+                        </h5>
 
-                    <!--Card content-->
-                    <div class="card-body px-lg-5">
+                        <!--Card content-->
+                        <div class="card-body px-lg-5">
 
-                        <!-- Form -->
-                        <form class="text-center" style="color: #757575;" action="#!">
+                            <!-- Form -->
+                            <form class="text-center" style="color: #757575;" method="POST">
+                                {% csrf_token %}
+                                <!-- Name -->
+                                <div class=" rowmd-form mt-3">
+                                    <div class="form-items col-md-4">
+                                        <label>PhoneNumber</label>
+                                        {{ form.phonenumber }}
+                                    </div>
+                                    <br>
+                                    <div class="form-items col-md-4">
+                                        <label>Amount</label>
+                                        {{ form.amount }}
+                                    </div>
 
-                            <!-- Name -->
-                            <div class="md-form mt-3">
-                                <input type="text" id="materialSubscriptionFormPasswords" class="form-control">
-                                <label for="materialSubscriptionFormPasswords">Number</label>
-                            </div>
+                                    <div class="col-md-6">
 
-                            <!-- E-mai -->
-                            <div class="md-form">
-                                <input type="email" id="materialSubscriptionFormEmail" class="form-control">
-                                <label for="materialSubscriptionFormEmail">Amount</label>
-                            </div>
+                                        <!-- Sign in button -->
+                                        <button
+                                            class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect"
+                                            type="submit">SEND</button>
 
-                            <!-- Sign in button -->
-                            <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect"
-                                type="submit">SEND</button>
+                                    </div>
 
-                        </form>
-                        <!-- Form -->
+                                </div>
+                            </form>
+                            <!-- Form -->
+
+                        </div>
 
                     </div>
-
+                    <!-- Material form subscription -->
                 </div>
-                <!-- Material form subscription -->
+                <div class="col-md-5 card" style="text-align: center; background-color: grey;">
+                    <h2><b><strong> How To Pay </strong></b></h2>
+                    <hr style="border: solid 2px;">
+                    <ol style="text-align:left ;">
+                        <li>Enter Your Number<small>( The one used in registration)</small></li>
+                        <li>Enter Amount and Hit SEND <small>( Not less than 5ksh)</small></li>
+                        <li>Enter Mpesa Pin<small>( Check for mpesa pop up on your phone and enter correct pin)</small>
+                        </li>
+                        <li>Check for Mpesa Notification <small>(check for the mpesa payment confirmation
+                                message)</small>
+                        </li>
+                        <li>Select Desired Network Package and Browse away <small>(Select Prefered
+                                <a><strong>Package</strong></a>)</small></li>
+                    </ol>
+                </div>
             </div>
-            <div class="col-md-5 card" style="text-align: center; background-color: grey;">
-                <h2><b><strong> How To Pay </strong></b></h2>
-                <hr style="border: solid 2px;">
-                <ol style="text-align:left ;">
-                    <li>Enter Your Number<small>( The one used in registration)</small></li>
-                    <li>Enter Amount and Hit SEND <small>( Not less than 5ksh)</small></li>
-                    <li>Enter Mpesa Pin<small>( Check for mpesa pop up on your phone and enter correct pin)</small></li>
-                    <li>Check for Mpesa Notification <small>(check for the mpesa payment confirmation message)</small>
-                    </li>
-                    <li>Select Desired Network Package and Browse away <small>(Select Prefered
-                            <a><strong>Package</strong></a>)</small></li>
-                </ol>
-            </div>
-        </div>
         </div>
     </main>
 </body>
