@@ -16,278 +16,181 @@
     <!-- Your custom styles (optional) -->
     <link href="{% static 'css/style.min.css' %} " rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Archivo:700&display=swap" rel="stylesheet">
+
+
     <style>
-        ..view {
-            background: url("https://mdbootstrap.com/img/Photos/Others/img (51).jpg")no-repeat center center;
-            background-size: cover;
-        }
-
-        @media (min-width: 768px) {
-            .view {
-                overflow: visible;
-                margin-top: -56px;
-                background-color: #3E4551;
-            }
-        }
-
-        .navbar {
-            z-index: 1;
-            background-color: #3E4551;
-
-
-        }
-
         html,
         body {
             overflow-x: hidden;
             display: inline;
-            padding-top: 10px;
+            background: url({% static 'img/back.jpg' %});
+            background-size: cover;
+            margin: 0px;
+            height: 100%;
         }
 
-        header,
-        .view {
-            height: 350px;
-            margin-top: 0px;
+        .navbar {
+            background-color: #3E4551;
+            margin: 0px auto 0;
+            margin-top: 0;
+            top: 0;
+            opacity: 0.8;
+
 
         }
 
         main {
             position: auto;
             align-self: center;
-            top: 1000;
+            width: 100%;
 
         }
 
-        .connection_status {
+        .jumbotron-fluid {
             position: relative;
-            top: 100;
-            width: 100%;
-            height: 100px;
-            text-align: center;
-            margin: 30px;
-            padding: 100;
+            align-content: center;
+            background-color: black;
+            margin: 10%;
+            margin-left: 5%;
+            width: 150%;
+            height: 80%;
+            opacity: 0.9;
+
+        }
+
+        .rgba-gradient {
+            background: rgba(35, 7, 77, 0.6);
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to bottom, white, black);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to bottom, white, black);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+
+        a {
+            color: antiquewhite;
+        }
+
+        .user-details {
+            position: relative;
+            background: url({% static 'img/back.jpeg' %});
+        }
+
+        .container {
+            position: relative;
+            top: 0px;
+            margin: 0px;
+            padding: 0px;
+
         }
 
         .card {
+            background-color: var(--background);
+            color: antiquewhite;
+            box-shadow: 10px -10px 0 -3px var(--background), 10px -10px var(--green),
+                20px -20px 0 -3px var(--background), 20px -20px var(--yellow),
+                30px -30px 0 -3px var(--background), 30px -30px var(--orange),
+                40px -40px 0 -3px var(--background), 40px -40px var(--red);
+            transition: box-shadow 1s, top 1s, left 1s;
             position: relative;
             top: 0;
-        }
-
-        .balance {
-            position: relative;
-            height: 150px;
-        }
-
-        .connection {
-            position: relative;
-            height: 80px;
-        }
-
-        .guides {
-            position: relative;
-            height: 80px;
+            left: 0;
+            cursor: pointer;
 
         }
 
-        .d-block {
-            position: relative;
-            top: 500;
+        .card:hover {
+            top: -40px;
+            left: 40px;
+            box-shadow: 0 0 0 -3px var(--background), 0 0 0 0 var(--green),
+                0 0 0 -3px var(--background), 0 0 0 0 var(--yellow),
+                0 0 0 -3px var(--background), 0 0 0 0 var(--orange),
+                0 0 0 -3px var(--background), 0 0 0 0 var(--red);
         }
 
-        div.line {
-            display: inline-block;
-            border-top: 2px solid black;
-            width: 2em;
-
-
+        hr {
+            border: 2px solid;
+            color: black;
         }
     </style>
 </head>
 
-<body class="fixed-sn white-skin">
-
-    <html lang="en" class="full-height">
-
+<body class="fixed-sn">
     <!--Main Navigation-->
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark ">
-            <div class="container">
-                <a class="navbar-brand" href="#"><strong><b>Truth WiFi</b></strong></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item ">
-                            <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'home' %}">Internet Packages </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'profile' %}">Profile</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <div class="view intro-2">
-            <div class="">
-                <div class="mask rgba-black-strong flex-center">
-                    <div class="container">
-                        <div class="white-text text-center wow fadeInUp">
-                            <h4>Truth Wifi</h4>
-                            <h4>The Promised LAN</h4>
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>
+    <nav class="navbar navbar-expand-lg rgba-gradient overlay ">
+        <div class="container">
+            <a class="navbar-brand" href="#"><strong><b>Truth WiFi</b></strong></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}">Internet Packages </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+                    </li>
+                </ul>
             </div>
         </div>
-
-    </header>
+    </nav>
     <!--Main Navigation-->
 
     <!--Main Layout-->
-    <main class=" row pt-0 ">
+    <main class=" row  ">
+        <center>
+            <div class="jumbotron jumbotron-fluid  rgba-gradient">
+                <div class="alert alert-success pt-0" role="alert">
+                    This will display the connection status
+                </div>
+                <div class="container row pt-5" style="padding: 10px;">
+                    <div class="card col-md-3 pt-0 purple-gradient" style="opacity: 0.8; color: black;">
+                        <p class="pt-2"><strong><b>300 MBz</b></strong></p>
+                        <hr>
+                        <p><strong><i>Bundle Purchased</i></strong></p>
+                    </div>
+                    <div class="card col-md-3 pt-0 purple-gradient" style="opacity: 0.8; color: black;">
+                        <p class="pt-2"><strong><b>4.20 PM Mon 4/2020 </b></strong></p>
+                        <hr>
+                        <p><strong><i>Session start time</i></strong></p>
+                        <div class="col-md-8">
 
-        <div class="connection_status p-5">
-            {% if username == "hunch"  %}
-            <h4 style="color: green;"> <b>welcome {{username}} . You are connected to the internet. Enjoy browsing</b>
-            </h4>
-            {% else %}
-            <h4 style="color: red;"><b>Connection is Limited. Please purchase more bundle to enjoy the internet</b></h4>
-            {% endif %}
-        </div>
-        </div>
-
-        <div class="container col-md-12">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm blue-gradient card pt-5">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <h4><strong><b>Your Balance</b></strong></h4>
-                                <i class="fa fa-money fa-4x" aria-hidden="true"></i>
-                            </div>
-                            <div class="col-md-8">
-                                <h4> KSH </h4>
-                                <h3>100.00</h3>
-
-                            </div>
                         </div>
                     </div>
-                    <div class="col-sm dusty-grass-gradient card">
-                        <div class="row">
-                            <div class="col-md-5 pt-3" style="font-family:Impact;">
-                                <P> Package: </P>
-                                <P> Data Used:</P>
-                                <P> Data Remaining: </P>
-                                <p> Time Used: </p>
-                                <P> Data Expiry: </P>
-                            </div>
-                            <div class="col-md-5 pt-3" style="font-family: sans-serif;">
-                                <P> {{username}}</P>
-                                <P> {{ session_start_time }}</P>
-                                <P> {{ session_stop_time}} </P>
-                                <P></P>
-                            </div>
-                        </div>
+                    <div class="card col-md-3 pt-0 purple-gradient" style="opacity: 0.8; color: black;">
+                        <p><strong><b>4.20 AM</b></strong></p>
+                        <hr>
+                        <p><strong><i>Expected Expiry time</i></strong></p>
                     </div>
-                    <div class="col-sm purple-gradient card pt-4" style="font-family: sans-serif;">
-                        <button class="btn btn-outline-dark "><b><a href="{% url 'payment' %}">Load Your Balance</a>
-                            </b>
-                        </button> <button class="btn btn-outline-dark"><b><a href="{% url 'packages' %}">Buy Internet
-                                    Package</a></b></button>
+                    <div class="card col-md-3 pt-0 purple-gradient" style="opacity: 0.8; color: black;">
+                        <p><strong><b>269 MBz</b></strong></p>
+                        <hr>
+                        <p><strong><i>Bundle Remaining</i></strong></p>
+                    </div>
+
+                </div>
+                <div class="row pt-5">
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-primary btn-rounded waves-effect">Primary</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-outline-default btn-rounded waves-effect">Default</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-outline-default btn-rounded waves-effect">Default</button>
                     </div>
                 </div>
-                <div class="container pt-5">
-                    <h3>Edit Profile</h3>
-                    <hr>
-                    <div class="row">
-                        <!-- left column -->
-                        <div class="col-md-3">
-                            <div class="text-center">
-                                <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
-                                <h6>Upload a different photo...</h6>
-
-                                <input type="file" class="form-control">
-                            </div>
-                        </div>
-
-                        <!-- edit form column -->
-                        <div class="col-md-9 personal-info">
-                            <div class="alert alert-info alert-dismissable">
-                                <a class="panel-close close" data-dismiss="alert">×</a>
-                                <i class="fa fa-coffee"></i>
-                                This is an <strong>.alert</strong>. This form is for ediring user information.
-                            </div>
-                            <h3>Personal info</h3>
-
-                            <form class="form-horizontal" role="form">
-                                <div class="form-group">
-                                    <label class="col-lg-3 control-label">First name:</label>
-                                    <div class="col-lg-8">
-                                        <input class="form-control" type="text" value={{username}}>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-lg-3 control-label">Last name:</label>
-                                    <div class="col-lg-8">
-                                        <input class="form-control" type="text" value="Bishop">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-lg-3 control-label">Email:</label>
-                                    <div class="col-lg-8">
-                                        <input class="form-control" type="text" value="janesemail@gmail.com">
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label">Password:</label>
-                                    <div class="col-md-8">
-                                        <input class="form-control" type="password" value="11111122333">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label">Confirm password:</label>
-                                    <div class="col-md-8">
-                                        <input class="form-control" type="password" value="11111122333">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label"></label>
-                                    <div class="col-md-8">
-                                        <input type="button" class="btn btn-primary" value="Save Changes">
-                                        <span></span>
-                                        <input type="reset" class="btn btn-default" value="Cancel">
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <!--Main Layout-->
+        </center>
     </main>
-    <footer class=" page-footer text-center font-small mt-4 wow fadeIn">
-
-        <!--Call to action-->
-        <div class="pt-4">
-
-            <!--Copyright-->
-            <div class="footer-copyright py-3">
-                © 2020 Copyright:
-                <a href="http://truthwifi.com/home" target="_blank"> Truthwifi.com </a>
-            </div>
-            <!--/.Copyright-->
-
-    </footer>
-
-
+    <!--Main Layout-->
+    <script>
+        $('.toast').toast('show');
+    </script>
 </body>
