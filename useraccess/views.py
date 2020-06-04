@@ -1,20 +1,21 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect 
 from django.views.generic.base import TemplateView 
 from django.views.generic import CreateView
-from django.contrib.auth.forms import  UserChangeForm
 from django.urls import reverse_lazy
-from .models import Radacct, MpesaApiMpesapayment, Packages
+from .models import  Packages
 from django.views.generic import ListView
 from django.views.generic.detail import SingleObjectMixin
-from .forms import UserCreationForm, PaymentForm
+from .forms import UserCreationForm, PackagesForm
 from django.contrib.auth.models import User
-from mpesa_api.views import lipa_na_mpesa_online
+from django.core.cache import cache
+from django.contrib.auth import login, authenticate
+import requests
+from django.http import HttpResponseRedirect
  
 # Create your views here.
 
 class HomeView(TemplateView):
     # view for the default home page 
-
     template_name= "index.html"
 
 class SignupView(CreateView):
@@ -23,63 +24,71 @@ class SignupView(CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy('profile')
     template_name = "signup.html"
+    
+    
 
+    def post(self, request):
+        #  how to handle user registration form 
 
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()  
+            email = form.cleaned_data.get('email')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(email=email, password=raw_password)
+            login(request, user)
+            return render(request, 'profile.html')
+        else:
+            form = UserCreationForm()
+        return render(request, 'signup.html', {'form': form})
 
 class ProfileView(SingleObjectMixin, ListView):
     # view for the user profile page 
 
     template_name = 'profile.html'
-    form_class = UserChangeForm
     user = User
     
 
     def get(self, request):
-        # handling page get request
-        account_details = Radacct.objects.filter(username='july').values('username', 'acctstarttime')  # query to access user database information
-        user_data = [item for item in account_details] 
-        # context = {
-        #     "session_start_time": account_detail.connectinfo_start,
-        #     "session_stop_time": account_detail.connectinfo_stop,
-        # }
-        return render(request, 'profile.html')
+        
+        return redirect('http://55187aaf0005.ngrok.io/api/v1/online/lipa')
     
 
-class PaymentView(CreateView):
-    template_name = "payment.html"
-    form_class = PaymentForm
-    success_url = 'profile'
-    
-    def post(self, request):
-        # handling payment processing form
-        form = PaymentForm(request.POST)
-        if form.is_valid():    
-            form.save()
-            lipa_na_mpesa_online(request)
+class PackageView(CreateView):
+    # view class for handling internet packages 
 
-        else:
-            return render(request, 'profile.html')
-    
-class PackageView(SingleObjectMixin, ListView):
-    template_name = "payment.html"
+    form_class = PackagesForm
+    template_name = "packages.html"
     packages = Packages
     
     def get(self, request):
         packages = [items for items in Packages.objects.all().values()]
         packages_list = []
+        form = self.form_class()
+        
         for items in packages:
             context = {
+                "email": request.user.email,
                 "bundle": items['bundle'],
                 "bundle_price": items['bundle_price'],
                 "bundle_length": items['bundle_length'],
                 "bundle_speed": items['bundle_speed'],
             } 
             packages_list.append(context)
+        # storing user email and phonenumber in cache for later access  
+        cache.set('email', context['email'] )
+        cache.set('phonenumber', "0746256084" )
+        # should be replaced with request.user.phonenumber
         # import ipdb; ipdb.set_trace()
-        return render(request, 'packages.html', {'package_list':packages_list})
+        return render(request, 'packages.html', {'package_list':packages_list}) 
 
 def sort_user_connection_start_time(user_details):
     # get latest user connection start time 
 
     connectioninfo_start = user_details[-1]
     return connectioninfo_start
+
+def get_bundle(request):
+    cache.set('amount', request.GET.get('price'))
+    # import ipdb; ipdb.set_trace()
+    return HttpResponseRedirect("http://e534efe51dd1.ngrok.io/api/v1/online/lipa")

@@ -5,6 +5,15 @@ import json
 from . mpesa_credentials import MpesaAccessToken, LipanaMpesaPpassword
 from django.views.decorators.csrf import csrf_exempt
 from .models import MpesaPayment
+from useraccess.models import Packages
+from django.views.generic.detail import SingleObjectMixin
+from django.views.generic import ListView
+from django.shortcuts import render
+from django.core.cache.backends.base import DEFAULT_TIMEOUT
+from django.conf import settings
+from django.core.cache import cache
+from django.shortcuts import redirect
+from django.http import HttpResponseRedirect
 
 def getAccessToken(request):
     consumer_key = 'WKtrYFr35GVoI2fBWngoet2fs7T0KLa9'
@@ -16,28 +25,30 @@ def getAccessToken(request):
     return HttpResponse(validated_mpesa_access_token)
 
 def lipa_na_mpesa_online(request):
-    
-    PhoneNumber = request.POST.get('phonenumber')
-    Amount = request.POST.get('amount')
-    # import ipdb; ipdb.set_trace()
+    phone_number = cache.get("phonenumber")
+    Amount = cache.get("amount")
     access_token = MpesaAccessToken.validated_mpesa_access_token
     api_url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
     headers = {"Authorization": "Bearer %s" % access_token}
+    # import ipdb; ipdb.set_trace()
     request = {
+        # "META": request.META,
         "BusinessShortCode": LipanaMpesaPpassword.Business_short_code,
         "Password": LipanaMpesaPpassword.decode_password,
         "Timestamp": LipanaMpesaPpassword.lipa_time,
         "TransactionType": "CustomerPayBillOnline",
         "Amount": Amount,
-        "PartyA": PhoneNumber, # replace with your phone number to get stk push
+        "PartyA": phone_number, # replace with your phone number to get stk push
         "PartyB": LipanaMpesaPpassword.Business_short_code,
-        "PhoneNumber": 254797584194,# replace with your phone number to get stk push
+        "PhoneNumber": 254797584194,# replace with your phone number to make stk push
         "CallBackURL": "https://sandbox.safaricom.co.ke/mpesa/",
         "AccountReference": "PaulWababu",
         "TransactionDesc": "Donate to PaulWababu!"
     }
     response = requests.post(api_url, json=request, headers=headers)
-    return HttpResponse('success')
+    print("we are here ")
+    return HttpResponseRedirect("/https://www.paypal.com/ke/webapps/mpp/merchant")
+
 @csrf_exempt
 def register_urls(request):
     access_token = MpesaAccessToken.validated_mpesa_access_token
