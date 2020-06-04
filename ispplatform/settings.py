@@ -25,22 +25,19 @@ SECRET_KEY = '$$*tb(*fi-(yi!3avgr=lhqz%rkn-9+*ns-5%9a=3$ni7*i&j!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['df42b0f01378.ngrok.io', '*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'mpesa_api.apps.MpesaApiConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.google',
     'django.contrib.sites',
     'useraccess',
     'admindashboard',
@@ -75,11 +72,6 @@ TEMPLATES = [
     },
 ]
 
-
-SUIT_CONFIG = {
-    'ADMIN_HEADER': 'vertical'
-}
-
 WSGI_APPLICATION = 'ispplatform.wsgi.application'
 
 
@@ -89,9 +81,9 @@ WSGI_APPLICATION = 'ispplatform.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'truth',
-        'USER': 'root',
-        'PASSWORD': 'keras@#19',
+        'NAME': 'truthwifi',
+        'USER': 'huncho',
+        'PASSWORD': 'c11h28no3',
         'HOST': 'localhost',
         'PORT': '3306',
     }
@@ -136,25 +128,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-AUTHENTICATION_BACKENDS = (
+AUTH_USER_MODEL = 'useraccess.Customuser'
 
- 'django.contrib.auth.backends.ModelBackend',
-
- 'allauth.account.auth_backends.AuthenticationBackend',
- )
-
-SITE_ID = 1
-
-LOGIN_REDIRECT_URL = '/'
-
-SOCIALACCOUNT_PROVIDERS = {
-    'google': {
-        'SCOPE': [
-            'profile',
-            'email',
-        ],
-        'AUTH_PARAMS': {
-            'access_type': 'online',
-        }
-    }
-}
+LOGIN_REDIRECT_URL = "/profile/"

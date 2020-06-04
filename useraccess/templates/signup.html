@@ -17,171 +17,170 @@
     <link href="{% static 'css/style.min.css' %} " rel="stylesheet">
 </head>
 <style>
-    .navbar {
-        opacity: 0.9;
+    @import url('https://fonts.googleapis.com/css?family=Numans');
+
+    html,
+    body {
+        background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+        background-size: cover;
+        /* background-repeat: no-repeat; */
+        height: 100%;
+        font-family: 'Numans', sans-serif;
+    }
+
+
+    .container {
+        height: 100%;
+        align-content: center;
+        margin-top: 50;
     }
 
     .card {
-        width: 50%;
-        height: 50%;
-        position: relative;
-        align-content: center;
-        left: 400px;
-        top: 50px;
-        bottom: 50px;
+        height: ;
+        margin-top: auto;
+        margin-bottom: auto;
+        width: 600px;
+        background-color: rgba(0, 0, 0, 0.5) !important;
+        text-align: center;
     }
 
-    footer {
-        position: relative;
-        top: 50px;
-        /* bottom: 0; */
+    .social_icon span {
+        font-size: 60px;
+        margin-left: 10px;
+        color: #FFC312;
+    }
+
+    .social_icon span:hover {
+        color: white;
+        cursor: pointer;
+    }
+
+    .card-header h3 {
+        color: white;
+    }
+
+    .social_icon {
+        position: absolute;
+        right: 20px;
+        top: -45px;
+    }
+
+    .input-group-prepend span {
+        width: 50px;
+        background-color: #FFC312;
+        color: black;
+        border: 0 !important;
+    }
+
+    input:focus {
+        outline: 0 0 0 0 !important;
+        box-shadow: 0 0 0 0 !important;
+
+    }
+
+    .remember {
+        color: white;
     }
 </style>
 
 <body>
-    <div class="overlay">
-        <!--Navbar -->
-        <nav class="mb-1 navbar navbar-expand-lg navbar-dark black lighten-1">
-            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                data-target="#navbarSupportedContent-555" aria-controls="navbarSupportedContent-555"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item ">
-                        <a class="nav-link" href="{% url 'home' %}">Home
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'signup' %}">Sign-up</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'login' %}">Login</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </div>
-    <main>
+    <main class="pt-3">
+        <div class="container">
+            <div class="d-flex justify-content-center h-100">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Sign Up</h3>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <!-- <div class="input-group form-group">
+                                <div class="input-group-prepend col-md-4">
+                                    <label style="padding: 5px; color: white;"><small>Firstname</small></label>
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                <div class="col-md-8">
+                                    {{form.firstname}}
 
-        <!-- Material form register -->
-        <div class="card">
+                                </div>
 
-            <h5 class="card-header black white-text text-center py-4" style="opacity: 0.9;">
-                <strong><b>Sign up</b></strong>
-            </h5>
-
-            <!--Card content-->
-            <div class="card-body px-lg-5 pt-0">
-
-                <!-- Form -->
-                <form class="text-center" style="color: #757575;" action="#!">
-
-                    <div class="form-row">
-                        <div class="col">
-                            <!-- First name -->
-                            <div class="md-form">
-                                <label>First name</label>
-                                <br>
-                                <input type="text" class=" form-control">
                             </div>
-                        </div>
-                        <div class="col">
-                            <!-- Last name -->
-                            <div class="md-form">
-                                <label>Last name</label>
-                                <br>
-                                <input type="email" class="form-control">
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend col-md-4">
+                                    <label style="padding: 5px; color: white;"><small>Lastname</small></label>
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                <div class="col-md-8">
+                                    {{form.lastname}}
+
+                                </div>
+
                             </div>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend col-md-4">
+                                    <label style="padding: 5px; color: white;;"><small>Email</small></label>
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                <div class="col-md-8">
+                                    {{form.email}}
+
+                                </div>
+
+                            </div>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend col-md-4">
+                                    <label style="padding: 5px; color: white;"><small>PhoneNumber</small></label>
+                                    <span class="input-group-text "><i class="fas fa-user"></i></span>
+                                </div>
+                                <div class="col-md-8">
+                                    {{form.phonenumber}}
+
+                                </div>
+
+                            </div>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend col-md-4">
+                                    <label style="padding: 5px; color: white;;"><small>Password</small></label>
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                </div>
+                                <div class="col-md-8">
+                                    {{form.password1}}
+
+                                </div>
+
+                            </div>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend col-md-4">
+                                    <label style="padding: 5px; color: white;;"><small>confirm
+                                            password</small></label>
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                </div>
+                                <div class="col-md-8">
+                                    {{form.password2}}
+
+                                </div>
+
+                            </div>
+                            <div class="row align-items-center remember pt-3">
+                                <input type="checkbox">Remember Me
+                            </div> -->
+                            <div class="form-group">
+                                <button type="submit" class="btn float-right login_btn white">Sign Up
+                                    </b></strong></button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-center links grey">
+                            already have an account?<a href="{ url 'login' }">Login</a>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <a href="#">Forgot your password?</a>
                         </div>
                     </div>
-
-                    <!-- E-mail -->
-                    <div class="md-form mt-0">
-                        <label>E-mail</label>
-                        <br>
-                        <input type="email" class="form-control">
-                    </div>
-
-                    <!-- Password -->
-                    <div class="md-form">
-                        <label for="materialRegisterFormPassword">Password</label>
-                        <br>
-                        <input type="password" id="materialRegisterFormPassword" class="form-control"
-                            aria-describedby="materialRegisterFormPasswordHelpBlock">
-
-                        <small id="materialRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
-                            At least 8 characters and 1 digit
-                        </small>
-                    </div>
-
-                    <!-- Phone number -->
-                    <div class="md-form">
-                        <input type="password" id="materialRegisterFormPhone" class="form-control"
-                            aria-describedby="materialRegisterFormPhoneHelpBlock">
-                        <label for="materialRegisterFormPhone">Phone number</label>
-                        <small id="materialRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
-                            Optional - for two step authentication
-                        </small>
-                    </div>
-
-                    <!-- Newsletter -->
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="materialRegisterFormNewsletter">
-                        <label class="form-check-label" for="materialRegisterFormNewsletter">Subscribe to our
-                            newsletter</label>
-                    </div>
-
-                    <!-- Sign up button -->
-                    <button class="btn btn-outline-dark btn-rounded btn-block my-4 waves-effect z-depth-0"
-                        type="submit">Sign
-                        in</button>
-
-                    <!-- Social register -->
-                    <p>or sign up with:</p>
-
-                    <a type="button" class="btn-floating btn-fb btn-sm">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a type="button" class="btn-floating btn-tw btn-sm">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a type="button" class="btn-floating btn-li btn-sm">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a type="button" class="btn-floating btn-git btn-sm">
-                        <i class="fab fa-github"></i>
-                    </a>
-
-                    <hr>
-
-                    <!-- Terms of service -->
-                    <p>By clicking
-                        <em>Sign up</em> you agree to our
-                        <a href="" target="_blank">terms of services</a>
-
-                </form>
-                <!-- Form -->
-
+                </div>
             </div>
-
         </div>
-        <!-- Material form register -->
     </main>
-    <!--Footer-->
-    <footer class=" page-footer text-center font-small mt-4 wow fadeIn">
-
-        <!--Call to action-->
-        <div class="pt-4">
-
-            <!--Copyright-->
-            <div class="footer-copyright py-3">
-                © 2020 Copyright:
-                <a href="http://truthwifi.com/home" target="_blank"> Truthwifi.com </a>
-            </div>
-            <!--/.Copyright-->
-
-    </footer>
 </body>

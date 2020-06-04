@@ -1,17 +1,113 @@
-{% load socialaccount %}
+{% load static %}
 <html>
-  <head>
-    <title>Google Registration</title>
-  </head>
-  <body>
-  <h1>My Google Login Project</h1>
-  {% if user.is_authenticated %}
-  <p>Welcome, {{ user.username }} !</p>
 
-  {% else %}
-  <h1>My Google Login Project</h1>
-  <a href="{% provider_login_url 'google' %}">Login with Google</a>
-  {% endif %}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Material Design Bootstrap</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'css/bootstrap.min.css' %} " rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="{% static 'css/mdb.min.css' %} " rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="{% static 'css/style.min.css' %} " rel="stylesheet">
+</head>
+<style>
+  /* Made with love by Mutiullah Samim*/
 
-  </body>
+  @import url('https://fonts.googleapis.com/css?family=Numans');
+
+  html,
+  body {
+    background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    font-family: 'Numans', sans-serif;
+  }
+
+  .container {
+    height: 100%;
+    align-content: center;
+  }
+
+  .card {
+    height: 80%;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 400px;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+  }
+
+  .social_icon span {
+    font-size: 60px;
+    margin-left: 10px;
+    color: #FFC312;
+  }
+
+  .social_icon span:hover {
+    color: white;
+    cursor: pointer;
+  }
+
+  .card-header h3 {
+    color: white;
+  }
+
+  .social_icon {
+    position: absolute;
+    right: 20px;
+    top: -45px;
+  }
+
+  .input-group-prepend span {
+    width: 50px;
+    background-color: #FFC312;
+    color: black;
+    border: 0 !important;
+  }
+
+  input:focus {
+    outline: 0 0 0 0 !important;
+    box-shadow: 0 0 0 0 !important;
+
+  }
+
+  .remember {
+    color: white;
+  }
+</style>
+
+<body>
+  <div class="container">
+    <div class="d-flex justify-content-center h-100">
+      <div class="card">
+        <div class="card-header">
+          <h3>Login In</h3>
+
+        </div>
+        <div class="card-body">
+          <form method="POST">
+            {% csrf_token %}
+            {{ form }}
+            <div class="form-group">
+              <button type="submit" class="btn float-right login_btn white"><strong><b>Login</b></strong></button>
+            </div>
+          </form>
+        </div>
+        <div class="card-footer">
+          <div class="d-flex justify-content-center links grey">
+            Don't have an account?<a href="#">Sign Up</a>
+          </div>
+          <div class="d-flex justify-content-center">
+            <a href="#">Forgot your password?</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </html>
