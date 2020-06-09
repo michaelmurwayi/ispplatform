@@ -25,8 +25,8 @@
         data_array = [];
         data_array = values.split(',');
         data_array.push(bundle_name);
-        alert(values)
-        var url = "/get_bundle"
+        alert(data_array[2])
+        var url = "http://e2f14ad2b605.ngrok.io/api/v1/online/lipa"
 
         $.ajax(
             {
@@ -35,6 +35,9 @@
                 data: {
                     bundle: data_array[0],
                     price: data_array[1],
+                    speed: data_array[2],
+                    access_period: data_array[3],
+
                 },
                 success: function (data) {
                     $('#like' + catid).remove();
@@ -141,8 +144,8 @@
                             {% for items in package_list %}
                             <div class=" package col-md-3 view overlay  ">
                                 <button class="btn black-gradient btn-rounded color-white" action=""
-                                    value={{items.bundle_length}},{{items.bundle_price}} name={{items.bundle}}
-                                    id={{items.bundle_length}} onclick="select_bundle(this.id)">
+                                    value={{items.bundle_length}},{{items.bundle_price}},{{items.bundle_speed}}
+                                    name={{items.bundle}} id={{items.bundle_length}} onclick="select_bundle(this.id)">
                                     <ul>
                                         <li><strong>{{items.bundle_length}}</strong></li>
                                         <li><strong>{{items.bundle}}</strong></li>
