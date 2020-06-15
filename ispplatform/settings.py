@@ -24,7 +24,7 @@ SECRET_KEY = '$$*tb(*fi-(yi!3avgr=lhqz%rkn-9+*ns-5%9a=3$ni7*i&j!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['e2f14ad2b605.ngrok.io', '*']
+ALLOWED_HOSTS = ['c6882872aafe.ngrok.io', '*']
 
 # Application definition
 
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'useraccess',
     'admindashboard',
 ]
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -128,3 +129,5 @@ STATIC_URL = '/static/'
 AUTH_USER_MODEL = 'useraccess.Customuser'
 
 LOGIN_REDIRECT_URL = "/profile/"
+
+DATETIME_FORMAT = '%d-%m-%Y %H:%M:%S'

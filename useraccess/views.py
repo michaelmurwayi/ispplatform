@@ -13,6 +13,7 @@ import requests
 from django.http import HttpResponseRedirect
 from datetime import datetime, timedelta
 from .models import SelectedPackages
+import pytz
 # Create your views here.
 
 
@@ -72,13 +73,13 @@ class ProfileView(SingleObjectMixin, ListView):
             return render(request, 'profile.html', {"context": context})
         elif user_check != 0:
             # import ipdb; ipdb.set_trace()
-            user_package = UserPackage.objects.filter(email=email).last()
+            user_package = SelectedPackages.objects.filter(email=email).last()
             expected_expiry = user_package.Expiry
             context = {
                 "user_count":
                 user_check,
-                "bundle":
-                user_package.bundle,
+                "access_period":
+                user_package.access_period,
                 "speed":
                 user_package.speed,
                 "Expiry":
@@ -120,37 +121,50 @@ class PackageView(CreateView):
 
 
 def sort_user_connection_start_time(user_details):
-
     # get latest user connection start time
-
     connectioninfo_start = user_details[-1]
+
     return connectioninfo_start
 
 
-def get_bundle(request):
-    cache.set('amount', request.GET.get('price'))
-    # import ipdb; ipdb.set_trace()
-    return HttpResponseRedirect(
-        "http://e534efe51dd1.ngrok.io/api/v1/online/lipa")
+def check_status_before_insert(email):
+    last_package = SelectedPackages.objects.filter(email=email).last()
+    pass
 
 
 def insert_select_package_to_db(data):
+    check_status_before_insert(data["email"])
     expiry_time = calculate_expiry(data["access_period"])
     user_package = SelectedPackages(email=data["email"],
                                     bundle=data["bundle"],
                                     speed=data["speed"],
                                     Expiry=expiry_time,
-                                    balance=data["bundle"],
+                                    balance=data["access_period"],
                                     access_period=data["access_period"])
     return user_package.save()
 
 
+def insert_into_radcheck(data):
+    pass
+
+
 def calculate_expiry(access_period):
-    now = datetime.now()
-    if access_period == 'Daily':
+
+    utc_now = pytz.utc.localize(datetime.utcnow())
+    now = utc_now.astimezone(pytz.timezone("Africa/Nairobi"))
+    if access_period == 'Hourly':
+        # calculate the expected expiry for hourly packages
+        expiry_time = now + timedelta(hours=1)
+        return expiry_time.strftime('%Y-%m-%d-%H:%M:%S')
+    elif access_period == 'Daily':
+        # calculate expected expiry date for daily packages
         expiry_time = now + timedelta(hours=24)
-        return expiry_time.strftime('%Y-%m-%d-%H:%M:%S')
+        return expiry_time.strftime('%Y-%m-%d-%H:%M')
     elif access_period == "Weekly":
+        # calculate the expected expiry for weekly packages
         expiry_time = now + timedelta(hours=168)
-        return expiry_time.strftime('%Y-%m-%d-%H:%M:%S')
-    return now
+        return expiry_time.strftime('%Y-%m-%d-%H:%M')
+    else:
+        # calculate expected expiry for monthly packages
+        expiry_time = now + timedelta(hours=720)
+        return expiry_time.strftime('%Y-%m-%d-%H:%M')

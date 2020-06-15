@@ -148,12 +148,12 @@
         <center>
             <div class="jumbotron jumbotron-fluid  rgba-gradient">
                 <div class="alert alert-success pt-0" role="alert">
-                    This will display the connection status
+                    {{ context.Connection_message }}
                 </div>
                 <div class="container row pt-5" style="padding: 10px; background-color: url({ static 'img/card.jpeg'})">
                     <div class=" card col-md-3 pt-0 purple-gradient" style="opacity: 0.8; color: black;">
                         <small>
-                            <p class="pt-2"><strong><b>{{context.bundle}}</b></strong></p>
+                            <p class="pt-2"><strong><b>{{context.access_period}}</b></strong></p>
                         </small>
                         <hr>
                         <p><strong><i>Bundle Purchased</i></strong></p>

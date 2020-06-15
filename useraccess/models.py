@@ -21,7 +21,7 @@ from .managers import CustomUserManager
 
 
 class Packages(models.Model):
-    bundle = models.CharField(max_length=10)
+    bundle = models.CharField(max_length=20)
     bundle_price = models.IntegerField()
     bundle_length = models.CharField(max_length=10)
     bundle_speed = models.CharField(max_length=15)
