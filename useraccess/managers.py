@@ -17,7 +17,7 @@ class CustomUserManager(BaseUserManager):
                     is_active=True,
                     is_admin=False):
         """
-        Create and save a User with the given email and password.
+        Create and save a User with the given email and passwords.
         """
         if not email:
             raise ValueError(_('The Email must be set'))
