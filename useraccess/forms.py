@@ -1,7 +1,8 @@
 from django.contrib.auth.forms import UserCreationForm
-from django import forms 
+from django import forms
 from .models import CustomUser, Packages
 # from django.forms import forms
+
 
 class UserCreationForm(UserCreationForm):
     firstname = forms.CharField()
@@ -10,10 +11,10 @@ class UserCreationForm(UserCreationForm):
     username = forms.CharField()
     phonenumber = forms.CharField()
 
-
     class Meta:
         model = CustomUser
         fields = ['firstname', 'lastname', 'username', 'email', 'phonenumber']
+
 
 class PackagesForm(forms.ModelForm):
     bundle = forms.CharField()
