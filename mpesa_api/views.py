@@ -14,7 +14,7 @@ from django.conf import settings
 from django.core.cache import cache
 from django.shortcuts import redirect
 from django.http import HttpResponseRedirect
-from useraccess.views import insert_select_package_to_db
+from useraccess.views import check_user_status
 
 
 def getAccessToken(request):
@@ -29,15 +29,15 @@ def getAccessToken(request):
 
 
 def lipa_na_mpesa_online(request):
+
     data = {
         "email": cache.get("email"),
         "phone_number": cache.get("phonenumber"),
-        "Amount": request.GET.get("price"),
+        "amount": request.GET.get("price"),
         "access_period": request.GET.get("access_period"),
         "bundle": request.GET.get("bundle"),
         "speed": request.GET.get("speed"),
     }
-
     access_token = MpesaAccessToken.validated_mpesa_access_token
     api_url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
     headers = {"Authorization": "Bearer %s" % access_token}
@@ -47,18 +47,17 @@ def lipa_na_mpesa_online(request):
         "Password": LipanaMpesaPpassword.decode_password,
         "Timestamp": LipanaMpesaPpassword.lipa_time,
         "TransactionType": "CustomerPayBillOnline",
-        "Amount": data["Amount"],
-        "PartyA":
-        data["phone_number"],  # replace with your phone number to get stk push
+        "Amount": data["amount"],
+        "PartyA": 254797584194,  # replace with your phone number to get cash
         "PartyB": LipanaMpesaPpassword.Business_short_code,
         "PhoneNumber":
-        254797584194,  # replace with your phone number to make stk push
+        254724656756,  # replace with your phone number to get stk push
         "CallBackURL": "https://sandbox.safaricom.co.ke/mpesa/",
         "AccountReference": "PaulWababu",
         "TransactionDesc": "Donate to PaulWababu!"
     }
     response = requests.post(api_url, json=request, headers=headers)
-    insert_select_package_to_db(data)
+    check_user_status(data)
     return HttpResponseRedirect("/profile")
 
 

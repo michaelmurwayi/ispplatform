@@ -127,13 +127,39 @@ def sort_user_connection_start_time(user_details):
     return connectioninfo_start
 
 
-def check_status_before_insert(email):
-    last_package = SelectedPackages.objects.filter(email=email).last()
-    pass
+def check_expiry(date):
+    utc_now = pytz.utc.localize(datetime.utcnow())
+    now = utc_now.astimezone(
+        pytz.timezone("Africa/Nairobi")).strftime('%Y-%m-%d-%H:%M')
+    if now > date:
+        return True
+    return False
+
+
+def check_user_status(data):
+    try:
+        last_package = SelectedPackages.objects.filter(
+            email=data["email"]).last()
+        expiry = last_package.Expiry
+        check_expiry(expiry)
+        balance = last_package.balance
+    except AttributeError as error:
+        print("exhaust package before buying new package")
+        return insert_select_package_to_db(data)
+    else:
+        last_package = SelectedPackages.objects.filter(
+            email=data["email"]).last()
+        expiry = last_package.Expiry
+        check_expiry(expiry)
+        balance = last_package.balance
+        if balance != 0 or check_expiry(expiry) == False:
+            print("please exhaust current package before buying new one")
+            return "please exhaust current package before buying new one"
+        else:
+            return insert_select_package_to_db(data)
 
 
 def insert_select_package_to_db(data):
-    check_status_before_insert(data["email"])
     expiry_time = calculate_expiry(data["access_period"])
     user_package = SelectedPackages(email=data["email"],
                                     bundle=data["bundle"],
