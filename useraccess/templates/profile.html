@@ -53,7 +53,7 @@
             align-content: center;
             background-color: black;
             margin: 10%;
-            margin-left: 5%;
+            margin-left: 8%;
             width: 150%;
             height: 80%;
             opacity: 0.9;
@@ -148,16 +148,20 @@
         <center>
             <div class="jumbotron jumbotron-fluid  rgba-gradient">
                 <div class="alert alert-success pt-0" role="alert">
-                    This will display the connection status
+                    {{ context.Connection_message }}
                 </div>
-                <div class="container row pt-5" style="padding: 10px;">
-                    <div class="card col-md-3 pt-0 purple-gradient" style="opacity: 0.8; color: black;">
-                        <p class="pt-2"><strong><b>300 MBz</b></strong></p>
+                <div class="container row pt-5" style="padding: 10px; background-color: url({ static 'img/card.jpeg'})">
+                    <div class=" card col-md-3 pt-0 purple-gradient" style="opacity: 0.8; color: black;">
+                        <small>
+                            <p class="pt-2"><strong><b>{{context.access_period}}</b></strong></p>
+                        </small>
                         <hr>
                         <p><strong><i>Bundle Purchased</i></strong></p>
                     </div>
                     <div class="card col-md-3 pt-0 purple-gradient" style="opacity: 0.8; color: black;">
-                        <p class="pt-2"><strong><b>4.20 PM Mon 4/2020 </b></strong></p>
+                        <small>
+                            <p class="pt-2"><strong><b>4.20 PM Mon 4/2020 </b></strong></p>
+                        </small>
                         <hr>
                         <p><strong><i>Session start time</i></strong></p>
                         <div class="col-md-8">
@@ -165,12 +169,16 @@
                         </div>
                     </div>
                     <div class="card col-md-3 pt-0 purple-gradient" style="opacity: 0.8; color: black;">
-                        <p><strong><b>4.20 AM</b></strong></p>
+                        <small>
+                            <p><strong><b>{{ context.Expiry}}</b></strong></p>
+                        </small>
                         <hr>
                         <p><strong><i>Expected Expiry time</i></strong></p>
                     </div>
                     <div class="card col-md-3 pt-0 purple-gradient" style="opacity: 0.8; color: black;">
-                        <p><strong><b>269 MBz</b></strong></p>
+                        <small>
+                            <p><strong><b>{{context.Balance}}</b></strong></p>
+                        </small>
                         <hr>
                         <p><strong><i>Bundle Remaining</i></strong></p>
                     </div>
@@ -178,13 +186,16 @@
                 </div>
                 <div class="row pt-5">
                     <div class="col-md-3">
-                        <button type="button" class="btn btn-primary btn-rounded waves-effect">Primary</button>
+                        <button type="button" class="btn btn-primary btn-rounded waves-effect"><a
+                                href="{% url 'packages' %}">Buy Package</a></button>
                     </div>
                     <div class="col-md-3">
-                        <button type="button" class="btn btn-outline-default btn-rounded waves-effect">Default</button>
+                        <button type="button" class="btn btn-outline-default btn-rounded waves-effect"><a
+                                href="http://55187aaf0005.ngrok.io/api/v1/online/lipa"> Test </a> </button>
                     </div>
                     <div class="col-md-3">
-                        <button type="button" class="btn btn-outline-default btn-rounded waves-effect">Default</button>
+                        <button type="button" class="btn btn-outline-default btn-rounded waves-effect">Edit
+                            Profile</button>
                     </div>
                 </div>
         </center>

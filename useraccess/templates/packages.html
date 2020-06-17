@@ -8,7 +8,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Material Design Bootstrap</title>
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11value.2/css/all.css">
     <!-- Bootstrap core CSS -->
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <!-- Material Design Bootstrap -->
@@ -16,6 +16,38 @@
     <!-- Your custom styles (optional) -->
     <link href="{% static 'css/style.min.css' %}" rel="stylesheet">
 </head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+
+    function select_bundle(clicked) {
+        let values = document.getElementById(clicked).value;
+        let bundle_name = document.getElementById(clicked).name;
+        data_array = [];
+        data_array = values.split(',');
+        data_array.push(bundle_name);
+        alert(data_array)
+        var url = "http://50d7f121e3d3.ngrok.io/api/v1/online/lipa"
+
+        $.ajax(
+            {
+                type: "GET",
+                url: url,
+                data: {
+                    bundle: data_array[0],
+                    price: data_array[1],
+                    speed: data_array[2],
+                    access_period: data_array[3],
+
+                },
+                success: function (data) {
+                    $('#like' + catid).remove();
+                    $('#message').text(data);
+                }
+            })
+
+    }
+
+</script>
 <style>
     body {
         background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
@@ -111,8 +143,9 @@
                         <div class=" row">
                             {% for items in package_list %}
                             <div class=" package col-md-3 view overlay  ">
-                                <button class="btn black-gradient btn-rounded color-white"
-                                    onclick="location.href='http://ebd9e70c.ngrok.io/api/v1/online/lipa'">
+                                <button class="btn black-gradient btn-rounded color-white" action=""
+                                    value={{items.bundle_length}},{{items.bundle_price}},{{items.bundle_speed}}
+                                    name={{items.bundle}} id={{items.bundle_length}} onclick="select_bundle(this.id)">
                                     <ul>
                                         <li><strong>{{items.bundle_length}}</strong></li>
                                         <li><strong>{{items.bundle}}</strong></li>

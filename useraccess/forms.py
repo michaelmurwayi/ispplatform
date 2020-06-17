@@ -1,25 +1,27 @@
 from django.contrib.auth.forms import UserCreationForm
-from django import forms 
-from django.contrib.auth.models import User
-from .models import MpesaApiMpesapayment
+from django import forms
+from .models import CustomUser, Packages
+# from django.forms import forms
+
 
 class UserCreationForm(UserCreationForm):
-    email = forms.EmailField()
     firstname = forms.CharField()
     lastname = forms.CharField()
+    email = forms.EmailField()
+    username = forms.CharField()
     phonenumber = forms.CharField()
 
+    class Meta:
+        model = CustomUser
+        fields = ['firstname', 'lastname', 'username', 'email', 'phonenumber']
 
+
+class PackagesForm(forms.ModelForm):
+    bundle = forms.CharField()
+    bundle_price = forms.CharField()
+    bundle_length = forms.CharField()
+    bundle_speed = forms.CharField()
 
     class Meta:
-        model = User
-        fields = ['firstname', 'lastname',  'email', 'phonenumber', 'password1', 'password2']
-        exclude = ('username',)
-
-class PaymentForm(forms.ModelForm):
-    phonenumber = forms.CharField()
-    amount = forms.IntegerField()
-
-    class Meta:
-        model = MpesaApiMpesapayment
-        fields = ['phonenumber', 'amount']
+        model = Packages
+        fields = ['bundle', 'bundle_price', 'bundle_length', 'bundle_speed']
