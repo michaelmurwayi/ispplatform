@@ -24,7 +24,7 @@ SECRET_KEY = '$$*tb(*fi-(yi!3avgr=lhqz%rkn-9+*ns-5%9a=3$ni7*i&j!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['50d7f121e3d3.ngrok.io', '*']
+ALLOWED_HOSTS = ['864da6a8853a.ngrok.io', '*']
 
 # Application definition
 
@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'ispplatform.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'truthwifi',
+        'NAME': 'isp',
         'USER': 'huncho',
         'PASSWORD': 'c11h28no3',
         'HOST': 'localhost',

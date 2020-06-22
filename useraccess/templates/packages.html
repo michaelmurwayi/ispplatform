@@ -26,17 +26,17 @@
         data_array = values.split(',');
         data_array.push(bundle_name);
         alert(data_array)
-        var url = "http://50d7f121e3d3.ngrok.io/api/v1/online/lipa"
+        var url = "http://864da6a8853a.ngrok.io/api/v1/online/lipa"
 
         $.ajax(
             {
                 type: "GET",
                 url: url,
                 data: {
-                    bundle: data_array[0],
+                    access_period: data_array[0],
                     price: data_array[1],
                     speed: data_array[2],
-                    access_period: data_array[3],
+                    bundle: data_array[3],
 
                 },
                 success: function (data) {

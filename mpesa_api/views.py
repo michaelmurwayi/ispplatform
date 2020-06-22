@@ -31,7 +31,7 @@ def getAccessToken(request):
 def lipa_na_mpesa_online(request):
 
     data = {
-        "email": cache.get("email"),
+        "username": cache.get("username"),
         "phone_number": cache.get("phonenumber"),
         "amount": request.GET.get("price"),
         "access_period": request.GET.get("access_period"),
