@@ -14,7 +14,7 @@ from django.conf import settings
 from django.core.cache import cache
 from django.shortcuts import redirect
 from django.http import HttpResponseRedirect
-from useraccess.views import insert_select_package_to_db
+from useraccess.views import check_user_status
 
 
 def getAccessToken(request):
@@ -30,7 +30,7 @@ def getAccessToken(request):
 
 def lipa_na_mpesa_online(request):
     data = {
-        "email": cache.get("email"),
+        "username": cache.get("username"),
         "phone_number": cache.get("phonenumber"),
         "Amount": request.GET.get("price"),
         "access_period": request.GET.get("access_period"),
@@ -58,7 +58,7 @@ def lipa_na_mpesa_online(request):
         "TransactionDesc": "Donate to PaulWababu!"
     }
     response = requests.post(api_url, json=request, headers=headers)
-    insert_select_package_to_db(data)
+    check_user_status(data)
     return HttpResponseRedirect("/profile")
 
 
