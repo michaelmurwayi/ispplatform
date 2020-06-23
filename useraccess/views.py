@@ -105,6 +105,7 @@ class PackageView(CreateView):
         form = self.form_class()
         for items in packages:
             context = {
+                "bundle_id": items['id'],
                 "username": request.user.username,
                 "bundle": items['bundle'],
                 "bundle_price": items['bundle_price'],
@@ -245,7 +246,7 @@ def calculate_expiry(access_period):
 
 def calculate_total_limit(bundle):
     if bundle != "UNLIMITED":
-        amount = bundle[:2]
+        amount = bundle[:-2]
         size = bundle[2:]
         if size == "MB":
             KB = int(1000)
@@ -253,6 +254,8 @@ def calculate_total_limit(bundle):
             mikrotic_total_limit = int(amount) * MB
             return mikrotic_total_limit
         else:
+            amount = bundle[:-2]
+            size = bundle[2:]
             KB = int(1024)
             GB = int(KB**3)
             mikrotic_total_limit = int(amount) * GB
