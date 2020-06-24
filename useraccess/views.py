@@ -28,7 +28,7 @@ class SignupView(CreateView):
 
     form_class = UserCreationForm
     success_url = reverse_lazy('profile')
-    template_name = "signup.html"
+    template_name = "register.html"
 
     def post(self, request):
         #  how to handle user registration form
@@ -49,7 +49,7 @@ class SignupView(CreateView):
 class ProfileView(SingleObjectMixin, ListView):
     # view for the user profile page
 
-    template_name = 'profile.html'
+    template_name = 'account.html'
     user = User
 
     def get(self, request):
@@ -57,6 +57,8 @@ class ProfileView(SingleObjectMixin, ListView):
         user_check = SelectedPackages.objects.filter(username=username).count()
         if user_check == 0:
             context = {
+                "username":
+                username,
                 "user_count":
                 user_check,
                 "bundle":
@@ -70,7 +72,7 @@ class ProfileView(SingleObjectMixin, ListView):
                 "Connection_message":
                 "Your Connection is Limited please purchase bundle"
             }
-            return render(request, 'profile.html', {"context": context})
+            return render(request, 'account.html', {"context": context})
         elif user_check != 0:
             user_package = SelectedPackages.objects.filter(
                 username=username).last()
@@ -89,7 +91,7 @@ class ProfileView(SingleObjectMixin, ListView):
                 "Connection_message":
                 "You are connected to the internet. Enjoy browsing"
             }
-            return render(request, 'profile.html', {"context": context})
+            return render(request, 'account.html', {"context": context})
 
 
 class PackageView(CreateView):
