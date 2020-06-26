@@ -5,9 +5,15 @@ import mysql.connector
 
 mydb = mysql.connector.connect(
   host="localhost",
+<<<<<<< HEAD
   user="root",
   passwd="tony10578bella",
   database="radius"
+=======
+  user="huncho",
+  passwd="c11h28no3",
+  database="isp"
+>>>>>>> 67354c8550fc5c045031ec30667c1b1010b7843f
 ) 
 
 

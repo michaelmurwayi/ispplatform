@@ -24,7 +24,11 @@ SECRET_KEY = '$$*tb(*fi-(yi!3avgr=lhqz%rkn-9+*ns-5%9a=3$ni7*i&j!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+<<<<<<< HEAD
 ALLOWED_HOSTS = ['f27e47ebb038.ngrok.io', '*']
+=======
+ALLOWED_HOSTS = ['192.128.100.5', 'cf96cfb76f54.ngrok.io', '*']
+>>>>>>> 67354c8550fc5c045031ec30667c1b1010b7843f
 
 # Application definition
 
@@ -78,9 +82,15 @@ WSGI_APPLICATION = 'ispplatform.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
+<<<<<<< HEAD
         'NAME': 'radius',
         'USER': 'root',
         'PASSWORD': 'tony10578bella',
+=======
+        'NAME': 'isp',
+        'USER': 'huncho',
+        'PASSWORD': 'c11h28no3',
+>>>>>>> 67354c8550fc5c045031ec30667c1b1010b7843f
         'HOST': 'localhost',
         'PORT': '3306',
     }
