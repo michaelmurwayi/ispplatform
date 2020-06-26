@@ -51,7 +51,7 @@ def lipa_na_mpesa_online(request):
         "PartyA": 254797584194,  # replace with your phone number to get cash
         "PartyB": LipanaMpesaPpassword.Business_short_code,
         "PhoneNumber":
-        254724656756,  # replace with your phone number to get stk push
+        254700011464,  # replace with your phone number to get stk push
         "CallBackURL": "https://sandbox.safaricom.co.ke/mpesa/",
         "AccountReference": "PaulWababu",
         "TransactionDesc": "Donate to PaulWababu!"

@@ -1,186 +1,224 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Material Design Bootstrap</title>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-    <!-- Bootstrap core CSS -->
-    <link href="{% static 'css/bootstrap.min.css' %} " rel="stylesheet">
-    <!-- Material Design Bootstrap -->
-    <link href="{% static 'css/mdb.min.css' %} " rel="stylesheet">
-    <!-- Your custom styles (optional) -->
-    <link href="{% static 'css/style.min.css' %} " rel="stylesheet">
-</head>
-<style>
-    @import url('https://fonts.googleapis.com/css?family=Numans');
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="TruthWifi Offers affordable and reliable internet. Powered by TechCrunch">
+    <meta name="author" content="Crunch-Tech, Crunchtech labs">
+    <link rel="shortcut icon" href="{% static 'img/truth-favicon.png' %}" type="image/x-icon">
+    
+    <title>TRUTH WIFI</title>
+    
+    <link media="all" type="text/css" rel="stylesheet" href="{% static 'css/frontend.dev.css' %}">
 
-    html,
-    body {
-        background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
-        background-size: cover;
-        /* background-repeat: no-repeat; */
-        height: 100%;
-        font-family: 'Numans', sans-serif;
-    }
-
-
-    .container {
-        height: 100%;
-        align-content: center;
-        margin-top: 50;
-    }
-
-    .card {
-        height: ;
-        margin-top: auto;
-        margin-bottom: auto;
-        width: 600px;
-        background-color: rgba(0, 0, 0, 0.5) !important;
-        text-align: center;
-    }
-
-    .social_icon span {
-        font-size: 60px;
-        margin-left: 10px;
-        color: #FFC312;
-    }
-
-    .social_icon span:hover {
-        color: white;
-        cursor: pointer;
-    }
-
-    .card-header h3 {
-        color: white;
-    }
-
-    .social_icon {
-        position: absolute;
-        right: 20px;
-        top: -45px;
-    }
-
-    .input-group-prepend span {
-        width: 50px;
-        background-color: #FFC312;
-        color: black;
-        border: 0 !important;
-    }
-
-    input:focus {
-        outline: 0 0 0 0 !important;
-        box-shadow: 0 0 0 0 !important;
-
-    }
-
-    .remember {
-        color: white;
-    }
+    <!-- styles -->
+    <style>
+        .guest-btn{margin-top:10px}.navbar-default{border-bottom:none;background-color:#111;-webkit-box-shadow:0 5px 5px #888;-moz-box-shadow:0 5px 5px #888;box-shadow:0 2px 5px rgba(0,0,0,.16)}.btn,.label{border-radius:25px 25px}.navbar-default .navbar-brand,.navbar-default .navbar-nav>li>a{color:#fff}.btn-default,.label-default{background-color:#8a2be2;color:#fff}.btn-default:hover,.label-default[href]:hover{background-color:#8a2be2;color:#ddd}.btn-primary{color:#fff;background-color:#8a2be2;border-color:#8a2be2}.btn-primary.focus,.btn-primary:focus{color:#fff;background-color:#8a2be2;border-color:#8a2be2}.btn-primary.active,.btn-primary:active,.btn-primary:hover,.open>.btn-primary.dropdown-toggle{color:#fff;background-color:#7c2ad2;border-color:#7c2ad2}.navbar-default .navbar-brand:hover,.navbar-default .navbar-nav>li>a:hover{color:#ddd}.content{min-height:82vh;padding:15px}.main-footer{border-top:1px solid rgba(0,0,0,.16);padding-top:10px;padding-bottom:10px}.welcome-header{padding-top:70px;background:#8a2be2 url(#) no-repeat fixed center;background-size:cover}.welcome-guest-panel{background:rgba(99,107,111,.47)!important}.messages{margin-top:70px}.row-margin-top{margin-top:10px;padding:4px}
+    </style>
+        <style>
+       .nav-pill li.active{background-color:#ddd}label a:hover{color:#fff}.btn{width:220px;height:50px;border:none;outline:0;color:#fff;background:#111;cursor:pointer;position:relative;z-index:0;border-radius:10px}.btn:before{content:'';background:linear-gradient(45deg,red,#ff7300,#fffb00,#48ff00,#00ffd5,#002bff,#7a00ff,#ff00c8,red);position:absolute;top:-2px;left:-2px;background-size:400%;z-index:-1;filter:blur(5px);width:calc(100% + 4px);height:calc(100% + 4px);animation:glowing 20s linear infinite;opacity:0;transition:opacity .3s ease-in-out;border-radius:10px}.btn:active{color:#000}.btn:active:after{background:0 0}.btn:before{opacity:1}.btn:after{z-index:-1;content:'';position:absolute;width:100%;height:100%;background:#111;left:0;top:0;border-radius:10px}@keyframes glowing{0%{background-position:0 0}50%{background-position:400% 0}100%{background-position:0 0}}
+    </style>
+    <style>
+/* Style all input fields */
+input{width:100%;padding:12px;border:1px solid #ccc;border-radius:4px;box-sizing:border-box;margin-top:6px;margin-bottom:16px}#message{display:none;background:#f1f1f1;color:#000;position:relative;padding:20px;margin-top:10px}#message p{padding:10px 35px;font-size:18px}.valid{color:green}.valid:before{position:relative;left:-35px;content:"✔"}.invalid{color:red}.invalid:before{position:relative;left:-35px;content:"✖"}
 </style>
+    </style>
+</head>
 
 <body>
-    <main class="pt-3">
-        <div class="container">
-            <div class="d-flex justify-content-center h-100">
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Sign Up</h3>
-                    </div>
-                    <div class="card-body">
-                        <form method="POST">
-                            {% csrf_token %}
-                            {{ form.as_p }}
-                            <!-- <div class="input-group form-group">
-                                <div class="input-group-prepend col-md-4">
-                                    <label style="padding: 5px; color: white;"><small>Firstname</small></label>
-                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
-                                </div>
-                                <div class="col-md-8">
-                                    {{form.firstname}}
+<div class="wrapper">
+    <!-- NAV SECTION -->
+    <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="index.html" class="navbar-brand" style="font-size: 24px;">TRUTH WIFI</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://truthwifi.com/home">Home</a></li>
+                                <li><a href="http://truthwifi.com/client/register">Register</a></li>
+                <li><a id="loginUrlToggle" href="http://truthwifi.com/client/login">Login</a></li>
+                            </ul>
+        </div>
+    </div>
+    </div>    <!--END NAV SECTION -->
+    <div class="content-wrapper">
+        <div class="container messages">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                                    </div>
+            </div>
+        </div>
+        <div class="content">
+            <!-- MAIN CONTENT -->
+            <div class="row login-box">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="text-center"> Register here  </h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            
+                            <div class="tab-content">
+                                
+                                <div class="tab-pane active" id="detail">
+                                            <form method="post">
+                                            
+                                           <!-- <input type="hidden" name="_token" value="">
+                                            <div class="row">
+                                                <div class="col-xs-12 form-group">
+                                                    <label for="username">Firstname</label>
+                                                    <input type="text" id="username" name="user_name" value="" class="form-control input-lg" placeholder="Paul">
+                                                    {{form.firstname}}
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12 form-group">
+                                                    <label for="email">Email Address</label>
+                                                    <input type="text" id="email" name="email" value="" class="form-control input-lg" placeholder="covid19@gmail.com">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12 form-group">
+                                                    <label for="phone">Phone number</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon" style="font-size: 18px;">+254</span>
+                                                        <input type="number" id="phone" name="phone" value="" class="form-control input-lg" placeholder="712345678">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12 form-group">
+                                                    <label for="psw">Password</label>
+                                                    <input type="text" id="psw" name="psw" value="" class="form-control input-lg" placeholder="Dell1234" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                                                </div>
+                                            </div>
 
-                                </div>
 
+
+                                            
+
+
+                                            <div id="message">
+                                                <h3>Password must contain the following:</h3>
+                                                <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+                                                <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+                                                <p id="number" class="invalid">A <b>number</b></p>
+                                                <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+                                              </div>
+                                                 <script>
+                                                var myInput = document.getElementById("psw");
+                                                var letter = document.getElementById("letter");
+                                                var capital = document.getElementById("capital");
+                                                var number = document.getElementById("number");
+                                                var length = document.getElementById("length");
+                                                
+                                                // When the user clicks on the password field, show the message box
+                                                myInput.onfocus = function() {
+                                                  document.getElementById("message").style.display = "block";
+                                                }
+                                                
+                                                // When the user clicks outside of the password field, hide the message box
+                                                myInput.onblur = function() {
+                                                  document.getElementById("message").style.display = "none";
+                                                }
+                                                
+                                                // When the user starts to type something inside the password field
+                                                myInput.onkeyup = function() {
+                                                  // Validate lowercase letters
+                                                  var lowerCaseLetters = /[a-z]/g;
+                                                  if(myInput.value.match(lowerCaseLetters)) {  
+                                                    letter.classList.remove("invalid");
+                                                    letter.classList.add("valid");
+                                                  } else {
+                                                    letter.classList.remove("valid");
+                                                    letter.classList.add("invalid");
+                                                  }
+                                                  
+                                                  // Validate capital letters
+                                                  var upperCaseLetters = /[A-Z]/g;
+                                                  if(myInput.value.match(upperCaseLetters)) {  
+                                                    capital.classList.remove("invalid");
+                                                    capital.classList.add("valid");
+                                                  } else {
+                                                    capital.classList.remove("valid");
+                                                    capital.classList.add("invalid");
+                                                  }
+                                                
+                                                  // Validate numbers
+                                                  var numbers = /[0-9]/g;
+                                                  if(myInput.value.match(numbers)) {  
+                                                    number.classList.remove("invalid");
+                                                    number.classList.add("valid");
+                                                  } else {
+                                                    number.classList.remove("valid");
+                                                    number.classList.add("invalid");
+                                                  }
+                                                  
+                                                  // Validate length
+                                                  if(myInput.value.length >= 8) {
+                                                    length.classList.remove("invalid");
+                                                    length.classList.add("valid");
+                                                  } else {
+                                                    length.classList.remove("valid");
+                                                    length.classList.add("invalid");
+                                                  }
+                                                }
+                                                </script>
+                                          <div class="row text-center">
+                                                <div class="col-xs-12">
+                                                                                                            <button class="btn btn-default btn-lg" type="submit">Next</button>
+                                                                                                    </div>
+                                            </div> -->
+                                        </form>
+                                                                    </div>
+                                <div class="tab-panel" id="verification">
+                                    <form  method="post">
+                                        {% csrf_token %}
+                                         {{ form.as_p }}
+                                        <input type="hidden" name="_token" value="">
+                                        <div class="row">
+                                            <div class="col-sm-12 form-group">
+                                                <label for="verification" style="display: block;">
+                                                    Verification
+                                                </label>
+                                                <input type="text" id="verification" name="verification" class="form-control input-lg" placeholder="enter 4 digit code sent to your phone number">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-12 text-center">
+                                                <button class="btn btn-default btn-lg" type="submit">Verify</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
-                            <div class="input-group form-group">
-                                <div class="input-group-prepend col-md-4">
-                                    <label style="padding: 5px; color: white;"><small>Lastname</small></label>
-                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
-                                </div>
-                                <div class="col-md-8">
-                                    {{form.lastname}}
-
-                                </div>
-
-                            </div>
-                            <div class="input-group form-group">
-                                <div class="input-group-prepend col-md-4">
-                                    <label style="padding: 5px; color: white;;"><small>Email</small></label>
-                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
-                                </div>
-                                <div class="col-md-8">
-                                    {{form.email}}
-
-                                </div>
-
-                            </div>
-                            <div class="input-group form-group">
-                                <div class="input-group-prepend col-md-4">
-                                    <label style="padding: 5px; color: white;"><small>PhoneNumber</small></label>
-                                    <span class="input-group-text "><i class="fas fa-user"></i></span>
-                                </div>
-                                <div class="col-md-8">
-                                    {{form.phonenumber}}
-
-                                </div>
-
-                            </div>
-                            <div class="input-group form-group">
-                                <div class="input-group-prepend col-md-4">
-                                    <label style="padding: 5px; color: white;;"><small>Password</small></label>
-                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
-                                </div>
-                                <div class="col-md-8">
-                                    {{form.password1}}
-
-                                </div>
-
-                            </div>
-                            <div class="input-group form-group">
-                                <div class="input-group-prepend col-md-4">
-                                    <label style="padding: 5px; color: white;;"><small>confirm
-                                            password</small></label>
-                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
-                                </div>
-                                <div class="col-md-8">
-                                    {{form.password2}}
-
-                                </div>
-
-                            </div>
-                            <div class="row align-items-center remember pt-3">
-                                <input type="checkbox">Remember Me
-                            </div> -->
-                            <div class="form-group">
-                                <button type="submit" class="btn float-right login_btn white">Sign Up
-                                    </b></strong></button>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="card-footer">
-                        <div class="d-flex justify-content-center links grey">
-                            already have an account?<a href="{ url 'login' }">Login</a>
                         </div>
-                        <div class="d-flex justify-content-center">
-                            <a href="#">Forgot your password?</a>
-                        </div>
                     </div>
+                   
                 </div>
             </div>
         </div>
-    </main>
+    </div>
+        <!-- MAIN CONTENT -->
+        </div>
+    </div>
+    <!-- FOOTER -->
+<!--FOOTER SECTION -->
+<div class="main-footer text-center">
+    <strong>Copyright &copy; 2020 <a href="index.html">TRUTH WIFI</a>.</strong>
+</div>
+<!-- END FOOTER SECTION -->
+<!-- FOOTER -->
+</div>
+
 </body>
+</html>
