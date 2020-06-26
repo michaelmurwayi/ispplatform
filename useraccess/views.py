@@ -35,10 +35,6 @@ class SignupView(CreateView):
 
         form = UserCreationForm(request.POST)
         if form.is_valid():
-<<<<<<< HEAD
-           
-=======
->>>>>>> 67354c8550fc5c045031ec30667c1b1010b7843f
             form.save()
             email = form.cleaned_data.get('email')
             raw_password = form.cleaned_data.get('password1')
@@ -136,11 +132,7 @@ def check_expiry(date):
         return True
     return False
 
-def check_user_status(data):
-    # check user connection status before inserting selected internet package into the database
-    try:
-        last_package = SelectedPackages.objects.filter(
-            username=data["username"]).last()
+
 def check_expiry(date):
     utc_now = pytz.utc.localize(datetime.utcnow())
     now = utc_now.astimezone(
@@ -151,13 +143,18 @@ def check_expiry(date):
 
 
 def check_user_status(data):
+    # check user connection status before inserting selected internet package into the database
     try:
         last_package = SelectedPackages.objects.filter(
-            email=data["email"]).last()
+            username=data["username"]).last()
+        expiry = last_package.Expiry
+        check_expiry(expiry)
+        balance = last_package.balance
+    except AttributeError as error:
         print("new user purchased package")
         insert_select_package_to_db(data)
         return insert_into_radcheck(data)
-    else:
+
         last_package = SelectedPackages.objects.filter(
             username=data["username"]).last()
         print("exhaust package before buying new package")
