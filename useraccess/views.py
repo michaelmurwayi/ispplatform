@@ -35,6 +35,10 @@ class SignupView(CreateView):
 
         form = UserCreationForm(request.POST)
         if form.is_valid():
+<<<<<<< HEAD
+           
+=======
+>>>>>>> 67354c8550fc5c045031ec30667c1b1010b7843f
             form.save()
             email = form.cleaned_data.get('email')
             raw_password = form.cleaned_data.get('password1')
