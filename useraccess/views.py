@@ -21,6 +21,28 @@ from django.http import HttpResponseRedirect
 class HomeView(TemplateView):
     # view for the default home page
     template_name = "index.html"
+    packages = Packages
+
+    def get(self, request):
+        packages = [items for items in Packages.objects.all().values()]
+        packages_list = []
+        for items in packages:
+            context = {
+                "bundle_id": items['id'],
+                "username": request.user.username,
+                "bundle": items['bundle'],
+                "bundle_price": items['bundle_price'],
+                "bundle_length": items['bundle_length'],
+                "bundle_speed": items['bundle_speed'],
+            }
+            packages_list.append(context)
+
+        # storing user email and phonenumber in cache for later access
+        cache.set('username', context['username'])
+        cache.set('phonenumber', "0746256084")
+        # should be replaced with request.user.phonenumber
+        return render(request, 'index.html',
+                      {'package_list': packages_list})
 
 
 class SignupView(CreateView):
