@@ -17,15 +17,77 @@
         .guest-btn{margin-top:10px}.navbar-default{border-bottom:none;background-color:#111;-webkit-box-shadow:0 5px 5px #888;-moz-box-shadow:0 5px 5px #888;box-shadow:0 2px 5px rgba(0,0,0,.16)}.btn,.label{border-radius:25px 25px}.navbar-default .navbar-brand,.navbar-default .navbar-nav>li>a{color:#fff}.btn-default,.label-default{background-color:#8a2be2;color:#fff}.btn-default:hover,.label-default[href]:hover{background-color:#8a2be2;color:#ddd}.btn-primary{color:#fff;background-color:#8a2be2;border-color:#8a2be2}.btn-primary.focus,.btn-primary:focus{color:#fff;background-color:#8a2be2;border-color:#8a2be2}.btn-primary.active,.btn-primary:active,.btn-primary:hover,.open>.btn-primary.dropdown-toggle{color:#fff;background-color:#7c2ad2;border-color:#7c2ad2}.navbar-default .navbar-brand:hover,.navbar-default .navbar-nav>li>a:hover{color:#ddd}.content{min-height:82vh;padding:15px}.main-footer{border-top:1px solid rgba(0,0,0,.16);padding-top:10px;padding-bottom:10px}.welcome-header{padding-top:70px;background:#8a2be2 url({% static 'img/future-of-AI.jpg'%}) no-repeat fixed center;background-size:cover}.welcome-guest-panel{background:rgba(99,107,111,.47)!important}.messages{margin-top:70px}.row-margin-top{margin-top:10px;padding:4px}.btn{width:220px;height:50px;border:none;outline:0;color:#fff;background:#111;cursor:pointer;position:relative;z-index:0;border-radius:10px}.btn:before{content:'';background:linear-gradient(45deg,red,#ff7300,#fffb00,#48ff00,#00ffd5,#002bff,#7a00ff,#ff00c8,red);position:absolute;top:-2px;left:-2px;background-size:400%;z-index:-1;filter:blur(5px);width:calc(100% + 4px);height:calc(100% + 4px);animation:glowing 20s linear infinite;opacity:0;transition:opacity .3s ease-in-out;border-radius:10px}.btn:active{color:#000}.btn:active:after{background:0 0}.btn:hover:before{opacity:1}.btn:after{z-index:-1;content:'';position:absolute;width:100%;height:100%;background:#111;left:0;top:0;border-radius:10px}@keyframes glowing{0%{background-position:0 0}50%{background-position:400% 0}100%{background-position:0 0}}
     </style>
         <style>
-            .messages{margin-top:20px!important;position:absolute;top:0;z-index:9999}#packages .panel-heading{background-color:#111;max-height:140px;height:140px;cursor:pointer;display:flex;justify-content:center;align-items:center;overflow:hidden}h1 .label{margin-bottom:10px}
+            .messages{margin-top:20px!important;position:absolute;top:0;z-index:9999}#packages .panel-heading{background-color:#111;max-height:0px;height:140px;cursor:pointer;display:flex;justify-content:center;align-items:center;overflow:hidden}h1 .label{margin-bottom:10px}
+
+        #packages {
+            padding: 20px;
+        }
+
+        #packages .panel-heading {
+            background-color: #111;
+            max-height: 140px;
+            height: 140px;
+            cursor: pointer;
+            text-align: center;
+            /* display: flex; */
+            /* justify-content: center; */
+            /* align-items: center; */
+            /* overflow: hidden */
+        }
+
+        small {
+            color: antiquewhite;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0pt;
+        }
+
+        .button {
+            outline: none;
+            box-shadow: none;
+            border: solid 2px;
+        }
     </style>
        
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     
-</head>
-<!-- Scripts -->
+    <script>
 
+    function select_bundle(clicked) {
+        let values = document.getElementById(clicked).value;
+        let bundle_name = document.getElementById(clicked).name;
+        data_array = [];
+        data_array = values.split(',');
+        data_array.push(bundle_name);
+        alert(data_array)
+        var url = "https://cf96cfb76f54.ngrok.io/api/v1/online/lipa"
+
+        $.ajax(
+            {
+                type: "GET",
+                url: url,
+                data: {
+                    access_period: data_array[0],
+                    price: data_array[1],
+                    speed: data_array[2],
+                    bundle: data_array[3],
+
+                },
+                success: function (data) {
+                    $('#like' + catid).remove();
+                    $('#message').text(data);
+                }
+            })
+
+    }
+
+</script>
+
+<!-- Scripts -->
+</head>
 <body>
 <div class="wrapper">
     <!-- NAV SECTION -->
@@ -93,89 +155,28 @@
 
 
 
-    <div class="row" id="packages">
-        <div class="col-sm-offset-2 col-sm-8">
-                        <div class="row"  id="packages">
-                                                        <a href="http://truthwifi.com/client/plan/gQkl4WdLXW2EBb6/buy">
-                        <div class="col-xs-offset-1 col-xs-5 col-sm-offset-0 col-sm-6 col-md-3">
-                            <div class="panel panel-primary">
-                                <div class="panel-heading text-center"><b> Daily 50 MB @5/-</b></div>
-                            </div>
-                        </div>
-                    </a>
-                                                        <a href="http://truthwifi.com/client/plan/kdv3lWGwaWyKEJG/buy">
-                        <div class="col-xs-5 col-sm-offset-0 col-sm-6 col-md-3">
-                            <div class="panel panel-success">
-                                <div class="panel-heading text-center"><b> 1 Hour Unlimited @10/-</b></div>
-                            </div>
-                        </div>
-                    </a>
-                                                        <a href="http://truthwifi.com/client/plan/0AGJ9WKpm75kgwD/buy">
-                        <div class="col-xs-offset-1 col-xs-5 col-sm-offset-0 col-sm-6 col-md-3">
-                            <div class="panel panel-primary">
-                                <div class="panel-heading text-center"><b> Daily 150 MB @10/-</b></div>
-                            </div>
-                        </div>
-                    </a>
-                                                        <a href="http://truthwifi.com/client/plan/2jRXBWqa5WeZgDw/buy">
-                        <div class="col-xs-5 col-sm-offset-0 col-sm-6 col-md-3">
-                            <div class="panel panel-success">
-                                <div class="panel-heading text-center"><b> Daily 400 MB @20/-</b></div>
-                            </div>
-                        </div>
-                    </a>
-                                                        <a href="http://truthwifi.com/client/plan/zwEyO7O3E7bmAYq/buy">
-                        <div class="col-xs-offset-1 col-xs-5 col-sm-offset-0 col-sm-6 col-md-3">
-                            <div class="panel panel-primary">
-                                <div class="panel-heading text-center"><b> Daily 2 GB @30/-</b></div>
-                            </div>
-                        </div>
-                    </a>
-                                                        <a href="http://truthwifi.com/client/plan/4bpneW6bEW65Djv/buy">
-                        <div class="col-xs-5 col-sm-offset-0 col-sm-6 col-md-3">
-                            <div class="panel panel-success">
-                                <div class="panel-heading text-center"><b> Moderate Daily Unlimited @50/-</b></div>
-                            </div>
-                        </div>
-                    </a>
-                                                        <a href="http://truthwifi.com/client/plan/4OwRZ8nVy8z2oAN/buy">
-                        <div class="col-xs-offset-1 col-xs-5 col-sm-offset-0 col-sm-6 col-md-3">
-                            <div class="panel panel-primary">
-                                <div class="panel-heading text-center"><b> Weekly 2 GB @50/-</b></div>
-                            </div>
-                        </div>
-                    </a>
-                                                        <a href="http://truthwifi.com/client/plan/gQkl4Wda672EBb6/buy">
-                        <div class="col-xs-5 col-sm-offset-0 col-sm-6 col-md-3">
-                            <div class="panel panel-success">
-                                <div class="panel-heading text-center"><b> Fast Daily Unlimited @80/-</b></div>
-                            </div>
-                        </div>
-                    </a>
-                                                        <a href="http://truthwifi.com/client/plan/ld1NV89kQWpmvZr/buy">
-                        <div class="col-xs-offset-1 col-xs-5 col-sm-offset-0 col-sm-6 col-md-3">
-                            <div class="panel panel-primary">
-                                <div class="panel-heading text-center"><b> Weekly 5 GB @150/-</b></div>
-                            </div>
-                        </div>
-                    </a>
-                                                        <a href="http://truthwifi.com/client/plan/xk1rX7znR74AvYK/buy">
-                        <div class="col-xs-5 col-sm-offset-0 col-sm-6 col-md-3">
-                            <div class="panel panel-success">
-                                <div class="panel-heading text-center"><b> Weekly Unlimited @300/-</b></div>
-                            </div>
-                        </div>
-                    </a>
-                                                        <a href="http://truthwifi.com/client/plan/0AGJ9WKe585kgwD/buy">
-                        <div class="col-xs-offset-1 col-xs-5 col-sm-offset-0 col-sm-6 col-md-3">
-                            <div class="panel panel-primary">
-                                <div class="panel-heading text-center"><b> Monthly Unlimited @1000/-</b></div>
-                            </div>
-                        </div>
-                    </a>
-                            </div>
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+            <div class="row" id="packages">
+                {% for items in package_list %}
+                <div class="col-xs-offset-1 col-xs-5 col-sm-offset-0 col-sm-6 col-md-3  ">
+                    <button class="btn btn-primary text-center panel" action=""
+                        value={{items.bundle_length}},{{items.bundle_price}},{{items.bundle_speed}} name={{items.bundle}}
+                        id={{items.bundle_id}} onclick="select_bundle(this.id)" style="border:none;">
+                        <small>
+                            <ul>
+                                <li><strong>{{items.bundle_length}}</strong></li>
+                                <li><strong>{{items.bundle}}</strong></li>
+                                <li><strong>{{items.bundle_price}} Ksh</strong></li>
+    
+                            </ul>
+                        </small>
+    
+                    </button>
+                </div>
+                {% endfor %}
+            </div>
         </div>
-    </div>
 
     <div id="how-to-reg" class="row row-margin-top">
         <div class="col-md-12">
