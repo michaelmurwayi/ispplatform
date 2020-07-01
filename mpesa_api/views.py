@@ -14,7 +14,7 @@ from django.conf import settings
 from django.core.cache import cache
 from django.shortcuts import redirect
 from django.http import HttpResponseRedirect
-from useraccess.views import check_user_status
+from useraccess.views import check_user_status_before_insert
 
 
 def getAccessToken(request):
@@ -29,7 +29,6 @@ def getAccessToken(request):
 
 
 def lipa_na_mpesa_online(request):
-
     data = {
         "username": cache.get("username"),
         "phone_number": cache.get("phonenumber"),
@@ -37,6 +36,7 @@ def lipa_na_mpesa_online(request):
         "access_period": request.GET.get("access_period"),
         "bundle": request.GET.get("bundle"),
         "speed": request.GET.get("speed"),
+        "bundle_id": request.GET.get("bundle_id")
     }
     access_token = MpesaAccessToken.validated_mpesa_access_token
     api_url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
@@ -57,7 +57,7 @@ def lipa_na_mpesa_online(request):
         "TransactionDesc": "Donate to PaulWababu!"
     }
     response = requests.post(api_url, json=request, headers=headers)
-    check_user_status(data)
+    check_user_status_before_insert(data)
     return HttpResponseRedirect("/profile")
 
 

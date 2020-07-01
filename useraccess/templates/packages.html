@@ -158,11 +158,7 @@
         data_array = values.split(',');
         data_array.push(bundle_name);
         alert(data_array)
-<<<<<<< HEAD
-        var url = "http://f27e47ebb038.ngrok.io/api/v1/online/lipa"
-=======
-        var url = "https://cf96cfb76f54.ngrok.io/api/v1/online/lipa"
->>>>>>> 67354c8550fc5c045031ec30667c1b1010b7843f
+        var url = "https://5ebc289d8033.ngrok.io/api/v1/online/lipa"
 
         $.ajax(
             {
@@ -172,7 +168,8 @@
                     access_period: data_array[0],
                     price: data_array[1],
                     speed: data_array[2],
-                    bundle: data_array[3],
+                    bundle_id: data_array[3],
+                    bundle: data_array[4],
 
                 },
                 success: function (data) {
@@ -234,7 +231,7 @@
                             {% for items in package_list %}
                             <div class="col-xs-offset-1 col-xs-5 col-sm-offset-0 col-sm-6 col-md-3  ">
                                 <button class="btn btn-primary text-center panel" action=""
-                                    value={{items.bundle_length}},{{items.bundle_price}},{{items.bundle_speed}}
+                                    value={{items.bundle_length}},{{items.bundle_price}},{{items.bundle_speed}},{{items.bundle_id}}
                                     name={{items.bundle}} id={{items.bundle_id}} onclick="select_bundle(this.id)"
                                     style="border:none;">
                                     <small>
@@ -250,9 +247,9 @@
                             </div>
                             {% endfor %}
                         </div>
-                        <!-- MAIN CONTENT -->
                     </div>
                 </div>
+                <!-- MAIN CONTENT -->
                 <!-- FOOTER -->
                 <!--FOOTER SECTION -->
                 <div class="main-footer text-center">
