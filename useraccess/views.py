@@ -41,8 +41,7 @@ class HomeView(TemplateView):
         cache.set('username', context['username'])
         cache.set('phonenumber', "0746256084")
         # should be replaced with request.user.phonenumber
-        return render(request, 'index.html',
-                      {'package_list': packages_list})
+        return render(request, 'index.html', {'package_list': packages_list})
 
 
 class SignupView(CreateView):
@@ -50,7 +49,7 @@ class SignupView(CreateView):
 
     form_class = UserCreationForm
     success_url = reverse_lazy('profile')
-    template_name = "register.html"
+    template_name = "signup.html"
 
     def post(self, request):
         #  how to handle user registration form
@@ -62,7 +61,7 @@ class SignupView(CreateView):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(email=email, password=raw_password)
             login(request, user)
-            return render(request, 'profile.html')
+            return render(request, 'account.html')
         else:
             form = UserCreationForm()
         return render(request, 'signup.html', {'form': form})
@@ -92,27 +91,13 @@ class ProfileView(SingleObjectMixin, ListView):
                 "Balance":
                 0,
                 "Connection_message":
-                "Your Connection is Limited please purchase bundle"
+                "Welcome To TruthWifi Your Connection is Limited please purchase bundle"
             }
             return render(request, 'account.html', {"context": context})
         elif user_check != 0:
             user_package = SelectedPackages.objects.filter(
                 username=username).last()
-            expected_expiry = user_package.Expiry
-            context = {
-                "user_count":
-                user_check,
-                "access_period":
-                user_package.bundle,
-                "speed":
-                user_package.speed,
-                "Expiry":
-                expected_expiry,
-                "Balance":
-                user_package.balance,
-                "Connection_message":
-                "You are connected to the internet. Enjoy browsing"
-            }
+            context = check_user_status_on_user_login(request, user_package)
             return render(request, 'account.html', {"context": context})
 
 
@@ -164,7 +149,45 @@ def check_expiry(date):
     return False
 
 
-def check_user_status(data):
+def check_user_status_on_user_login(request, data):
+    # check user connection status on login
+    username = request.user.username
+    user_check = SelectedPackages.objects.filter(username=username).count()
+    if data.balance == 0 or check_expiry(data.Expiry):
+        context = {
+            "user_count":
+            user_check,
+            "access_period":
+            "_ _",
+            "speed":
+            "_ _",
+            "Expiry":
+            "_ _",
+            "Balance":
+            "_ _",
+            "Connection_message":
+            "Connection is limited. Please purchase new bundle to access network"
+        }
+        return context
+    else:
+        context = {
+            "user_count":
+            user_check,
+            "access_period":
+            data.bundle,
+            "speed":
+            data.speed,
+            "Expiry":
+            data.Expiry,
+            "Balance":
+            data.balance,
+            "Connection_message":
+            "You are connected to the internet. Enjoy browsing"
+        }
+        return context
+
+
+def check_user_status_before_insert(data):
     # check user connection status before inserting selected internet package into the database
     try:
         last_package = SelectedPackages.objects.filter(
@@ -183,17 +206,16 @@ def check_user_status(data):
         return insert_select_package_to_db(data)
     else:
         last_package = SelectedPackages.objects.filter(
-            email=data["email"]).last()
+            username=data["username"]).last()
         expiry = last_package.Expiry
         check_expiry(expiry)
         balance = last_package.balance
-        if balance != 0 or check_expiry(expiry) == False:
+        if balance != 0 and check_expiry(expiry) == False:
             print("please exhaust current package before buying new one")
             return "please exhaust current package before buying new one"
         else:
             insert_select_package_to_db(data)
             return insert_into_radcheck(data)
-
 
 
 def insert_select_package_to_db(data):
@@ -203,7 +225,8 @@ def insert_select_package_to_db(data):
                                     speed=data["speed"],
                                     Expiry=expiry_time,
                                     balance=data["bundle"],
-                                    access_period=data["access_period"])
+                                    access_period=data["access_period"],
+                                    bundle_id=data["bundle_id"])
     return user_package.save()
 
 

@@ -17,7 +17,7 @@ class CustomUser(AbstractBaseUser):
     firstname = models.CharField(max_length=20)
     lastname = models.CharField(max_length=20)
     email = models.EmailField(_('email address'), unique=True)
-    username = models.CharField(max_length=60, unique=True)
+    username = models.CharField(max_length=60, unique=True, default="Truth")
     phonenumber = models.CharField(max_length=15)
     password = models.CharField(max_length=255)
     is_staff = models.BooleanField(default=False)
@@ -40,6 +40,7 @@ class SelectedPackages(models.Model):
     Expiry = models.CharField(max_length=50)
     balance = models.CharField(max_length=100)
     access_period = models.CharField(max_length=10)
+    bundle_id = models.IntegerField()
 
 
 class Radcheck(models.Model):

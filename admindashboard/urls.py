@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
-from .views import AdminDashboard
+from .views import AdminDashboardView
 
 urlpatterns = [
-    path('admindash/', AdminDashboard.as_view(), name="admindashboard"),
+    path('admindash/', AdminDashboardView.as_view(), name="admindashboard"),
 ]
