@@ -315,19 +315,28 @@
 
               <!--Grid column-->
               <div class="col-md-12 mb-md-0 mb-5">
-                <form id="contact-form" name="contact-form" action="mail.php" method="POST">
-
-                  <!--Grid column-->
+                <form id="contact-form" name="contact-form" action="" method="POST">
+                  {% csrf_token %}
+                  <!-- Grid column-->
                   <div class="col-md-12">
                     <div class="alert alert-success" style="height: 45px;">
                       <p class="pt-0"><small>This message will directly go to all your users</small> </p>
                     </div>
+                    <div class="col-md-12">
+                      <label> <b><strong>
+                            <h4 class="h1-responsive font-weight-bold text-center ">Message</h4>
+                          </strong></b></label>
+                    </div>
                     <div class="md-form">
-                      <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"
-                        placeholder="Enter your message here"></textarea>
+                      {{ form.message }}
+
                     </div>
                     <div class="submit pt-3">
-                      <button class="btn btn-warning"> <strong>Submit >>></strong> </button>
+                      <button class="btn btn-warning"> <strong>
+                          <b>
+                            <<<>>>
+                          </b>
+                        </strong> </button>
                     </div>
                   </div>
               </div>

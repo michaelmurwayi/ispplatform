@@ -61,7 +61,7 @@ class SignupView(CreateView):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(email=email, password=raw_password)
             login(request, user)
-            return render(request, 'profile.html')
+            return render(request, 'account.html')
         else:
             form = UserCreationForm()
         return render(request, 'signup.html', {'form': form})
