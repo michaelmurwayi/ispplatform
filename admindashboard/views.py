@@ -6,6 +6,7 @@ from useraccess.models import Packages
 from .forms import MessageForm
 from .bulksms2 import process_sms
 from useraccess.models import CustomUser
+from django.views.generic.base import TemplateView
 # Create your views here.
 
 
@@ -62,4 +63,7 @@ def clean_phonenumbers(phonenumbers):
         number = "+254" + items[1:]
         numbers.append(number)
     return numbers
-        
+
+
+class OnlineUsersView(TemplateView):
+    template_name = "online_users.html"

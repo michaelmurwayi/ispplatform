@@ -40,6 +40,10 @@
     .alert {
       width: 50%;
     }
+
+    a {
+      color: blanchedalmond;
+    }
   </style>
 </head>
 
@@ -66,15 +70,39 @@
       <li class="nav-item active">
         <a class="nav-link" href="index.html">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
+          <span>Admin Dashboard</span></a>
       </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider">
 
       <!-- Heading -->
-      <div class="sidebar-heading">
-        Interface
+      <div class="sidebar-heading text-center pt-4">
+        The Promised Lan
+        <hr class="sidebar-divider my-2">
+      </div>
+      <div class="row pt-4">
+        <div class="col-md-12">
+          <button class="btn btn-secondary">
+            <b>Home Showing Users</b>
+          </button>
+        </div>
+        <div class="col-md-12 pt-2">
+          <button class="btn btn-secondary">
+            <b>Hotspot Users</b>
+          </button>
+        </div>
+        <div class="col-md-12 pt-2">
+          <button class="btn btn-secondary"><a href="{% url 'online_users' %}">
+              <b> Online Users</b>
+            </a>
+          </button>
+        </div>
+        <div class="col-md-12 pt-4">
+          <button class="btn btn-danger">
+            <b>Logout</b>
+          </button>
+        </div>
       </div>
 
 
@@ -101,24 +129,11 @@
       <!-- Main Content -->
       <div id="content">
 
-        <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-          <!-- Sidebar Toggle (Topbar) -->
-          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
-          </button>
-
-        </nav>
-        <!-- End of Topbar -->
-
-
-
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+          <div class="d-sm-flex align-items-center justify-content-between mb-4 pt-4">
             <h1 class="h3 mb-0 text-gray-800">Earnings</h1>
           </div>
 
@@ -206,7 +221,7 @@
               <div class="card-body">
                 <div class="row no-gutters align-items-center">
                   <div class="col mr-2">
-                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Devices down</div>
+                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Daily Earning</div>
                   </div>
                   <div class="col-auto">
                     <i class="fas fa-comments fa-2x text-gray-300"></i>
