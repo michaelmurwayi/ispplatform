@@ -4,6 +4,9 @@ from useraccess.models import SelectedPackages
 import collections
 from useraccess.models import Packages
 from .forms import MessageForm
+from .bulksms2 import process_sms
+from useraccess.models import CustomUser
+from django.views.generic.base import TemplateView
 # Create your views here.
 
 
@@ -34,3 +37,33 @@ class AdminDashboardView(FormView):
             "bundle_freqs": package_freq_list,
             "form": form
         })
+
+    def post(self, request):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            message = form.data.get("message")
+            recipients = get_recipients()
+            process_sms(message, recipients)
+            return render(request, "admindash.html",
+                          {"context": "message sent"})
+            return render(request, "admindash.html",
+                          {"context": "message not sent"})
+
+
+def get_recipients():
+    # get list of all client numbers in the database
+    phonenumbers = CustomUser.objects.all().values("phonenumber")
+    phonenumbers = [items['phonenumber'] for items in phonenumbers]
+    return clean_phonenumbers(phonenumbers)
+
+
+def clean_phonenumbers(phonenumbers):
+    numbers = []
+    for items in phonenumbers:
+        number = "+254" + items[1:]
+        numbers.append(number)
+    return numbers
+
+
+class OnlineUsersView(TemplateView):
+    template_name = "online_users.html"
