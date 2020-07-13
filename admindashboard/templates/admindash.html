@@ -56,7 +56,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'admindashboard' %}">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
@@ -77,30 +77,30 @@
       <hr class="sidebar-divider">
 
       <!-- Heading -->
-      <div class="sidebar-heading text-center pt-4">
+      <div class="sidebar-heading text-center pt-4 " style="color: purple;">
         The Promised Lan
         <hr class="sidebar-divider my-2">
       </div>
       <div class="row pt-4">
         <div class="col-md-12">
           <button class="btn btn-secondary">
-            <b>Home Showing Users</b>
+            <b><small>Showing Users</small></b>
           </button>
         </div>
         <div class="col-md-12 pt-2">
           <button class="btn btn-secondary">
-            <b>Hotspot Users</b>
+            <b><small>Hotspot Users</small></b>
           </button>
         </div>
         <div class="col-md-12 pt-2">
           <button class="btn btn-secondary"><a href="{% url 'online_users' %}">
-              <b> Online Users</b>
+              <b><small>Online Users</small></b>
             </a>
           </button>
         </div>
         <div class="col-md-12 pt-4">
           <button class="btn btn-danger">
-            <b>Logout</b>
+            <b><small>Logout</small></b>
           </button>
         </div>
       </div>
