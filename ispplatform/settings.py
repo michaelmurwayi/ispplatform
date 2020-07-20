@@ -24,7 +24,7 @@ SECRET_KEY = '$$*tb(*fi-(yi!3avgr=lhqz%rkn-9+*ns-5%9a=3$ni7*i&j!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.128.100.5', '76e8c0c79f3f.ngrok.io', '*']
+ALLOWED_HOSTS = ['192.128.100.5', '57ac25f841b3.ngrok.io ', '*']
 
 # Application definition
 

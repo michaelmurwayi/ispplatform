@@ -41,9 +41,9 @@ input{width:100%;padding:12px;border:1px solid #ccc;border-radius:4px;box-sizing
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="http://truthwifi.com/home">Home</a></li>
-                                <li><a href="http://truthwifi.com/client/register">Register</a></li>
-                <li><a id="loginUrlToggle" href="http://truthwifi.com/client/login">Login</a></li>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                                <li><a href="{% url 'signup' %}">Register</a></li>
+                <li><a id="loginUrlToggle" href="{% url 'login' %}">Login</a></li>
                             </ul>
         </div>
     </div>

@@ -61,7 +61,7 @@ class SignupView(CreateView):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(email=email, password=raw_password)
             login(request, user)
-            return render(request, 'profile.html')
+            return render(request, 'account.html')
         else:
             form = UserCreationForm()
         return render(request, 'signup.html', {'form': form})
@@ -174,13 +174,13 @@ def check_user_status_on_user_login(request, data):
             "user_count":
             user_check,
             "access_period":
-            user_package.bundle,
+            data.bundle,
             "speed":
-            user_package.speed,
+            data.speed,
             "Expiry":
-            expected_expiry,
+            data.Expiry,
             "Balance":
-            user_package.balance,
+            data.balance,
             "Connection_message":
             "You are connected to the internet. Enjoy browsing"
         }
@@ -206,11 +206,11 @@ def check_user_status_before_insert(data):
         return insert_select_package_to_db(data)
     else:
         last_package = SelectedPackages.objects.filter(
-            email=data["email"]).last()
+            username=data["username"]).last()
         expiry = last_package.Expiry
         check_expiry(expiry)
         balance = last_package.balance
-        if balance != 0 or check_expiry(expiry) == False:
+        if balance != 0 and check_expiry(expiry) == False:
             print("please exhaust current package before buying new one")
             return "please exhaust current package before buying new one"
         else:
@@ -220,8 +220,6 @@ def check_user_status_before_insert(data):
 
 def insert_select_package_to_db(data):
     expiry_time = calculate_expiry(data["access_period"])
-    import ipdb
-    ipdb.set_trace()
     user_package = SelectedPackages(username=data["username"],
                                     bundle=data["bundle"],
                                     speed=data["speed"],
