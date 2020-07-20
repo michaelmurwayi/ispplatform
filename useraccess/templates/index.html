@@ -1,38 +1,204 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="TruthWifi offers affordable and reliable internet. Powered by CrunchTech">  
+    <meta name="description" content="TruthWifi offers affordable and reliable internet. Powered by CrunchTech">
     <meta name="author" content="CrunchTech, CrunchTech">
     <link rel="shortcut icon" href="{% static 'img/truth-favicon.png' %}" type="image/x-icon">
-     <!-- cookiealert styles -->
-     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.css">
+    <!-- cookiealert styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.css">
     <title>TRUTH WIFI</title>
     <link href="{% static 'css/frontend.dev.css' %} " rel="stylesheet">
 
     <!-- styles -->
     <style>
-        .guest-btn{margin-top:10px}.navbar-default{border-bottom:none;background-color:#111;-webkit-box-shadow:0 5px 5px #888;-moz-box-shadow:0 5px 5px #888;box-shadow:0 2px 5px rgba(0,0,0,.16)}.btn,.label{border-radius:25px 25px}.navbar-default .navbar-brand,.navbar-default .navbar-nav>li>a{color:#fff}.btn-default,.label-default{background-color:#8a2be2;color:#fff}.btn-default:hover,.label-default[href]:hover{background-color:#8a2be2;color:#ddd}.btn-primary{color:#fff;background-color:#8a2be2;border-color:#8a2be2}.btn-primary.focus,.btn-primary:focus{color:#fff;background-color:#8a2be2;border-color:#8a2be2}.btn-primary.active,.btn-primary:active,.btn-primary:hover,.open>.btn-primary.dropdown-toggle{color:#fff;background-color:#7c2ad2;border-color:#7c2ad2}.navbar-default .navbar-brand:hover,.navbar-default .navbar-nav>li>a:hover{color:#ddd}.content{min-height:82vh;padding:15px}.main-footer{border-top:1px solid rgba(0,0,0,.16);padding-top:10px;padding-bottom:10px}.welcome-header{padding-top:70px;background:#8a2be2 url("{% static 'img/future-of-AI.jpg' %}") no-repeat fixed center;background-size:cover}.welcome-guest-panel{background:rgba(99,107,111,.47)!important}.messages{margin-top:70px}.row-margin-top{margin-top:10px;padding:4px}.btn{width:220px;height:50px;border:none;outline:0;color:#fff;background:#111;cursor:pointer;position:relative;z-index:0;border-radius:10px}.btn:before{content:'';background:linear-gradient(45deg,red,#ff7300,#fffb00,#48ff00,#00ffd5,#002bff,#7a00ff,#ff00c8,red);position:absolute;top:-2px;left:-2px;background-size:400%;z-index:-1;filter:blur(5px);width:calc(100% + 4px);height:calc(100% + 4px);animation:glowing 20s linear infinite;opacity:0;transition:opacity .3s ease-in-out;border-radius:10px}.btn:active{color:#000}.btn:active:after{background:0 0}.btn:hover:before{opacity:1}.btn:after{z-index:-1;content:'';position:absolute;width:100%;height:100%;background:#111;left:0;top:0;border-radius:10px}@keyframes glowing{0%{background-position:0 0}50%{background-position:400% 0}100%{background-position:0 0}}
-    </style>
-        <style>
-            .messages{margin-top:20px!important;position:absolute;top:0;z-index:9999}#packages .panel-heading{background-color:#111;max-height:0px;height:140px;cursor:pointer;display:flex;justify-content:center;align-items:center;overflow:hidden}h1 .label{margin-bottom:10px}
+        body {
+            overflow-x: hidden;
+        }
 
-        #packages {
-            padding: 20px;
+        .guest-btn {
+            margin-top: 10px
+        }
+
+        .navbar-default {
+            border-bottom: none;
+            background-color: #111;
+            -webkit-box-shadow: 0 5px 5px #888;
+            -moz-box-shadow: 0 5px 5px #888;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, .16)
+        }
+
+        .btn,
+        .label {
+            border-radius: 25px 25px
+        }
+
+        .navbar-default .navbar-brand,
+        .navbar-default .navbar-nav>li>a {
+            color: #fff
+        }
+
+        .btn-default,
+        .label-default {
+            background-color: #8a2be2;
+            color: #fff
+        }
+
+        .btn-default:hover,
+        .label-default[href]:hover {
+            background-color: #8a2be2;
+            color: #ddd
+        }
+
+        .btn-primary {
+            color: #fff;
+            background-color: #8a2be2;
+            border-color: #8a2be2
+        }
+
+        .btn-primary.focus,
+        .btn-primary:focus {
+            color: #fff;
+            background-color: #8a2be2;
+            border-color: #8a2be2
+        }
+
+        .btn-primary.active,
+        .btn-primary:active,
+        .btn-primary:hover,
+        .open>.btn-primary.dropdown-toggle {
+            color: #fff;
+            background-color: #7c2ad2;
+            border-color: #7c2ad2
+        }
+
+        .navbar-default .navbar-brand:hover,
+        .navbar-default .navbar-nav>li>a:hover {
+            color: #ddd
+        }
+
+        .content {
+            min-height: 82vh;
+            padding: 15px
+        }
+
+        .main-footer {
+            border-top: 1px solid rgba(0, 0, 0, .16);
+            padding-top: 10px;
+            padding-bottom: 10px
+        }
+
+        .welcome-header {
+            padding-top: 70px;
+            background:#8a2be2 url("{% static 'img/future-of-AI.jpg' %}") no-repeat fixed center;
+            background-size: cover
+        }
+
+        .welcome-guest-panel {
+            background: rgba(99, 107, 111, .47) !important
+        }
+
+        .messages {
+            margin-top: 70px
+        }
+
+        .row-margin-top {
+            margin-top: 10px;
+            padding: 4px
+        }
+
+        .btn {
+            width: 200px;
+            height: 60px;
+            border: none;
+            outline: 0;
+            color: #fff;
+            background: #111;
+            cursor: pointer;
+            position: relative;
+            z-index: 0;
+            border-radius: 10px;
+            left: 0;
+        }
+
+        .btn:before {
+            content: '';
+            background: linear-gradient(45deg, red, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, red);
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            background-size: 400%;
+            z-index: -1;
+            filter: blur(5px);
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            animation: glowing 20s linear infinite;
+            opacity: 0;
+            transition: opacity .3s ease-in-out;
+            border-radius: 10px
+        }
+
+        .btn:active {
+            color: #000
+        }
+
+        .btn:active:after {
+            background: 0 0
+        }
+
+        .btn:hover:before {
+            opacity: 1
+        }
+
+        .btn:after {
+            z-index: -1;
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #111;
+            left: 0;
+            top: 0;
+            border-radius: 10px
+        }
+
+        @keyframes glowing {
+            0% {
+                background-position: 0 0
+            }
+
+            50% {
+                background-position: 400% 0
+            }
+
+            100% {
+                background-position: 0 0
+            }
+        }
+
+        .messages {
+            margin-top: 20px !important;
+            position: absolute;
+            top: 0;
+            z-index: 9999
         }
 
         #packages .panel-heading {
             background-color: #111;
-            max-height: 140px;
+            max-height: 0px;
             height: 140px;
             cursor: pointer;
-            text-align: center;
-            /* display: flex; */
-            /* justify-content: center; */
-            /* align-items: center; */
-            /* overflow: hidden */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden
+        }
+
+        h1 .label {
+            margin-bottom: 10px
         }
 
         small {
@@ -50,180 +216,195 @@
             border: solid 2px;
         }
     </style>
-       
+
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    
+
     <script>
 
-    function select_bundle(clicked) {
-        let values = document.getElementById(clicked).value;
-        let bundle_name = document.getElementById(clicked).name;
-        data_array = [];
-        data_array = values.split(',');
-        data_array.push(bundle_name);
-        alert(data_array)
-        var url = "https://cf96cfb76f54.ngrok.io/api/v1/online/lipa"
+        function select_bundle(clicked) {
+            let values = document.getElementById(clicked).value;
+            let bundle_name = document.getElementById(clicked).name;
+            data_array = [];
+            data_array = values.split(',');
+            data_array.push(bundle_name);
+            alert(data_array)
+            var url = "https://cf96cfb76f54.ngrok.io/api/v1/online/lipa"
 
-        $.ajax(
-            {
-                type: "GET",
-                url: url,
-                data: {
-                    access_period: data_array[0],
-                    price: data_array[1],
-                    speed: data_array[2],
-                    bundle: data_array[3],
+            $.ajax(
+                {
+                    type: "GET",
+                    url: url,
+                    data: {
+                        access_period: data_array[0],
+                        price: data_array[1],
+                        speed: data_array[2],
+                        bundle: data_array[3],
 
-                },
-                success: function (data) {
-                    $('#like' + catid).remove();
-                    $('#message').text(data);
-                }
-            })
+                    },
+                    success: function (data) {
+                        $('#like' + catid).remove();
+                        $('#message').text(data);
+                    }
+                })
 
-    }
+        }
 
-</script>
+    </script>
 
-<!-- Scripts -->
+    <!-- Scripts -->
 </head>
+
 <body>
-<div class="wrapper">
-    <!-- NAV SECTION -->
-    <div class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a href="http://truthwifi.com/home" class="navbar-brand" style="font-size: 24px;">TRUTH WIFI</a>
-    </div>
-    <div class="navbar-collapse collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="http://truthwifi.com/home">Home</a></li>
-                <li><a href="{% url 'signup' %}">Register</a></li>
-        <li><a id="loginUrlToggle" href="{% url 'login' %}">Login</a></li>
-                      </ul>
-    </div>
-  </div>
-    </div>    <!--END NAV SECTION -->
-    <div class="content-wrapper">
-        <div class="container messages">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                                    </div>
-            </div>
-        </div>
-        <div class="content">
-            <!-- MAIN CONTENT -->
-            <div class="row welcome-header">
-        <div class="col-md-5 text-center">
-            <div class="brand">
-                <img src="{% static 'img/logo.png' %}" style="width: 200px; margin: auto;" class="img img-responsive" alt="place-holder-image">
-                <h2 style="color:#111111;font-size: 18px; font-weight:bold;">Access Fast and Affordable Internet</h2>
-            </div>
-        </div>
-        <div class="col-md-3 col-md-offset-2">
-            <div class="panel welcome-guest-panel">
-                <div class="panel-body">
-                                            <div class="guest-btn">
-                            <a href="{% url 'signup' %}" class="btn btn-success btn-block">Register</a>
-                        </div>
-                        <div class="guest-btn">
-                            <a href="{% url 'login' %}" class="btn btn-primary btn-block">Login</a>
-                        </div>
-                        <div class="guest-btn">
-                            <a href="#how-to-reg" class="btn btn-danger btn-block">How to register</a>
-                        </div>
-                                        </div>
-            </div>
-        </div>
-    </div>
-
-
-   
-   
-    <div class="row">
-        <div class="col-xs-12 text-center">
-            <h2 style="margin-bottom: 40px; color: #111111;">TRUTH WIFI Internet Plans</h2>
-        </div>
-    </div>
-   
-
-
-
-    <div class="row">
-        <div class="col-sm-8 col-sm-offset-2">
-            <div class="row" id="packages">
-                {% for items in package_list %}
-                <div class="col-xs-offset-1 col-xs-5 col-sm-offset-0 col-sm-6 col-md-3  ">
-                    <button class="btn btn-primary text-center panel" action=""
-                        value={{items.bundle_length}},{{items.bundle_price}},{{items.bundle_speed}} name={{items.bundle}}
-                        id={{items.bundle_id}} onclick="select_bundle(this.id)" style="border:none;">
-                        <small>
-                            <ul>
-                                <li><strong>{{items.bundle_length}}</strong></li>
-                                <li><strong>{{items.bundle}}</strong></li>
-                                <li><strong>{{items.bundle_price}} Ksh</strong></li>
-    
-                            </ul>
-                        </small>
-    
+    <div class="wrapper">
+        <!-- NAV SECTION -->
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
                     </button>
+                    <a href="http://truthwifi.com/home" class="navbar-brand" style="font-size: 24px;">TRUTH WIFI</a>
                 </div>
-                {% endfor %}
-            </div>
-        </div>
-
-    <div id="how-to-reg" class="row row-margin-top">
-        <div class="col-md-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 style="color: #111111;">To enjoy browsing :- </h3>
-                </div>
-                <div class="panel-body">
-                    <ol class='center'>
-                        <li style="color: #111111;">Click on register (<a href='register.html'>go to register</a>).</li>
-                        <li style="color: #111111;">Enter the details as they are (phone, username, email and password)</li>
-                        <li style="color: #111111;">Verify your phone number</li>
-                        <li style="color: #111111;">Choose your preferred internet plan</li>
-                        <li style="color: #111111;">Click on the preferred plan and check your phone to enter your MPESA PIN</li>
-                        <li style="color: #111111;">
-                            No need to buy via till number anymore, just click on the package and you will be prompted for the mpesa PIN
-                        </li>
-                        <li style="color: #111111;">Enjoy browsing.</li>
-                    </ol>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="http://truthwifi.com/home">Home</a></li>
+                        <li><a href="{% url 'signup' %}">Register</a></li>
+                        <li><a id="loginUrlToggle" href="{% url 'login' %}">Login</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </div>
+        <!--END NAV SECTION -->
+        <div class="content-wrapper">
+            <div class="container messages">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <!-- MAIN CONTENT -->
+                <div class="row welcome-header">
+                    <div class="col-md-5 text-center">
+                        <div class="brand">
+                            <img src="{% static 'img/logo.png' %}" style="width: 200px; margin: auto;"
+                                class="img img-responsive" alt="place-holder-image">
+                            <h2 style="color:#111111;font-size: 18px; font-weight:bold;">Access Fast and Affordable
+                                Internet</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-md-offset-2">
+                        <div class="panel welcome-guest-panel">
+                            <div class="panel-body">
+                                <div class="guest-btn">
+                                    <a href="{% url 'signup' %}" class="btn btn-success btn-block">Register</a>
+                                </div>
+                                <div class="guest-btn">
+                                    <a href="{% url 'login' %}" class="btn btn-primary btn-block">Login</a>
+                                </div>
+                                <div class="guest-btn">
+                                    <a href="#how-to-reg" class="btn btn-danger btn-block">How to register</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- START Bootstrap-Cookie-Alert -->
-<div class="alert text-center cookiealert" role="alert">
-    <b>Do you like cookies?</b> &#x1F36A; We use cookies to ensure you get the best experience on our website. <a href="https://cookiesandyou.com/" target="_blank">Learn more</a>
 
-    <button type="button" class="btn btn-primary btn-sm acceptcookies">
-        I agree
-    </button>
-</div>
-<!-- Include cookiealert script -->
-<script src="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.js"></script>
 
-    <!-- END Bootstrap-Cookie-Alert -->
-      
+
+                <div class="row" style="position: relative; left: 0;">
+                    <div class="col-xs-12 text-center">
+                        <h2 style="margin-bottom: 40px; color: #111111;">TRUTH WIFI Internet Plans</h2>
+                    </div>
+                </div>
+
+
+
+
+                <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <div class="row" id="packages">
+                            {% for items in package_list %}
+                            <div class="col-xs-offset-2 col-xs-5 col-sm-offset-0 col-sm-6 col-md-3  ">
+                                <button class="btn btn-primary text-center panel" action=""
+                                    value={{items.bundle_length}},{{items.bundle_price}},{{items.bundle_speed}}
+                                    name={{items.bundle}} id={{items.bundle_id}} onclick="select_bundle(this.id)"
+                                    style="border:none;">
+                                    <small>
+                                        <ul>
+                                            <li><strong>{{items.bundle_length}}</strong></li>
+                                            <small>
+                                                <li><strong>{{items.bundle}}</strong> @
+                                                    <small>{{items.bundle_price}}Ksh</small></li>
+
+                                            </small>
+
+                                        </ul>
+                                    </small>
+
+                                </button>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div id="how-to-reg" class="row row-margin-top">
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 style="color: #111111;">To enjoy browsing :- </h3>
+                                </div>
+                                <div class="panel-body">
+                                    <ol class='center'>
+                                        <li style="color: #111111;">Click on register (<a href='register.html'>go to
+                                                register</a>).</li>
+                                        <li style="color: #111111;">Enter the details as they are (phone, username,
+                                            email and password)</li>
+                                        <li style="color: #111111;">Verify your phone number</li>
+                                        <li style="color: #111111;">Choose your preferred internet plan</li>
+                                        <li style="color: #111111;">Click on the preferred plan and check your phone to
+                                            enter your MPESA PIN</li>
+                                        <li style="color: #111111;">
+                                            No need to buy via till number anymore, just click on the package and you
+                                            will be prompted for the mpesa PIN
+                                        </li>
+                                        <li style="color: #111111;">Enjoy browsing.</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- START Bootstrap-Cookie-Alert -->
+                    <div class="alert text-center cookiealert" role="alert">
+                        <b>Do you like cookies?</b> &#x1F36A; We use cookies to ensure you get the best experience on
+                        our website. <a href="https://cookiesandyou.com/" target="_blank">Learn more</a>
+
+                        <button type="button" class="btn btn-primary btn-sm acceptcookies">
+                            I agree
+                        </button>
+                    </div>
+                    <!-- Include cookiealert script -->
+                    <script
+                        src="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.js"></script>
+
+                    <!-- END Bootstrap-Cookie-Alert -->
+
+                </div>
+            </div>
+            <!-- FOOTER -->
+            <!--FOOTER SECTION -->
+            <div class="main-footer text-center">
+                <strong>Copyright &copy; 2020 <a href="http://truthwifi.com/home">TRUTH WIFI</a>.</strong>
+            </div>
+            <!-- END FOOTER SECTION -->
+            <!-- FOOTER -->
         </div>
-    </div>
-    <!-- FOOTER -->
-<!--FOOTER SECTION -->
-<div class="main-footer text-center">
-  <strong>Copyright &copy; 2020 <a href="http://truthwifi.com/home">TRUTH WIFI</a>.</strong>
-</div>
-<!-- END FOOTER SECTION -->
-<!-- FOOTER -->
-</div>
 
 </body>
+
 </html>
