@@ -256,7 +256,6 @@
 </head>
 
 <body>
-<<<<<<< HEAD
     <div class="wrapper">
         <!-- NAV SECTION -->
         <div class="navbar navbar-default navbar-fixed-top">
@@ -271,39 +270,11 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="http://truthwifi.com/home">Home</a></li>
+                        <li><a href="{% url 'home' %}">Home</a></li>
                         <li><a href="{% url 'signup' %}">Register</a></li>
                         <li><a id="loginUrlToggle" href="{% url 'login' %}">Login</a></li>
                     </ul>
                 </div>
-=======
-<div class="wrapper">
-    <!-- NAV SECTION -->
-    <div class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a href="http://truthwifi.com/home" class="navbar-brand" style="font-size: 24px;">TRUTH WIFI</a>
-    </div>
-    <div class="navbar-collapse collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'signup' %}">Register</a></li>
-        <li><a id="loginUrlToggle" href="{% url 'login' %}">Login</a></li>
-                      </ul>
-    </div>
-  </div>
-    </div>    <!--END NAV SECTION -->
-    <div class="content-wrapper">
-        <div class="container messages">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                                    </div>
->>>>>>> f31809317baeef0212c0e10aa21180f7e7b83ad8
             </div>
         </div>
         <!--END NAV SECTION -->
@@ -314,125 +285,136 @@
                     </div>
                 </div>
             </div>
-            <div class="content">
-                <!-- MAIN CONTENT -->
-                <div class="row welcome-header">
-                    <div class="col-md-5 text-center">
-                        <div class="brand">
-                            <img src="{% static 'img/logo.png' %}" style="width: 200px; margin: auto;"
-                                class="img img-responsive" alt="place-holder-image">
-                            <h2 style="color:#111111;font-size: 18px; font-weight:bold;">Access Fast and Affordable
-                                Internet</h2>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-md-offset-2">
-                        <div class="panel welcome-guest-panel">
-                            <div class="panel-body">
-                                <div class="guest-btn">
-                                    <a href="{% url 'signup' %}" class="btn btn-success btn-block">Register</a>
-                                </div>
-                                <div class="guest-btn">
-                                    <a href="{% url 'login' %}" class="btn btn-primary btn-block">Login</a>
-                                </div>
-                                <div class="guest-btn">
-                                    <a href="#how-to-reg" class="btn btn-danger btn-block">How to register</a>
-                                </div>
-                            </div>
+            <!--END NAV SECTION -->
+            <div class="content-wrapper">
+                <div class="container messages">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
                         </div>
                     </div>
                 </div>
-
-
-
-
-                <div class="row" style="position: relative; left: 0;">
-                    <div class="col-xs-12 text-center">
-                        <h2 style="margin-bottom: 40px; color: #111111;">TRUTH WIFI Internet Plans</h2>
-                    </div>
-                </div>
-
-
-
-
-                <div class="row">
-                    <div class="col-sm-8 col-sm-offset-2">
-                        <div class="row" id="packages">
-                            {% for items in package_list %}
-                            <div class="col-xs-offset-2 col-xs-5 col-sm-offset-0 col-sm-6 col-md-3  ">
-                                <button class="btn btn-primary text-center panel" action=""
-                                    value={{items.bundle_length}},{{items.bundle_price}},{{items.bundle_speed}}
-                                    name={{items.bundle}} id={{items.bundle_id}} onclick="select_bundle(this.id)"
-                                    style="border:none;">
-                                    <small>
-                                        <ul>
-                                            <li><strong>{{items.bundle_length}}</strong></li>
-                                            <small>
-                                                <li><strong>{{items.bundle}}</strong> @
-                                                    <small>{{items.bundle_price}}Ksh</small></li>
-
-                                            </small>
-
-                                        </ul>
-                                    </small>
-
-                                </button>
+                <div class="content">
+                    <!-- MAIN CONTENT -->
+                    <div class="row welcome-header">
+                        <div class="col-md-5 text-center">
+                            <div class="brand">
+                                <img src="{% static 'img/logo.png' %}" style="width: 200px; margin: auto;"
+                                    class="img img-responsive" alt="place-holder-image">
+                                <h2 style="color:#111111;font-size: 18px; font-weight:bold;">Access Fast and Affordable
+                                    Internet</h2>
                             </div>
-                            {% endfor %}
                         </div>
-                    </div>
-
-                    <div id="how-to-reg" class="row row-margin-top">
-                        <div class="col-md-12">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h3 style="color: #111111;">To enjoy browsing :- </h3>
-                                </div>
+                        <div class="col-md-3 col-md-offset-2">
+                            <div class="panel welcome-guest-panel">
                                 <div class="panel-body">
-                                    <ol class='center'>
-                                        <li style="color: #111111;">Click on register (<a href='register.html'>go to
-                                                register</a>).</li>
-                                        <li style="color: #111111;">Enter the details as they are (phone, username,
-                                            email and password)</li>
-                                        <li style="color: #111111;">Verify your phone number</li>
-                                        <li style="color: #111111;">Choose your preferred internet plan</li>
-                                        <li style="color: #111111;">Click on the preferred plan and check your phone to
-                                            enter your MPESA PIN</li>
-                                        <li style="color: #111111;">
-                                            No need to buy via till number anymore, just click on the package and you
-                                            will be prompted for the mpesa PIN
-                                        </li>
-                                        <li style="color: #111111;">Enjoy browsing.</li>
-                                    </ol>
+                                    <div class="guest-btn">
+                                        <a href="{% url 'signup' %}" class="btn btn-success btn-block">Register</a>
+                                    </div>
+                                    <div class="guest-btn">
+                                        <a href="{% url 'login' %}" class="btn btn-primary btn-block">Login</a>
+                                    </div>
+                                    <div class="guest-btn">
+                                        <a href="#how-to-reg" class="btn btn-danger btn-block">How to register</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- START Bootstrap-Cookie-Alert -->
-                    <div class="alert text-center cookiealert" role="alert">
-                        <b>Do you like cookies?</b> &#x1F36A; We use cookies to ensure you get the best experience on
-                        our website. <a href="https://cookiesandyou.com/" target="_blank">Learn more</a>
 
-                        <button type="button" class="btn btn-primary btn-sm acceptcookies">
-                            I agree
-                        </button>
+
+
+                    <div class="row" style="position: relative; left: 0;">
+                        <div class="col-xs-12 text-center">
+                            <h2 style="margin-bottom: 40px; color: #111111;">TRUTH WIFI Internet Plans</h2>
+                        </div>
                     </div>
-                    <!-- Include cookiealert script -->
-                    <script
-                        src="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.js"></script>
 
-                    <!-- END Bootstrap-Cookie-Alert -->
 
+
+
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <div class="row" id="packages">
+                                {% for items in package_list %}
+                                <div class="col-xs-offset-2 col-xs-5 col-sm-offset-0 col-sm-6 col-md-3  ">
+                                    <button class="btn btn-primary text-center panel" action=""
+                                        value={{items.bundle_length}},{{items.bundle_price}},{{items.bundle_speed}}
+                                        name={{items.bundle}} id={{items.bundle_id}} onclick="select_bundle(this.id)"
+                                        style="border:none;">
+                                        <small>
+                                            <ul>
+                                                <li><strong>{{items.bundle_length}}</strong></li>
+                                                <small>
+                                                    <li><strong>{{items.bundle}}</strong> @
+                                                        <small>{{items.bundle_price}}Ksh</small></li>
+
+                                                </small>
+
+                                            </ul>
+                                        </small>
+
+                                    </button>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <div id="how-to-reg" class="row row-margin-top">
+                            <div class="col-md-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h3 style="color: #111111;">To enjoy browsing :- </h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <ol class='center'>
+                                            <li style="color: #111111;">Click on register (<a href='register.html'>go to
+                                                    register</a>).</li>
+                                            <li style="color: #111111;">Enter the details as they are (phone, username,
+                                                email and password)</li>
+                                            <li style="color: #111111;">Verify your phone number</li>
+                                            <li style="color: #111111;">Choose your preferred internet plan</li>
+                                            <li style="color: #111111;">Click on the preferred plan and check your phone
+                                                to
+                                                enter your MPESA PIN</li>
+                                            <li style="color: #111111;">
+                                                No need to buy via till number anymore, just click on the package and
+                                                you
+                                                will be prompted for the mpesa PIN
+                                            </li>
+                                            <li style="color: #111111;">Enjoy browsing.</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- START Bootstrap-Cookie-Alert -->
+                        <div class="alert text-center cookiealert" role="alert">
+                            <b>Do you like cookies?</b> &#x1F36A; We use cookies to ensure you get the best experience
+                            on
+                            our website. <a href="https://cookiesandyou.com/" target="_blank">Learn more</a>
+
+                            <button type="button" class="btn btn-primary btn-sm acceptcookies">
+                                I agree
+                            </button>
+                        </div>
+                        <!-- Include cookiealert script -->
+                        <script
+                            src="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.js"></script>
+
+                        <!-- END Bootstrap-Cookie-Alert -->
+
+                    </div>
                 </div>
+                <!-- FOOTER -->
+                <!--FOOTER SECTION -->
+                <div class="main-footer text-center">
+                    <strong>Copyright &copy; 2020 <a href="http://truthwifi.com/home">TRUTH WIFI</a>.</strong>
+                </div>
+                <!-- END FOOTER SECTION -->
+                <!-- FOOTER -->
             </div>
-            <!-- FOOTER -->
-            <!--FOOTER SECTION -->
-            <div class="main-footer text-center">
-                <strong>Copyright &copy; 2020 <a href="http://truthwifi.com/home">TRUTH WIFI</a>.</strong>
-            </div>
-            <!-- END FOOTER SECTION -->
-            <!-- FOOTER -->
-        </div>
 
 </body>
 
