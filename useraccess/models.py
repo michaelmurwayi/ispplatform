@@ -34,13 +34,21 @@ class CustomUser(AbstractBaseUser):
 
 
 class SelectedPackages(models.Model):
+<<<<<<< HEAD
     username = models.CharField(max_length=50,null=True)
+=======
+    username = models.CharField(max_length=50)
+>>>>>>> af412d69c1319e7d0403c408175145c5bc607b8a
     bundle = models.CharField(max_length=10)
     speed = models.CharField(max_length=10)
     Expiry = models.CharField(max_length=50)
     balance = models.CharField(max_length=100)
     access_period = models.CharField(max_length=10)
+<<<<<<< HEAD
     bundle_id = models.IntegerField(null=True)
+=======
+    bundle_id = models.IntegerField()
+>>>>>>> af412d69c1319e7d0403c408175145c5bc607b8a
 
 
 class Radcheck(models.Model):

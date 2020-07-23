@@ -8,8 +8,12 @@ from .bulksms2 import process_sms
 from useraccess.models import CustomUser
 from django.views.generic.base import TemplateView
 # Create your views here.
+<<<<<<< HEAD
 from django.views.generic import ListView
 from .models import  UseraccessSelectedpackages
+=======
+
+>>>>>>> af412d69c1319e7d0403c408175145c5bc607b8a
 
 class AdminDashboardView(FormView):
     template_name = "admindash.html"
@@ -66,6 +70,7 @@ def clean_phonenumbers(phonenumbers):
     return numbers
 
 
+<<<<<<< HEAD
 class OnlineUsersView(ListView):
     template_name = "online_users.html"
     model = UseraccessSelectedpackages
@@ -75,3 +80,7 @@ class OnlineUsersView(ListView):
         # Call the base implementation first to get a context
         context = super().get_context_data(**kwargs)
         return context
+=======
+class OnlineUsersView(TemplateView):
+    template_name = "online_users.html"
+>>>>>>> af412d69c1319e7d0403c408175145c5bc607b8a

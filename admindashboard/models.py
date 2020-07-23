@@ -9,6 +9,7 @@ from django.db import models
 
 
 class Messages(models.Model):
+<<<<<<< HEAD
 
     message = models.TextField(max_length=100)
 
@@ -24,3 +25,6 @@ class UseraccessSelectedpackages(models.Model):
     class Meta:
         managed = False
         db_table = 'useraccess_selectedpackages'
+=======
+    message = models.TextField(max_length=100)
+>>>>>>> af412d69c1319e7d0403c408175145c5bc607b8a
