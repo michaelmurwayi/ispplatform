@@ -38,7 +38,11 @@ class HomeView(TemplateView):
             packages_list.append(context)
 
         # storing user email and phonenumber in cache for later access
+<<<<<<< HEAD
+        #cache.set('username', context['username'])
+=======
         cache.set('username', context['username'])
+>>>>>>> af412d69c1319e7d0403c408175145c5bc607b8a
         cache.set('phonenumber', "0746256084")
         # should be replaced with request.user.phonenumber
         return render(request, 'index.html', {'package_list': packages_list})
