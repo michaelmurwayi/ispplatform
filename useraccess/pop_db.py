@@ -5,24 +5,9 @@ import mysql.connector
 
 mydb = mysql.connector.connect(
   host="localhost",
-<<<<<<< HEAD
-  user="root",
-  passwd='keras@#19',
-  database="space"
-)
-=======
-<<<<<<< HEAD
-  user="root",
-  passwd="tony10578bella",
-  database="radius"
-=======
   user="huncho",
   passwd="c11h28no3",
   database="isp"
->>>>>>> 67354c8550fc5c045031ec30667c1b1010b7843f
-) 
->>>>>>> af412d69c1319e7d0403c408175145c5bc607b8a
-
 
 def read_csvfile_to_list(uploaded_file):
     # read packages records from csv file
