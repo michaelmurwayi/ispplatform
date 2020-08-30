@@ -10,7 +10,7 @@ mydb = mysql.connector.connect(host="localhost",
 
 
 def read_csvfile_to_list(uploaded_file):
-    # read packages records from csv file
+    # read packages records from csv records
     with open(uploaded_file, newline='') as csvfile:
         Line_count = 0
         package_list = []
