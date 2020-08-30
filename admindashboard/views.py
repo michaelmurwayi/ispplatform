@@ -5,8 +5,10 @@ import collections
 from useraccess.models import Packages
 from .forms import MessageForm
 from .bulksms2 import process_sms
-from useraccess.models import CustomUser
+from useraccess.models import CustomUser, SelectedPackages
 from django.views.generic.base import TemplateView
+from django.views.generic import ListView
+
 # Create your views here.
 
 
@@ -65,5 +67,12 @@ def clean_phonenumbers(phonenumbers):
     return numbers
 
 
-class OnlineUsersView(TemplateView):
+class OnlineUsersView(ListView):
     template_name = "online_users.html"
+    model = SelectedPackages
+    context_object_name = 'online_users'
+
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        return context
