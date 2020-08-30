@@ -55,7 +55,8 @@ class SignupView(CreateView):
         #  how to handle user registration form
 
         form = self.form_class(request.POST)
-        import ipdb; ipdb.set_trace()
+        import ipdb
+        ipdb.set_trace()
         if form.is_valid():
             form.save()
             email = form.cleaned_data.get('email')
@@ -77,8 +78,6 @@ class ProfileView(SingleObjectMixin, ListView):
     def get(self, request):
         username = request.user.username
         user_check = SelectedPackages.objects.filter(username=username).count()
-        import ipdb
-        ipdb.set_trace()
         if user_check == 0:
             context = {
                 "username":
@@ -112,7 +111,7 @@ class PackageView(CreateView):
     packages = Packages
 
     def get(self, request):
-        packages = [items for items in Packages.objects.all().valsues()]
+        packages = [items for items in Packages.objects.all().values()]
         packages_list = []
         form = self.form_class()
         for items in packages:
