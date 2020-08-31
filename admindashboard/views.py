@@ -9,7 +9,6 @@ from useraccess.models import CustomUser
 from django.views.generic.base import TemplateView
 # Create your views here.
 
-
 class AdminDashboardView(FormView):
     template_name = "admindash.html"
     form_class = MessageForm
