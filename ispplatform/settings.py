@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'ispplatform.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'test',
+        'NAME': 'isp',
         'USER': 'huncho',
         'PASSWORD': 'c11h28no3',
         'HOST': 'localhost',

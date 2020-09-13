@@ -9,6 +9,8 @@ mydb = mysql.connector.connect(
   passwd="c11h28no3",
   database="isp"
 
+)
+
 def read_csvfile_to_list(uploaded_file):
     # read packages records from csv records
     with open(uploaded_file, newline='') as csvfile:
