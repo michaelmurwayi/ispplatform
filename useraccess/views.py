@@ -51,10 +51,12 @@ class SignupView(CreateView):
     success_url = reverse_lazy('profile')
     template_name = "signup.html"
 
-    def post(self, request):
+    def POST(self, request):
         #  how to handle user registration form
 
-        form = UserCreationForm(request.POST)
+        form = self.form_class(request.POST)
+        import ipdb
+        ipdb.set_trace()
         if form.is_valid():
             form.save()
             email = form.cleaned_data.get('email')
