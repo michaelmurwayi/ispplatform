@@ -44,31 +44,43 @@ class HomeView(TemplateView):
         return render(request, 'index.html', {'package_list': packages_list})
 
 
-class SignupView(CreateView):
-    # view function for user registration
+# class SignupView(CreateView):
+#     # view function for user registration
 
-    form_class = UserCreationForm
-    success_url = reverse_lazy('profile')
-    template_name = "signup.html"
+#     form_class = UserCreationForm
+#     success_url = reverse_lazy('profile')
+#     template_name = "signup.html"
 
-    def POST(self, request):
-        #  how to handle user registration form
+#     def POST(self, request):
+#         #  how to handle user registration form
 
-        form = self.form_class(request.POST)
-        import ipdb
-        ipdb.set_trace()
-        if form.is_valid():
-            form.save()
-            email = form.cleaned_data.get('email')
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(email=email, password=raw_password)
-            login(request, user)
-            return render(request, 'account.html')
-        else:
-            form = UserCreationForm()
-        return render(request, 'signup.html', {'form': form})
+#         form = self.form_class(request.POST)
+#         import ipdb
+#         ipdb.set_trace()
+#         if form.is_valid():
+#             form.save()
+#             email = form.cleaned_data.get('email')
+#             raw_password = form.cleaned_data.get('password1')
+#             user = authenticate(email=email, password=raw_password)
+#             login(request, user)
+#             return render(request, 'account.html')
+#         else:
+#             form = UserCreationForm()
+#         return render(request, 'signup.html', {'form': form})
+def SignupView(request):
+    form = UserCreationForm(request.POST)
+    if form.is_valid():
+        import ipdb; ipdb.set_trace()
+        form.save()
+        username = form.cleaned_data.get('username')
+        password = form.cleaned_data.get('password1')
+        user = authenticate(username=username, password=password)
+        login(request, user)
+        return redirect('profile')
+    return render(request, 'signup.html', {'form': form})
 
-
+def two_Factor_auth(phonenumber):
+    pass
 class ProfileView(SingleObjectMixin, ListView):
     # view for the user profile page
 

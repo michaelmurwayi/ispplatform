@@ -8,7 +8,7 @@ from django.conf.urls import url
 # import ipdb; ipdb.set_trace();
 urlpatterns = [
     path('', HomeView.as_view(), name="home"),
-    path('signup/', SignupView.as_view(), name="signup"),
+    path('signup/', SignupView, name="signup"),
     path('profile/', ProfileView.as_view(), name="profile"),
     path('accounts/', include('django.contrib.auth.urls')),
     path('packages/', PackageView.as_view(), name='packages'),

@@ -272,7 +272,7 @@
                         <br>
                         <form method="POST">
                             {% csrf_token %}
-                            {{ form }}
+                            {{ form.as_p }}
                             <!-- {% for field in form %}
                             <p>
                                 <label class="badge  badge-info">{{ field.label_tag }}</label>
@@ -285,19 +285,20 @@
                                 {% endfor %}
                             </p>
                             {% endfor %} -->
+                            <button class="btn  btn-info" type="submit">Sign up</button>
+                            <div class="terms m-3">
+                                <!-- Terms of service -->
+                                <p>By clicking
+                                    <em>Sign up</em> you agree to our
+                                    <a href="" target="_blank">terms of service</a>
+                                    <br>
+                                    <b><em>Already have an account ?</em><a href="{% url 'login' %}"> Login
+                                        </a></b>
+                            </div>
                         </form>
 
 
-                        <button class="btn  btn-info" type="submit">Sign up</button>
-                        <div class="terms m-3">
-                            <!-- Terms of service -->
-                            <p>By clicking
-                                <em>Sign up</em> you agree to our
-                                <a href="" target="_blank">terms of service</a>
-                                <br>
-                                <b><em>Already have an account ?</em><a href="{% url 'login' %}"> Login
-                                    </a></b>
-                        </div>
+                       
                     </div>
 
 
