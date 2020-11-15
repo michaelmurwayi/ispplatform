@@ -20,6 +20,7 @@ class CustomUser(AbstractBaseUser):
     username = models.CharField(max_length=60, unique=True, default="Truth")
     phonenumber = models.CharField(max_length=15)
     password = models.CharField(max_length=255)
+    code = models.CharField(max_length=60,null=True)
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     date_joined = models.DateTimeField(default=timezone.now)

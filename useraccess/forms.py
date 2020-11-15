@@ -5,15 +5,21 @@ from .models import CustomUser, Packages
 
 
 class UserCreationForm(UserCreationForm):
-    firstname = forms.CharField()
-    lastname = forms.CharField()
     email = forms.EmailField()
     username = forms.CharField()
     phonenumber = forms.CharField()
 
+
+
     class Meta:
         model = CustomUser
-        fields = ['firstname', 'lastname', 'username', 'email', 'phonenumber']
+        fields = [ 'username', 'email', 'phonenumber']
+
+class TwoFactorForm(forms.ModelForm):
+
+    class Meta:
+        model=CustomUser
+        fields = ['code']
 
 
 class PackagesForm(forms.ModelForm):
