@@ -43,42 +43,13 @@ class HomeView(TemplateView):
             }
             packages_list.append(context)
 
-        # storing user email and phonenumber in cache for later access
-        # cache.set('username', context['username'])
-        # cache.set('phonenumber', "0746256084")
-        # should be replaced with request.user.phonenumber
         return render(request, 'index.html', {'package_list': packages_list})
-
-
-# class SignupView(CreateView):
-#     # view function for user registration
-
-#     form_class = UserCreationForm
-#     success_url = reverse_lazy('profile')
-#     template_name = "signup.html"
-
-#     def POST(self, request):
-#         #  how to handle user registration form
-
-#         form = self.form_class(request.POST)
-#         import ipdb
-#         ipdb.set_trace()
-#         if form.is_valid():
-#             form.save()
-#             email = form.cleaned_data.get('email')
-#             raw_password = form.cleaned_data.get('password1')
-#             user = authenticate(email=email, password=raw_password)
-#             login(request, user)
-#             return render(request, 'account.html')
-#         else:
-#             form = UserCreationForm()
-#         return render(request, 'signup.html', {'form': form})
 
 
 class SignupView(CreateView):
     #  registration view class 
     form_class = UserCreationForm
-    success_url = reverse_lazy('profile')
+    success_url = reverse_lazy('twofa')
     template_name = "signup.html"
 
     def post(self, request):
@@ -97,15 +68,8 @@ class SignupView(CreateView):
             password = form1.cleaned_data.get('password1')
             secret_key = secrets.randbelow(10000)
             message= ("%04d") % secret_key
-
-            # saving in cache    
-            # cache.set('m', m)
-            # cache.set('username1', username1)
-            # cache.set('password', password)
-            # cache.set('message', message)
             phone1 = str(form1.cleaned_data.get('phonenumber'))
             phone= ['+254700011464']
-            import ipdb; ipdb.set_trace()
             print(phone1)
             self.two_authentication([phone1],message)
             user=authenticate(username=username1, password=password)
@@ -125,11 +89,8 @@ class SignupView(CreateView):
         def on_finish(error, response):
             if error is not None:
                 raise error
-
-
-
-
         sms.send(message, recipients, callback=on_finish)
+        
         return message
 
 def twofa(request):
@@ -146,7 +107,7 @@ def twofa(request):
             user = authenticate(username=username1, password=password)
             #login(m, user)
             return redirect('login')
-    return render(request,'twofa.html',{'form':form})
+    return redirect('signup')
 
 class ProfileView(SingleObjectMixin, ListView):
     # view for the user profile page
