@@ -46,59 +46,63 @@ class HomeView(TemplateView):
         return render(request, 'index.html', {'package_list': packages_list})
 
 
-class SignupView(CreateView):
-    #  registration view class 
-    form_class = UserCreationForm
-    success_url = reverse_lazy('twofa')
-    template_name = "signup.html"
+def SignupView(request):
+    global form1
+    form1 = UserCreationForm(request.POST)
+    username = "TruthWifiPlatform"
+    api_key = "3dc48102f887679a3db12f53d50d70ae9e0d31a6d563a2b854cb2da4c9707fd0"
+    africastalking.initialize(username, api_key)
+    if form1.is_valid():
+        global user,m,message,username1,password
+        form1.save(commit=False)
+        m=request.POST
+        username1 = form1.cleaned_data.get('username')
+        password = form1.cleaned_data.get('password1')
+        secret_key = secrets.randbelow(10000)
+        message= ("%04d") % secret_key
+        phone1 = str(form1.cleaned_data.get('phonenumber'))
+        phone= ['+254700011464']
+        print(phone1)
+        two_authentication([phone1],message)
+        user=authenticate(username=username1, password=password)
 
-    def post(self, request):
-        global form1
-        form1 = UserCreationForm(request.POST)
-        # cache.set('form1', form1)
-        username = "TruthWifiPlatform"
-        api_key = "3dc48102f887679a3db12f53d50d70ae9e0d31a6d563a2b854cb2da4c9707fd0"
-        africastalking.initialize(username, api_key)
-        
-        if form1.is_valid():
-            global user,m,message,username1,password
-            form1.save(commit=False)
-            m=request.POST
-            username1 = form1.cleaned_data.get('username')
-            password = form1.cleaned_data.get('password1')
-            secret_key = secrets.randbelow(10000)
-            message= ("%04d") % secret_key
-            phone1 = str(form1.cleaned_data.get('phonenumber'))
-            phone= ['+254700011464']
-            print(phone1)
-            self.two_authentication([phone1],message)
-            user=authenticate(username=username1, password=password)
-
-            return redirect('twofa')
+        return redirect('twofa')
 
 
-        return render(request,'signup.html',{'form':form1})
+    return render(request,'signup.html',{'form':form1})
 
 
 
-    def two_authentication(self, phone, message):
-        # initialize the service, in our case, SMS
-        sms = africastalking.SMS
-        recipients = phone
-        # USE THE SERVICE
-        def on_finish(error, response):
-            if error is not None:
-                raise error
-        sms.send(message, recipients, callback=on_finish)
-        
-        return message
+
+
+
+def two_authentication(phone,message):
+
+
+    # initialize the service, in our case, SMS
+    sms = africastalking.SMS
+    recipients = phone
+
+    # USE THE SERVICE
+    def on_finish(error, response):
+        if error is not None:
+            raise error
+
+
+
+
+    sms.send(message, recipients, callback=on_finish)
+
+
+
+
 
 def twofa(request):
     form = TwoFactorForm(request.POST)
-    print(form)
+    import ipdb; ipdb.set_trace()
     if form.is_valid():
         #form.save()
-        
+
         code1=form.cleaned_data.get('code')
         print('message' , message)
         print('code1',code1)
@@ -107,7 +111,7 @@ def twofa(request):
             user = authenticate(username=username1, password=password)
             #login(m, user)
             return redirect('login')
-    return redirect('signup')
+    return render(request,'signup.html',{'form':form})
 
 class ProfileView(SingleObjectMixin, ListView):
     # view for the user profile page
