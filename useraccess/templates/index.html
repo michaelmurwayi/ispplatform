@@ -1,223 +1,47 @@
-{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="TruthWifi offers affordable and reliable internet. Powered by CrunchTech">
-    <meta name="author" content="CrunchTech, CrunchTech">
-    <link rel="shortcut icon" href="{% static 'img/truth-favicon.png' %}" type="image/x-icon">
-    <!-- cookiealert styles -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.css">
-    <title>TRUTH WIFI</title>
-    <link href="{% static 'css/frontend.dev.css' %} " rel="stylesheet">
+	<title>WIFI YETU</title>
+	<meta charset="utf-8">
+	<!-- [if IE]>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<![endif] -->
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+	<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
 
-    <!-- styles -->
-    <style>
-        body {
-            overflow-x: hidden;
-        }
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-        .guest-btn {
-            margin-top: 10px
-        }
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="shortcut icon" href="http://truthwifi.com/logos/truth-favicon.png" type="image/x-icon">
+	<link rel="stylesheet" href="http://webdesign-finder.com/html/maxicom/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://webdesign-finder.com/html/maxicom/css/animations.css">
+	<link rel="stylesheet" href="http://webdesign-finder.com/html/maxicom/css/font-awesome.css">
+	<link rel="stylesheet" href="http://webdesign-finder.com/html/maxicom/css/main.css" class="color-switcher-link">
+	<link rel="stylesheet" href="/cookiealert.css">
+	
+	<script src="http://webdesign-finder.com/html/maxicom/js/vendor/modernizr-2.6.2.min.js"></script>
 
-        .navbar-default {
-            border-bottom: none;
-            background-color: #111;
-            -webkit-box-shadow: 0 5px 5px #888;
-            -moz-box-shadow: 0 5px 5px #888;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, .16)
-        }
-
-        .btn,
-        .label {
-            border-radius: 25px 25px
-        }
-
-        .navbar-default .navbar-brand,
-        .navbar-default .navbar-nav>li>a {
-            color: #fff
-        }
-
-        .btn-default,
-        .label-default {
-            background-color: #8a2be2;
-            color: #fff
-        }
-
-        .btn-default:hover,
-        .label-default[href]:hover {
-            background-color: #8a2be2;
-            color: #ddd
-        }
-
-        .btn-primary {
-            color: #fff;
-            background-color: #8a2be2;
-            border-color: #8a2be2
-        }
-
-        .btn-primary.focus,
-        .btn-primary:focus {
-            color: #fff;
-            background-color: #8a2be2;
-            border-color: #8a2be2
-        }
-
-        .btn-primary.active,
-        .btn-primary:active,
-        .btn-primary:hover,
-        .open>.btn-primary.dropdown-toggle {
-            color: #fff;
-            background-color: #7c2ad2;
-            border-color: #7c2ad2
-        }
-
-        .navbar-default .navbar-brand:hover,
-        .navbar-default .navbar-nav>li>a:hover {
-            color: #ddd
-        }
-
-        .content {
-            min-height: 82vh;
-            padding: 15px
-        }
-
-        .main-footer {
-            border-top: 1px solid rgba(0, 0, 0, .16);
-            padding-top: 10px;
-            padding-bottom: 10px
-        }
-
-        .welcome-header {
-            padding-top: 70px;
-            background:#8a2be2 url("{% static 'img/future-of-AI.jpg' %}") no-repeat fixed center;
-            background-size: cover
-        }
-
-        .welcome-guest-panel {
-            background: rgba(99, 107, 111, .47) !important
-        }
-
-        .messages {
-            margin-top: 70px
-        }
-
-        .row-margin-top {
-            margin-top: 10px;
-            padding: 4px
-        }
-
-        .btn {
-            width: 200px;
-            height: 60px;
-            border: none;
-            outline: 0;
-            color: #fff;
-            background: #111;
-            cursor: pointer;
-            position: relative;
-            z-index: 0;
-            border-radius: 10px;
-            left: 0;
-        }
-
-        .btn:before {
-            content: '';
-            background: linear-gradient(45deg, red, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, red);
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            background-size: 400%;
-            z-index: -1;
-            filter: blur(5px);
-            width: calc(100% + 4px);
-            height: calc(100% + 4px);
-            animation: glowing 20s linear infinite;
-            opacity: 0;
-            transition: opacity .3s ease-in-out;
-            border-radius: 10px
-        }
-
-        .btn:active {
-            color: #000
-        }
-
-        .btn:active:after {
-            background: 0 0
-        }
-
-        .btn:hover:before {
-            opacity: 1
-        }
-
-        .btn:after {
-            z-index: -1;
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: #111;
-            left: 0;
-            top: 0;
-            border-radius: 10px
-        }
-
-        @keyframes glowing {
-            0% {
-                background-position: 0 0
-            }
-
-            50% {
-                background-position: 400% 0
-            }
-
-            100% {
-                background-position: 0 0
-            }
-        }
-
-        .messages {
-            margin-top: 20px !important;
-            position: absolute;
-            top: 0;
-            z-index: 9999
-        }
-
-        #packages .panel-heading {
-            background-color: #111;
-            max-height: 0px;
-            height: 140px;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden
-        }
-
-        h1 .label {
-            margin-bottom: 10px
-        }
-
-        small {
-            color: antiquewhite;
-        }
-
-        ul {
-            list-style-type: none;
-            padding-left: 0pt;
-        }
-
-        .button {
-            outline: none;
-            box-shadow: none;
-            border: solid 2px;
-        }
-    </style>
-
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<!--[if lt IE 9]>
+		<script src="js/vendor/html5shiv.min.js"></script>
+		<script src="js/vendor/respond.min.js"></script>
+		<script src="js/vendor/jquery-1.12.4.min.js"></script>
+	<![endif]-->
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 
     <script>
@@ -256,166 +80,564 @@
 </head>
 
 <body>
-    <div class="wrapper">
-        <!-- NAV SECTION -->
-        <div class="navbar navbar-default navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a href="http://truthwifi.com/home" class="navbar-brand" style="font-size: 24px;">TRUTH WIFI</a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{% url 'home' %}">Home</a></li>
-                        <li><a href="{% url 'signup' %}">Register</a></li>
-                        <li><a id="loginUrlToggle" href="{% url 'login' %}">Login</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!--END NAV SECTION -->
-        <div class="content-wrapper">
-            <div class="container messages">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                    </div>
-                </div>
-            </div>
-            <!--END NAV SECTION -->
-            <div class="content-wrapper">
-                <div class="container messages">
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
-                        </div>
-                    </div>
-                </div>
-                <div class="content">
-                    <!-- MAIN CONTENT -->
-                    <div class="row welcome-header">
-                        <div class="col-md-5 text-center">
-                            <div class="brand">
-                                <img src="{% static 'img/logo.png' %}" style="width: 200px; margin: auto;"
-                                    class="img img-responsive" alt="place-holder-image">
-                                <h2 style="color:#111111;font-size: 18px; font-weight:bold;">Access Fast and Affordable
-                                    Internet</h2>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-md-offset-2">
-                            <div class="panel welcome-guest-panel">
-                                <div class="panel-body">
-                                    <div class="guest-btn">
-                                        <a href="{% url 'signup' %}" class="btn btn-success btn-block">Register</a>
-                                    </div>
-                                    <div class="guest-btn">
-                                        <a href="{% url 'login' %}" class="btn btn-primary btn-block">Login</a>
-                                    </div>
-                                    <div class="guest-btn">
-                                        <a href="#how-to-reg" class="btn btn-danger btn-block">How to register</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+	<!--[if lt IE 9]>
+		<div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" class="color-main">upgrade your browser</a> to improve your experience.</div>
+	<![endif]-->
+
+	<div class="preloader">
+		<div class="preloader_image"></div>
+	</div>
+
+	<!-- search modal -->
+	<div class="modal" tabindex="-1" role="dialog" aria-labelledby="search_modal" id="search_modal">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<div class="widget widget_search">
+			<a href="./" class="logo">
+				<span class="logo-text py-20"><strong>TRUTH</strong>WIFI</span>
+			</a>
+			
+		</div>
+	</div>
+
+	<!-- Unyson messages modal -->
+	<div class="modal fade" tabindex="-1" role="dialog" id="messages_modal">
+		<div class="fw-messages-wrap ls p-normal">
+			<!-- Uncomment this UL with LI to show messages in modal popup to your user: -->
+			<!--
+		<ul class="list-unstyled">
+			<li>Message To User</li>
+		</ul>
+		-->
+
+		</div>
+	</div><!-- eof .modal -->
+
+	<!-- wrappers for visual page editor and boxed version of template -->
+	<div id="canvas">
+		<div id="box_wrapper">
+
+			<!-- template sections -->
 
 
+			<!--topline section visible only on small screens|-->
+			<section class="page_topline ls s-borderbottom c-my-10 c-my-lg-20">
+				<div class="container-fluid">
+					<div class="row align-items-center">
+						<div class="col-md-6 text-md-left text-center">
+							<ul class="top-includes">
+								<li>
+									<span class="icon-inline">
+										<span class="icon-styled color-main fs-14">
+											<i class="fa fa-pencil"></i>
+										</span>
+										<span class="small-text">
+											<a id="loginUrlToggle" href="{% url 'login' %}"><b>LOGIN</b></a>
+										</span>
+									</span>
+								</li>
+							</ul>
+						</div>
+						<div class="col-md-6 text-center text-md-right d-none d-md-block">
+							<ul class="top-includes">
+								<li>
+									<span class="icon-inline">
+										<span class="icon-styled color-main2 fs-14">
+											<i class="fa fa-comment"></i>
+										</span>
+										<span class="small-text">
+											<a class="hover-main2" href="#"></a>
+										</span>
+									</span>
+								</li>
+								<li>
+									<span class="icon-inline">
+										<span class="icon-styled color-main2 fs-14">
+											<i class="fa fa-user"></i>
+										</span>
+										<span class="small-text">
+											<a class="hover-main2" href="#"> </a>
+										</span>
+									</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
 
 
-                    <div class="row" style="position: relative; left: 0;">
-                        <div class="col-xs-12 text-center">
-                            <h2 style="margin-bottom: 40px; color: #111111;">TRUTH WIFI Internet Plans</h2>
-                        </div>
-                    </div>
+			<!--eof topline-->
+
+			<div class="header_absolute header_layout_1">
+				<div id="particles-js"></div>
+				<!-- header with two Bootstrap columns - left for logo and right for navigation and includes (search, social icons, additional links and buttons etc -->
+				<header class="page_header ls justify-nav-end">
+					<div class="container-fluid">
+						<div class="row align-items-center">
+							<div class="col-xl-2 col-lg-4 col-md-5 col-11">
+								<a href="./" class="logo">
+									<span class="logo-text py-20"><strong>WIFI</strong>YETU</span>
+
+								</a>
+							
+							</div>
+							<div class="col-xl-9 col-lg-8 col-md-7 col-1">
+								<div class="nav-wrap">
+
+									<!-- main nav start -->
+									<nav class="top-nav">
+										<ul class="nav sf-menu">
 
 
+											<li class="active">
+												<a href="index.html"><b>Home</b></a>
+											</li>
+
+											<li>
+												<a href="internet.html"><b>help</b></a>
+											</li>
+
+											<li>
+												<a href="internet.html"><b>Internet Plans</b></a>
+											</li>
+
+											<li>
+												<a href="login.html"><b>login</b></a>
+											</li>
+
+											<!-- eof features -->
+
+										</ul>
 
 
-                    <div class="row">
-                        <div class="col-sm-8 col-sm-offset-2">
-                            <div class="row" id="packages">
-                                {% for items in package_list %}
-                                <div class="col-xs-offset-2 col-xs-5 col-sm-offset-0 col-sm-6 col-md-3  ">
-                                    <button class="btn btn-primary text-center panel" action=""
-                                        value={{items.bundle_length}},{{items.bundle_price}},{{items.bundle_speed}}
-                                        name={{items.bundle}} id={{items.bundle_id}} onclick="select_bundle(this.id)"
-                                        style="border:none;">
-                                        <small>
-                                            <ul>
-                                                <li><strong>{{items.bundle_length}}</strong></li>
-                                                <small>
-                                                    <li><strong>{{items.bundle}}</strong> @
-                                                        <small>{{items.bundle_price}}Ksh</small></li>
+									</nav>
+									<!-- eof main nav -->
 
-                                                </small>
+									<!--hidding includes on small devices. They are duplicated in topline-->
+									<ul class="top-includes d-none d-xl-block search-icon">
 
-                                            </ul>
-                                        </small>
+										<li>
+											
+										</li>
 
-                                    </button>
-                                </div>
-                                {% endfor %}
-                            </div>
-                        </div>
+									</ul>
 
-                        <div id="how-to-reg" class="row row-margin-top">
-                            <div class="col-md-12">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h3 style="color: #111111;">To enjoy browsing :- </h3>
-                                    </div>
-                                    <div class="panel-body">
-                                        <ol class='center'>
-                                            <li style="color: #111111;">Click on register (<a href='register.html'>go to
-                                                    register</a>).</li>
-                                            <li style="color: #111111;">Enter the details as they are (phone, username,
-                                                email and password)</li>
-                                            <li style="color: #111111;">Verify your phone number</li>
-                                            <li style="color: #111111;">Choose your preferred internet plan</li>
-                                            <li style="color: #111111;">Click on the preferred plan and check your phone
-                                                to
-                                                enter your MPESA PIN</li>
-                                            <li style="color: #111111;">
-                                                No need to buy via till number anymore, just click on the package and
-                                                you
-                                                will be prompted for the mpesa PIN
-                                            </li>
-                                            <li style="color: #111111;">Enjoy browsing.</li>
-                                        </ol>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- header toggler -->
+					<span class="toggle_menu"><span></span></span>
+				</header>
 
-                        <!-- START Bootstrap-Cookie-Alert -->
-                        <div class="alert text-center cookiealert" role="alert">
-                            <b>Do you like cookies?</b> &#x1F36A; We use cookies to ensure you get the best experience
-                            on
-                            our website. <a href="https://cookiesandyou.com/" target="_blank">Learn more</a>
+				<div class="page_header_wrapper main-header-side">
+					<div class="page_header_side header_slide header_side_right ls">
+						<span class="toggle_menu toggle_menu_side header-slide"><span></span></span>
+						<div class="scrollbar-macosx">
+							<div class="side_header_inner">
+								<div class="header-side-menu">
+									<!-- main side nav start -->
+									<nav class="mainmenu_side_wrapper">
+										<ul class="nav menu-click">
+											
+											<li>
+												<a href="availability-map.html">
+													<i class="color-main7 fa fa-file-text-o"></i>
+													Terms of Service
+												</a>
+											</li>
+											
+										</ul>
+									</nav>
+									<!-- eof main side nav -->
 
-                            <button type="button" class="btn btn-primary btn-sm acceptcookies">
-                                I agree
-                            </button>
-                        </div>
-                        <!-- Include cookiealert script -->
-                        <script
-                            src="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.js"></script>
 
-                        <!-- END Bootstrap-Cookie-Alert -->
+								</div>
+							</div>
+						</div>
+						
+					</div>
 
-                    </div>
-                </div>
-                <!-- FOOTER -->
-                <!--FOOTER SECTION -->
-                <div class="main-footer text-center">
-                    <strong>Copyright &copy; 2020 <a href="http://truthwifi.com/home">TRUTH WIFI</a>.</strong>
-                </div>
-                <!-- END FOOTER SECTION -->
-                <!-- FOOTER -->
-            </div>
+				</div>
+
+				<section class="page_title cs s-pt-60 s-pb-10 s-pt-lg-130 s-pb-lg-60 page_title text-center">
+					<div class="container-fluid">
+						<div class="row">
+
+							<div class="divider-60"></div>
+
+							<div class="col-md-12 text-center">
+								<h3>WIFI YETU</h3>
+								<h3>THE PROMISED LAN</h3>
+							</div>
+
+							<div class="divider-50"></div>
+
+						</div>
+
+					</div>
+					<ol class="breadcrumb full-width">
+						<li class="breadcrumb-item">
+							<a href="./">Home</a>
+						</li>
+						<li class="breadcrumb-item">
+							<a href="#">Pages</a>
+						</li>
+						<li class="breadcrumb-item active">
+							Internet
+						</li>
+					</ol>
+				</section>
+			</div>
+			
+
+			<section class="s-py-80 s-py-lg-120 s-py-xl-160 ls ms">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-8 offset-lg-2">
+							<h5 class="special-heading text-center">Choose</h5>
+							<h1 class="text-center">Package</h1>
+							<p class="text-center big">Access fast and affordable internet</p>
+						</div>
+					</div>
+					<div class="divider-45 d-none d-lg-block"></div>
+					<div class="row c-gutter-60">
+						<div class="col-lg-4 col-12">
+							<div class="pricing-plan hero-bg rounded">
+								<div class="plan-name text-uppercase bg-maincolor">
+									<h3>
+										2.048 GB
+									</h3>
+								</div>
+								
+							
+								<div class="price-wrap d-flex">
+									<span class="plan-sign small-text">Ksh</span>
+									<span class="plan-price color-main2">20.00</span>
+									<span class="plan-decimals small-text"> /1 HOUR</span>
+								</div>
+								<div class="plan-button">
+									<a href="#" class="btn btn-maincolor"><span>Purchase</span></a>
+								</div>
+							</div>
+							<div class="divider-45 d-block d-lg-none"></div>
+						</div>
+						<div class="col-lg-4 col-12">
+							<div class="pricing-plan hero-bg rounded">
+								<div class="plan-name text-uppercase bg-maincolor">
+									<h3>
+										Daily Unlimited
+									</h3>
+								</div>
+								
+								
+								<div class="price-wrap d-flex">
+									<span class="plan-sign small-text">Ksh</span>
+									<span class="plan-price color-main2">40.00</span>
+									<span class="plan-decimals small-text">/ DAILY</span>
+								</div>
+								<div class="plan-button">
+									<a href="#" class="btn btn-maincolor"><span>Purchase</span></a>
+								</div>
+							</div>
+						</div>
+						<div class="divider-20 d-block d-md-none"></div>
+						<div class="col-lg-4 col-12">
+							<div class="pricing-plan hero-bg rounded">
+								<div class="plan-name text-uppercase bg-maincolor">
+									<h3>
+										7.5 GB
+									</h3>
+								</div>
+								
+								
+								<div class="price-wrap d-flex">
+									<span class="plan-sign small-text">Ksh</span>
+									<span class="plan-price color-main2">50.00</span>
+									<span class="plan-decimals small-text">/ Daily</span>
+								</div>
+								<div class="plan-button">
+									<a href="#" class="btn btn-maincolor"><span>Purchase</span></a>
+								</div>
+							</div>
+						</div>
+						<div class="divider-20 d-block d-md-none"></div>
+						<div class="col-lg-4 col-12">
+							<div class="pricing-plan hero-bg rounded">
+								<div class="plan-name text-uppercase bg-maincolor2">
+									<h3>
+										15 Gb
+									</h3>
+								</div>
+								
+								
+								<div class="price-wrap d-flex">
+									<span class="plan-sign small-text">Ksh</span>
+									<span class="plan-price color-main3">99.00</span>
+									<span class="plan-decimals small-text">/ Daily</span>
+								</div>
+								<div class="plan-button">
+									<a href="#" class="btn btn-maincolor2"><span>Purchase</span></a>
+								</div>
+							</div>
+						</div>
+						<div class="divider-20 d-block d-md-none"></div>
+						<div class="col-lg-4 col-12">
+							<div class="pricing-plan hero-bg rounded">
+								<div class="plan-name text-uppercase bg-maincolor2">
+									<h3>
+										6.0 GB
+									</h3>
+								</div>
+								
+								
+								<div class="price-wrap d-flex">
+									<span class="plan-sign small-text">Ksh</span>
+									<span class="plan-price color-main3">100.00</span>
+									<span class="plan-decimals small-text">/ 26HOURS</span>
+								</div>
+								<div class="plan-button">
+									<a href="#" class="btn btn-maincolor2"><span>Purchase</span></a>
+								</div>
+							</div>
+						</div>
+						<div class="divider-20 d-block d-md-none"></div>
+						<div class="col-lg-4 col-12">
+							<div class="pricing-plan hero-bg rounded">
+								<div class="plan-name text-uppercase bg-maincolor2">
+									<h3>
+										12.0 GB
+									</h3>
+								</div>
+								
+								
+								<div class="price-wrap d-flex">
+									<span class="plan-sign small-text">Ksh</span>
+									<span class="plan-price color-main3">300.00</span>
+									<span class="plan-decimals small-text">/WEEKLY</span>
+								</div>
+								<div class="plan-button">
+									<a href="#" class="btn btn-maincolor2"><span>Purchase</span></a>
+								</div>
+							</div>
+						</div>
+						<div class="divider-20 d-block d-md-none"></div>
+						<div class="col-lg-4 col-12">
+							<div class="pricing-plan hero-bg rounded">
+								<div class="plan-name text-uppercase bg-maincolor3">
+									<h3>
+										22.5 GB
+									</h3>
+								</div>
+								
+								
+								<div class="price-wrap d-flex">
+									<span class="plan-sign small-text">Ksh</span>
+									<span class="plan-price color-main5">500.00</span>
+									<span class="plan-decimals small-text">/WEEKLY</span>
+								</div>
+								<div class="plan-button">
+									<a href="#" class="btn btn-maincolor3"><span>Purchase</span></a>
+								</div>
+							</div>
+						</div>
+						<div class="divider-20 d-block d-md-none"></div>
+						<div class="col-lg-4 col-12">
+							<div class="pricing-plan hero-bg rounded">
+								<div class="plan-name text-uppercase bg-maincolor3">
+									<h3>
+										45.0 GB
+									</h3>
+								</div>
+								
+								
+								<div class="price-wrap d-flex">
+									<span class="plan-sign small-text">Ksh</span>
+									<span class="plan-price color-main5">999.00</span>
+									<span class="plan-decimals small-text">/MONTHLY</span>
+								</div>
+								<div class="plan-button">
+									<a href="#" class="btn btn-maincolor3"><span>Purchase</span></a>
+								</div>
+							</div>
+						</div>
+						<div class="divider-20 d-block d-md-none"></div>
+						<div class="col-lg-4 col-12">
+							<div class="pricing-plan hero-bg rounded">
+								<div class="plan-name text-uppercase bg-maincolor3">
+									<h3>
+										90.0 GB
+									</h3>
+								</div>
+								
+								
+								<div class="price-wrap d-flex">
+									<span class="plan-sign small-text">Ksh</span>
+									<span class="plan-price color-main5">1500.00</span>
+									<span class="plan-decimals small-text">/MONTHLY</span>
+								</div>
+								<div class="plan-button">
+									<a href="#" class="btn btn-maincolor3"><span>Purchase</span></a>
+								</div>
+							</div>
+
+						</div>
+						
+					</div>
+					
+				</div>
+			</section>
+
+			<section class="ls s-pb-80 s-pb-lg-120 s-pb-xl-160 devices-section overflow-visible" id="features">
+				<div class="container">
+					<div class="row c-gutter-20 c-gutter-lg-60">
+						<div class="col-12 col-lg-8 offset-lg-2 text-center">
+							<img src="http://webdesign-finder.com/html/maxicom/images/img-01.png" alt="">
+							<div class="divider-50"></div>
+							<h5 class="special-heading text-center">Introducing</h5>
+							<h1 class="text-center">CHILLFlix</h1>
+							<p class="text-center big">Watch your favorite movies and series on TruthFlix:<br> A free and ad-free movie streaming website only to TruthWifi USERS</p>
+							<div class="divider-50 d-none d-md-block"></div>
+							<center>
+
+								<div class="black col-md-4 center ml-5 rounded-top">
+									
+									<h3 style="color: white; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;"><strong><b>COMING</b></strong></h3>
+								</div> 
+							</center>
+							<center>
+
+								<div class=" white col-md-4 center ml-5 rounded-bottom">
+									
+									<h3 style="color: black; font-family: Impact;"><strong><b>SOON</b></strong></h3>
+								</div> 
+							</center>
+						</div>
+					</div>
+				</div>
+				<div class="divider-80 d-none d-xl-block"></div>
+			</section>
+
+			<!-- START Bootstrap-Cookie-Alert -->
+
+<!-- Include cookiealert script -->
+<script src="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.js"></script>
+
+	<!-- END Bootstrap-Cookie-Alert -->
+	
+					
+
+			<section class="page_copyright ds s-py-10 copyright-bg">
+				<div class="container">
+					<div class="row align-items-center">
+						<div class="divider-15 d-none d-lg-block"></div>
+						<div class="col-md-12 text-center">
+							<p> Copyright &copy; <span class="copyright_year">2021</span> <b>WIFIYETU</b></p>
+						</div>
+						<div class="divider-15 d-none d-lg-block"></div>
+					</div>
+				</div>
+			</section>
+
+
+		</div><!-- eof #box_wrapper -->
+	</div><!-- eof #canvas -->
+
+
+	<script src="http://webdesign-finder.com/html/maxicom/js/compressed.js"></script>
+	<script src="http://webdesign-finder.com/html/maxicom/js/main.js"></script>
+	<script src="http://webdesign-finder.com/html/maxicom/js/switcher.js"></script>
 
 </body>
-
+<style>
+	.glow-on-hover {
+		width: 220px;
+		height: 50px;
+		border: none;
+		outline: none;
+		color: #fff;
+		background: #111;
+		cursor: pointer;
+		position: relative;
+		z-index: 0;
+		border-radius: 10px;
+	}
+	
+	.glow-on-hover:before {
+		content: '';
+		background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+		position: absolute;
+		top: -2px;
+		left:-2px;
+		background-size: 400%;
+		z-index: -1;
+		filter: blur(5px);
+		width: calc(100% + 4px);
+		height: calc(100% + 4px);
+		animation: glowing 20s linear infinite;
+		opacity: 0;
+		transition: opacity .3s ease-in-out;
+		border-radius: 10px;
+	}
+	
+	.glow-on-hover:active {
+		color: #000
+	}
+	
+	.glow-on-hover:active:after {
+		background: transparent;
+	}
+	
+	.glow-on-hover:hover:before {
+		opacity: 1;
+	}
+	
+	.glow-on-hover:after {
+		z-index: -1;
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background: #111;
+		left: 0;
+		top: 0;
+		border-radius: 10px;
+	}
+	
+	@keyframes glowing {
+		0% { background-position: 0 0; }
+		50% { background-position: 400% 0; }
+		100% { background-position: 0 0; }
+	}
+	.slashed {
+  absolute: top 0 left 0 right 0 bottom 0;
+  text-shadow: 3px 3px 3px rgba(black, 0.5);
+  .top, .bot {
+    text-align: center;
+    font: 62px/100px arial;
+    text-transform: uppercase;
+    text-align: center;
+    overflow: hidden;
+    color: white;
+    &:before {
+      content: attr(title);
+      transform: rotate(5deg);
+    }
+  }
+  .top {
+    absolute: top 0 left 5px right 0 bottom 50%;
+    &:before {
+      absolute: bottom -50px left 0 right 0;
+    }
+  }
+  .bot {
+    absolute: top 50% left 0 right 5px bottom 0;
+    &:before {
+      absolute: top -50px left 0 right 0;
+    }
+  }
+}
+	</style>
 </html>
